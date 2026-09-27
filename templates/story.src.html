@@ -1,0 +1,861 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The wrong compass - ehs-chemical-peers</title>
+<meta name="description" content="At small chemical plants the injury rate mostly measures luck, and it says almost nothing about the next chemical release. Release history, inventory and chemistry do." />
+<meta name="author" content="Priyatham Chimmani" />
+<link rel="canonical" href="https://priyatham9.github.io/ehs-chemical-peers/story.html" />
+<meta property="og:title" content="The wrong compass - ehs-chemical-peers" />
+<meta property="og:description" content="At small chemical plants the injury rate mostly measures luck, and it says almost nothing about the next chemical release. Release history, inventory and chemistry do." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://priyatham9.github.io/ehs-chemical-peers/story.html" />
+<meta property="og:image" content="https://priyatham9.github.io/ehs-chemical-peers/og.png" />
+<meta property="og:site_name" content="Grounded" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="The wrong compass - ehs-chemical-peers" />
+<meta name="twitter:description" content="At small chemical plants the injury rate mostly measures luck, and it says almost nothing about the next chemical release. Release history, inventory and chemistry do." />
+<meta name="twitter:image" content="https://priyatham9.github.io/ehs-chemical-peers/og.png" />
+<meta name="color-scheme" content="light dark" />
+<meta name="theme-color" content="#F7F7F3" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="#0A0C10" media="(prefers-color-scheme: dark)" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%231E40AF'/%3E%3Ctext x='8' y='12' font-family='monospace' font-size='11' font-weight='700' text-anchor='middle' fill='white'%3EP%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" />
+<style>
+/* ============ tokens (house set) ============ */
+:root {
+ color-scheme:light;
+ --paper:#F7F7F3; --surface:#FFFFFF; --surface-2:#EFEFE9;
+ --ink:#101311; --ink-2:#3A403C; --muted:#5F6661;
+ --rule:#101311; --rule-soft:#D6D7CE;
+ --accent:#1E40AF; --accent-2:#17307F; --accent-ink:#FFFFFF; --accent-wash:#E2E8FB;
+ --warn:#8A5A00; --warn-wash:#FBF0DC;
+ --bar-2:#6B716D;
+ --grid-dot:rgba(16,19,17,.10); --shadow:rgba(16,19,17,.08);
+ --font-sans:"Archivo",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+ --font-mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+ --maxw:1180px;
+ --hair:1px solid var(--st-hair-c, rgba(16,19,17,.14));
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+ color-scheme:dark;
+ --paper:#0A0C10; --surface:#12151C; --surface-2:#171B24;
+ --ink:#EAECF2; --ink-2:#BFC4CF; --muted:#9AA1AF;
+ --rule:#EAECF2; --rule-soft:#262B36;
+ --accent:#7C9EFF; --accent-2:#5B7FE8; --accent-ink:#06101F; --accent-wash:#151C33;
+ --warn:#E3B25F; --warn-wash:#241C0C;
+ --bar-2:#8E95A3;
+ --grid-dot:rgba(234,236,242,.09); --shadow:rgba(0,0,0,.4);
+  }
+}
+:root[data-theme="dark"] {
+ color-scheme:dark;
+ --paper:#0A0C10; --surface:#12151C; --surface-2:#171B24;
+ --ink:#EAECF2; --ink-2:#BFC4CF; --muted:#9AA1AF;
+ --rule:#EAECF2; --rule-soft:#262B36;
+ --accent:#7C9EFF; --accent-2:#5B7FE8; --accent-ink:#06101F; --accent-wash:#151C33;
+ --warn:#E3B25F; --warn-wash:#241C0C;
+ --bar-2:#8E95A3;
+ --grid-dot:rgba(234,236,242,.09); --shadow:rgba(0,0,0,.4);
+}
+:root[data-theme="light"]{color-scheme:light}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-sans);font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased}
+h1,h2,h3{margin:0;line-height:1.06;letter-spacing:-.01em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 30px}
+.label{font-family:var(--font-mono);font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.num{font-family:var(--font-mono);font-variant-numeric:tabular-nums;font-weight:600;color:var(--ink)}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+a:focus-visible,button:focus-visible,summary:focus-visible,[tabindex]:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.skip{position:absolute;left:-9999px;top:0;z-index:100;background:var(--accent);color:var(--accent-ink);padding:11px 17px;font-family:var(--font-mono);font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;text-decoration:none}
+.skip:focus{left:0}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+code{font-family:var(--font-mono);font-size:.9em;overflow-wrap:anywhere}
+
+/* ============ page frame ============ */
+.sec{padding:clamp(64px,10vh,112px) 0;border-bottom:var(--hair)}
+.sec h2{font-size:clamp(2rem,4.4vw,3.4rem);font-weight:800;font-stretch:112%;max-width:18ch;margin-bottom:.5em}
+.prose{max-width:62ch}
+.prose p{font-size:clamp(1.05rem,1.25vw,1.18rem);color:var(--ink-2)}
+.prose p strong{color:var(--ink)}
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);gap:clamp(28px,4vw,64px);align-items:center}
+.split.top{align-items:start}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:48px;padding:12px 20px;border:var(--hair);border-radius:10px;font-family:var(--font-mono);font-size:.8125rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;text-decoration:none;color:var(--ink);background:var(--surface);cursor:pointer;white-space:nowrap}
+.btn:hover{border-color:var(--accent)}
+.btn-primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn-primary:hover{background:var(--accent-2);border-color:var(--accent-2);color:var(--accent-ink)}
+.btn-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+
+/* ============ hero ============ */
+.hero{padding:clamp(40px,7vh,88px) 0 clamp(48px,8vh,96px);border-bottom:var(--hair);background-image:radial-gradient(var(--grid-dot) 1px,transparent 1px);background-size:24px 24px;overflow-x:clip}
+.hero h1{font-size:clamp(2.4rem,4.1vw,3.9rem);font-weight:900;font-stretch:112%;letter-spacing:-.025em;line-height:1.02;max-width:17ch}
+.hero-sub{margin-top:22px;font-size:clamp(1.08rem,1.4vw,1.25rem);color:var(--ink-2);max-width:48ch}
+.hero-nums{display:flex;flex-wrap:wrap;gap:14px 34px;margin-top:30px}
+.hero-nums .st-bignum{font-size:clamp(1.9rem,3.2vw,2.8rem)}
+.hero-nums .st-bignum small{font-size:.75rem;max-width:18ch}
+
+/* ============ figures ============ */
+.fig{margin:0;border:var(--hair);border-radius:14px;background:var(--surface);padding:clamp(16px,2.2vw,26px);min-width:0}
+.fig-title{margin:0 0 4px;font-size:1.06rem;font-weight:700;line-height:1.35;color:var(--ink)}
+.fig-note{margin:0 0 12px;font-size:.9rem;color:var(--muted);line-height:1.45}
+.fig svg{display:block;width:100%;height:auto;overflow:visible;font-family:var(--font-mono)}
+.fig .src{margin:10px 0 0;font-family:var(--font-mono);font-size:.75rem;letter-spacing:.04em;color:var(--muted)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 18px;margin:0 0 10px;padding:0;list-style:none;font-family:var(--font-mono);font-size:.8125rem;color:var(--ink-2)}
+.legend li{display:inline-flex;align-items:center;gap:7px}
+.legend i{display:inline-block;width:14px;height:14px;border-radius:3px}
+.sw-a{background:var(--accent)} .sw-b{background:var(--bar-2)} .sw-z{background:var(--surface-2);box-shadow:inset 0 0 0 1.5px var(--muted)}
+.sw-line{height:3px!important;width:18px!important;border-radius:0!important;background:var(--ink)}
+svg .t-lab{fill:var(--ink-2);font-size:13px;font-family:var(--font-sans);font-weight:500}
+svg .t-head{fill:var(--ink);font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+svg .t-val{fill:var(--ink);font-size:13px;font-weight:600}
+svg .t-tick{fill:var(--muted);font-size:11px}
+svg .t-note{fill:var(--muted);font-size:11.5px}
+svg .b-a{fill:var(--accent)} svg .b-b{fill:var(--bar-2)} svg .b-z{fill:var(--surface-2);stroke:var(--muted);stroke-width:1.5}
+svg .ax{stroke:var(--rule-soft);stroke-width:1}
+svg .ax-0{stroke:var(--ink-2);stroke-width:1.5}
+svg .mark{stroke:var(--ink);stroke-width:2.5}
+svg .ref{stroke:var(--muted);stroke-width:1.5;stroke-dasharray:4 4}
+svg .band{fill:var(--accent-wash)}
+svg .band-edge{fill:none;stroke:var(--accent);stroke-width:2}
+svg .dot-a{fill:var(--accent);stroke:var(--surface);stroke-width:2}
+svg .dot-b{fill:var(--ink);stroke:var(--surface);stroke-width:2}
+
+/* one-injury toy */
+.toy{margin-top:6px}
+.toy-sec{padding-top:0}
+.toy-fig{max-width:760px}
+.lane{margin:4px 0 14px}
+.lane-top{display:flex;justify-content:space-between;gap:10px;font-size:.9rem;color:var(--ink-2)}
+.lane-top b{font-family:var(--font-mono);color:var(--ink);font-weight:600}
+.track{position:relative;height:30px;margin-top:4px;border-bottom:1.5px solid var(--ink-2)}
+.track .tk{position:absolute;bottom:-18px;transform:translateX(-50%);font-family:var(--font-mono);font-size:11px;color:var(--muted)}
+.track .pip{position:absolute;bottom:-5px;width:1px;height:8px;background:var(--ink-2)}
+.puck-wrap{position:absolute;left:0;bottom:4px;transition:transform .9s cubic-bezier(.34,1.56,.64,1)}
+.puck{display:block;width:20px;height:20px;margin-left:-10px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 3px var(--surface)}
+.lane.big .puck{background:var(--ink)}
+.toy-btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+@media (prefers-reduced-motion: reduce){.puck-wrap{transition:none}}
+
+/* waffle */
+.waffle{display:grid;grid-template-columns:repeat(10,1fr);gap:4px;max-width:340px;margin:6px 0 4px}
+.waffle span{aspect-ratio:1/1;border-radius:3px;background:var(--surface-2);box-shadow:inset 0 0 0 1px var(--rule-soft)}
+.waffle span.on{background:var(--accent);box-shadow:none}
+.big-stat{font-family:var(--font-mono);font-weight:700;font-size:clamp(3.4rem,8vw,6.4rem);line-height:.9;letter-spacing:-.04em;color:var(--accent);font-variant-numeric:tabular-nums}
+
+/* family table */
+.fam{width:100%;border-collapse:collapse;font-size:.95rem}
+.fam caption{text-align:left;font-weight:700;font-size:1.06rem;padding-bottom:4px}
+.fam th{font-family:var(--font-mono);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600;text-align:left;padding:8px 8px 8px 0;border-bottom:1.5px solid var(--ink-2)}
+.fam td{padding:9px 8px 9px 0;vertical-align:middle}
+.fam tr + tr td{border-top:var(--hair)}
+.fam td.n{font-family:var(--font-mono);font-variant-numeric:tabular-nums;text-align:right;color:var(--ink-2);white-space:nowrap}
+.fam td.p{font-family:var(--font-mono);font-variant-numeric:tabular-nums;font-weight:600;white-space:nowrap;text-align:right;width:4.5em}
+.fam td.barc{width:38%}
+.fam .fb{display:block;height:12px;border-radius:0 4px 4px 0;background:var(--bar-2);transform-origin:0 50%}
+.fam tr.hl .fb{background:var(--accent)}
+.fam tr.hl td:first-child{font-weight:700}
+.fam th.r{text-align:right}
+
+/* advice */
+.energies{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:26px}
+.energy{border:var(--hair);border-radius:14px;background:var(--surface);padding:18px 20px}
+.energy h3{font-size:1.1rem;font-weight:700;margin-bottom:6px;display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.energy h3 .num{font-size:.95rem;color:var(--accent)}
+.energy p{margin:0;color:var(--ink-2);font-size:1rem}
+.energy.lead{grid-column:1 / -1;background:var(--accent-wash);border-color:var(--accent)}
+
+.callout{margin-top:24px;padding:20px 22px;border-radius:14px;background:var(--accent-wash);border:1px solid var(--accent);max-width:62ch}
+.callout h3{font-size:1.15rem;margin-bottom:10px}
+.callout ol{margin:0;padding-left:22px}
+.callout li{margin-bottom:8px;color:var(--ink);font-size:1.02rem}
+
+.caveat{margin-top:18px;padding-left:14px;border-left:3px solid var(--warn);color:var(--ink-2);font-size:1rem;max-width:62ch}
+
+.multi{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:30px}
+
+/* monday */
+.monday-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:28px}
+.todo{border:var(--hair);border-radius:14px;background:var(--surface);padding:24px 26px}
+.todo h3{font-size:1.3rem;margin-bottom:14px}
+.todo ul{margin:0;padding-left:20px}
+.todo li{margin-bottom:10px;color:var(--ink-2);font-size:1.02rem}
+.todo li b{color:var(--ink)}
+.todo.floor{border-color:var(--accent)}
+
+/* method */
+.method details{border:var(--hair);border-radius:14px;background:var(--surface);max-width:78ch}
+.method summary{min-height:56px;display:flex;align-items:center;padding:0 22px;cursor:pointer;font-weight:700;font-size:1.15rem}
+.method .body{padding:4px 22px 22px;color:var(--ink-2)}
+.method .body li{margin-bottom:9px}
+.method .body h3{font-size:1rem;margin:18px 0 8px;color:var(--ink)}
+
+.footer{padding:48px 0 64px}
+.footer p{color:var(--ink-2);max-width:70ch;margin-top:10px}
+.footer-links{display:flex;flex-wrap:wrap;gap:6px 20px;margin-top:10px}
+.footer-links a{display:inline-flex;align-items:center;min-height:44px;font-family:var(--font-mono);font-size:.8125rem;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;color:var(--muted)}
+.footer-links a:hover{color:var(--accent)}
+
+@media (max-width: 900px){
+  .split,.monday-grid,.multi{grid-template-columns:minmax(0,1fr)}
+  .energies{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width: 640px){
+  .wrap{padding:0 16px}
+  body{font-size:16px}
+  .hero h1{font-size:clamp(2.1rem,10vw,2.8rem)}
+  .fam td.barc{width:28%}
+  .fam{font-size:.9rem}
+  .btn{white-space:normal;text-align:center}
+}
+@media print{
+  .hero{background:none}
+  .toy-btns,.btn-row{display:none}
+  .method details{border:0}
+}
+</style>
+<style>
+/*STORY_CSS_START*/
+/*STORY_CSS_END*/
+</style>
+</head>
+<body class="st-story">
+<a class="skip" href="#main">Skip to content</a>
+<main id="main">
+
+<!-- 1. hero -->
+<section class="hero" id="top" data-m-hero>
+  <div class="wrap split">
+    <div>
+      <h1 data-m-split="words">Your injury rate can't warn you about the accident that matters most</h1>
+      <p class="hero-sub" data-m-hero-part="text">We followed {{coverage.plants}} US chemical plants through federal injury logs, serious-injury reports and EPA chemical accident records, {{derived.ita_first_year}} to {{derived.ita_last_year}}.</p>
+      <div class="hero-nums" data-m-hero-part="text">
+        <span class="st-bignum">{{coverage.ita_plant_years}}<small>Plant-years of injury logs</small></span>
+        <span class="st-bignum">{{coverage.releases}}<small>Chemical releases on file</small></span>
+        <span class="st-bignum">{{coverage.serious_injuries}}<small>Serious injuries reported</small></span>
+      </div>
+      <div class="btn-row" data-m-hero-part="text">
+        <a class="btn btn-primary" data-m-spring href="index.html">Compare your plant</a>
+        <a class="btn" href="#score">Read the story</a>
+      </div>
+    </div>
+    <figure class="fig" id="fig-hero" data-m-hero-part="visual">
+      <p class="fig-title">Chance of a chemical release the next year</p>
+      <p class="fig-note">A chemical release is a spill, leak or gas escape reported to EPA. Plant-years grouped two ways.</p>
+      <div class="chart" data-chart="hero"></div>
+      <p class="src">Source: OSHA injury logs joined to EPA's chemical accident program</p>
+    </figure>
+  </div>
+</section>
+
+<!-- 2. one injury is the whole score -->
+<section class="sec" id="score" data-m-pin="200%">
+  <div class="wrap split">
+    <div class="prose">
+      <h2 data-m-split="words">One injury is the whole score</h2>
+      <p data-m-step="0">The injury rate counts recordable injuries per 100 full-time workers a year. It looks precise. At a small plant it mostly measures luck.</p>
+      <p data-m-step="1">A typical plant with {{size_noise[1].band}} people works about <span class="num">{{size_noise[1].median_hours}}</span> hours a year. One recordable injury moves its rate by <span class="num">{{size_noise[1].one_case_swing}}</span> points. That single injury is {{derived.swing_vs_rate_small_pct}}% of the typical rate for plants that size, <span class="num">{{size_noise[1].pooled_trir}}</span>.</p>
+      <p data-m-step="2">At plants with {{size_noise[4].band}} people, the same injury moves the rate by <span class="num">{{size_noise[4].one_case_swing}}</span>. In the smallest group ({{size_noise[0].band|lower}} people) one injury adds <span class="num">{{size_noise[0].one_case_swing}}</span>, more than the group's typical rate of {{size_noise[0].pooled_trir}}.</p>
+    </div>
+    <figure class="fig" id="fig-swing" data-m-step="0.5" data-m-from="right">
+      <p class="fig-title">How far one injury moves the rate, by plant size</p>
+      <ul class="legend" aria-hidden="true"><li><i class="sw-a"></i>One extra injury</li><li><i class="sw-line"></i>Typical rate for that size</li></ul>
+      <div class="chart" data-chart="swing" data-m-at="1"></div>
+      <p class="src">Source: OSHA injury logs, median hours worked per size group</p>
+    </figure>
+  </div>
+</section>
+
+<section class="sec toy-sec" id="try" aria-label="Try it: add one injury">
+  <div class="wrap">
+    <figure class="fig toy-fig" data-m-reveal data-m-from="up">
+      <p class="fig-title">Add one injury and watch the rate</p>
+      <div class="toy" id="toy">
+        <p class="fig-note" style="margin-bottom:6px">Each dot is a plant that starts the year with no injuries. Both work their size group's typical hours.</p>
+        <div class="lane" data-lane="1">
+          <div class="lane-top"><span>{{size_noise[1].band}} people</span><b data-out>0 injuries, rate 0</b></div>
+          <div class="track" aria-hidden="true"><span class="puck-wrap"><i class="puck"></i></span></div>
+        </div>
+        <div class="lane big" data-lane="4">
+          <div class="lane-top"><span>{{size_noise[4].band}} people</span><b data-out>0 injuries, rate 0</b></div>
+          <div class="track" aria-hidden="true"><span class="puck-wrap"><i class="puck"></i></span></div>
+        </div>
+        <div class="toy-btns">
+          <button class="btn btn-primary" type="button" id="toy-add" data-m-spring>Add one injury</button>
+          <button class="btn" type="button" id="toy-reset">Reset</button>
+        </div>
+        <p class="sr-only" id="toy-live" aria-live="polite"></p>
+      </div>
+    </figure>
+  </div>
+</section>
+
+<!-- 3. luck looks like skill -->
+<section class="sec" id="luck">
+  <div class="wrap">
+    <div class="prose">
+      <h2 data-m-split="words">Luck looks like skill</h2>
+      <p>At plants with {{size_noise[1].band}} people, <strong>{{size_noise[1].zero_share_pct|0}}% of plant-years ended with zero recordable injuries</strong>. In the smallest group it was {{size_noise[0].zero_share_pct|0}}%. A zero year is common, and at a small plant it says little about the next one.</p>
+      <p>We checked how well one year's ranking predicts the next year's. If rankings were pure skill, the score would be 1. If they were pure luck, it would be 0. For the smallest plants the score is <span class="num">{{stability[0].rho|2}}</span>. For the largest it is <span class="num">{{stability[4].rho|2}}</span>.</p>
+      <p>So a small plant near the top of this year's league table has mostly had a good draw. Next year it is likely to slide back toward the middle, even if nothing changed on the floor.</p>
+    </div>
+    <div class="multi">
+      <figure class="fig" id="fig-zero" data-m-reveal data-m-from="up">
+        <p class="fig-title">Plant-years with zero recordable injuries</p>
+        <p class="fig-note">Share of plant-years, by number of people</p>
+        <div class="chart" data-chart="zero"></div>
+        <p class="src">Source: OSHA injury logs</p>
+      </figure>
+      <figure class="fig" id="fig-stab" data-m-reveal data-m-from="up">
+        <p class="fig-title">Does this year's ranking predict next year's?</p>
+        <p class="fig-note">1 would mean pure skill, 0 pure luck</p>
+        <div class="chart" data-chart="stab"></div>
+        <p class="src">Source: OSHA injury logs, consecutive years at the same plant</p>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 4. a fairer way -->
+<section class="sec" id="band">
+  <div class="wrap split">
+    <div class="prose">
+      <h2 data-m-split="words">A fairer way to read a small plant</h2>
+      <p>Every plant size has a band that chance alone would produce. Take a plant with {{size_noise[1].band}} people, working {{size_noise[1].median_hours}} hours at the typical rate for its size. It should expect about {{derived.band_small_expected}} recordable injuries a year. In 19 years out of 20, chance alone would put its rate anywhere from <span class="num">{{derived.band_small_lo|1}}</span> to <span class="num">{{derived.band_small_hi|1}}</span>.</p>
+      <p>A plant with {{size_noise[4].band}} people has a narrow band, <span class="num">{{derived.band_large_lo|1}}</span> to <span class="num">{{derived.band_large_hi|1}}</span>. Its rate tells you something every year. The small plant's rate tells you something only when it lands outside its band.</p>
+      <div class="callout" data-m-reveal>
+        <h3>How to read a small plant's rate</h3>
+        <ol>
+          <li>Pool three years of hours and injuries before you judge.</li>
+          <li>Compare the result with the band for your plant's size, not with a league table.</li>
+          <li>Look hard at plants outside the band, on either side.</li>
+        </ol>
+      </div>
+      <div class="btn-row"><a class="btn btn-primary" href="index.html">Compare your plant</a></div>
+    </div>
+    <figure class="fig" id="fig-funnel" data-m-reveal data-m-from="right">
+      <p class="fig-title">The band chance alone produces, by hours worked</p>
+      <ul class="legend" aria-hidden="true"><li><i class="sw-a"></i>Band of rates chance produces</li><li><i class="sw-line" style="background:var(--muted)"></i>Typical rate, {{size_noise[1].pooled_trir}}</li></ul>
+      <div class="chart" data-chart="funnel"></div>
+      <p class="fig-note" style="margin:8px 0 0">Dots mark the typical hours for each size group. The band is wide on the left, where small plants sit.</p>
+      <p class="src">Source: OSHA injury logs; band computed for the {{size_noise[1].band}} group's rate</p>
+    </figure>
+  </div>
+</section>
+
+<!-- 5. the big question -->
+<section class="sec" id="question">
+  <div class="wrap split top">
+    <div class="prose">
+      <h2 data-m-split="words">Does a low injury rate mean fewer chemical releases?</h2>
+      <p>A 2005 refinery explosion in Texas City killed and injured workers at a site whose injury rate had looked good for years. The investigators' lesson has been repeated since: a low count of cuts, strains and falls says little about whether the chemistry is under control.</p>
+      <p>We tested that on chemical plants. Within each size group we sorted plant-years into three piles: zero injuries, a lower injury rate than the middle plant, and a higher one. Then we counted how many had a chemical release the next year.</p>
+      <p><strong>The piles came out about the same.</strong> For plants of {{trir_vs_outcomes.release_next_year[0].size|lower}} people, {{trir_vs_outcomes.release_next_year[0].below_median.pct|1}}% of the lower-rate half had a release the next year, against {{trir_vs_outcomes.release_next_year[0].above_median.pct|1}}% of the higher-rate half. The biggest gap in any size group is {{derived.release_gap_max_pts}} points, and there it runs the wrong way: at the largest plants the higher-injury half had fewer releases.</p>
+      <p>The counts at the large plants are small, so we don't read anything into the direction. The plain reading is that last year's injury rate is no useful guide to next year's chemical release.</p>
+    </div>
+    <figure class="fig" id="fig-question" data-m-reveal data-m-from="up">
+      <p class="fig-title">Chance of a chemical release the next year, by last year's injury rate</p>
+      <ul class="legend" aria-hidden="true"><li><i class="sw-z"></i>Zero injuries</li><li><i class="sw-a"></i>Lower rate half</li><li><i class="sw-b"></i>Higher rate half</li></ul>
+      <div class="chart" data-chart="question"></div>
+      <p class="src">Source: OSHA injury logs joined to EPA's chemical accident program, {{trir_vs_outcomes.release_plant_years}} plant-years</p>
+    </figure>
+  </div>
+</section>
+
+<!-- 6. what does warn you -->
+<section class="sec" id="warn" data-m-pin="160%">
+  <div class="wrap">
+    <div class="split">
+      <div class="prose">
+        <h2 data-m-split="words">What does warn you</h2>
+        <p data-m-step="0">Across all plant-years in EPA's chemical accident program, the chance of a release the next year is {{release_predictors.base.pct|1}}%. Three things in the records moved that number. None of them is an injury count.</p>
+        <p data-m-step="1"><strong>A release in the past five years.</strong> Plants with one had another the next year {{release_predictors.history.release_in_past_5y.pct|1}}% of the time. Plants without: {{release_predictors.history.no_release_in_past_5y.pct|1}}%. That is <span class="num">{{release_predictors.history_ratio}}</span> times the chance.</p>
+      </div>
+      <figure class="fig" id="fig-history" data-m-step="0.5" data-m-from="right">
+        <p class="fig-title">Chance of a release the next year, by release history</p>
+        <div class="chart" data-chart="history"></div>
+        <p class="src">Source: EPA's chemical accident program, {{release_predictors.plant_years}} plant-years</p>
+      </figure>
+    </div>
+  </div>
+</section>
+<section class="sec" id="warn-more">
+  <div class="wrap">
+    <div class="multi" style="margin-top:0">
+      <figure class="fig" id="fig-inv" data-m-reveal data-m-from="up">
+        <p class="fig-title">More chemical on site, more releases</p>
+        <p class="fig-note">Chance of a release the next year, by the largest amount of regulated chemical held. It climbs from {{release_predictors.inventory[0].pct|1}}% to {{release_predictors.inventory[3].pct|1}}%, about {{derived.inventory_ratio|0}} times.</p>
+        <div class="chart" data-chart="inv"></div>
+        <p class="src">Source: EPA's chemical accident program</p>
+      </figure>
+      <figure class="fig" id="fig-count" data-m-reveal data-m-from="up">
+        <p class="fig-title">More regulated chemicals, more releases</p>
+        <p class="fig-note">Chance of a release the next year, by how many regulated chemicals the plant holds. From {{release_predictors.chemical_count[0].pct|1}}% with one to {{release_predictors.chemical_count[3].pct|1}}% with {{release_predictors.chemical_count[3].label}}.</p>
+        <div class="chart" data-chart="count"></div>
+        <p class="src">Source: EPA's chemical accident program</p>
+      </figure>
+    </div>
+    <div class="split top" style="margin-top:40px">
+      <div class="prose">
+        <p><strong>The chemistry itself.</strong> By chemical family the chance runs from {{derived.family_low_pct|1}}% for {{derived.family_low}} to {{derived.family_top_pct|1}}% for {{derived.family_top}}. Formaldehyde plants sit at {{derived.family_formaldehyde_pct|1}}%.</p>
+        <p class="caveat">These are patterns, and the causes overlap. A plant with a big inventory is usually also a big, complex plant with many chemicals. We can't separate those strands with this data.</p>
+      </div>
+      <figure class="fig" id="fig-family" data-m-reveal data-m-from="up">
+        <div id="family-table"></div>
+        <p class="src">Source: EPA's chemical accident program. A plant with several families counts in each.</p>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 7. green dashboard -->
+<section class="sec" id="green">
+  <div class="wrap split top">
+    <div class="prose">
+      <h2 data-m-split="words">Serious injuries hide behind clean records</h2>
+      <div class="big-stat" data-m-count>{{green_dashboard.prior_year_zero_pct|0}}%</div>
+      <p style="margin-top:14px">of serious injuries (amputations and hospital stays) happened at plants that had logged <strong>zero recordable injuries the year before</strong>. That is about one in {{derived.green_one_in}}, out of {{green_dashboard.serious_injuries_with_prior_year}} serious injuries where we could see the prior year's log.</p>
+      <div class="waffle" id="waffle" role="img" aria-label="{{green_dashboard.prior_year_zero_pct|0}} of 100 squares filled: serious injuries that followed a zero-injury year" data-m-reveal data-m-stagger="0.01"></div>
+      <p>Does a higher rate at least flag the next serious injury? A little, at mid-size plants. At plants with {{trir_vs_outcomes.serious_injury_next_year[1].size}} people, the higher-rate half had a serious injury the next year {{derived.si_mid_above|1}}% of the time, against {{derived.si_mid_below|1}}% for the lower half. For smaller plants the order flips. For the largest the gap is small.</p>
+      <p>Plants coming off a zero year did have fewer serious injuries on average. They still account for about one serious injury in {{derived.green_one_in}}.</p>
+    </div>
+    <figure class="fig" id="fig-serious" data-m-reveal data-m-from="up">
+      <p class="fig-title">Chance of a serious injury the next year, by last year's injury rate</p>
+      <ul class="legend" aria-hidden="true"><li><i class="sw-z"></i>Zero injuries</li><li><i class="sw-a"></i>Lower rate half</li><li><i class="sw-b"></i>Higher rate half</li></ul>
+      <div class="chart" data-chart="serious"></div>
+      <p class="src">Source: OSHA injury logs and serious-injury reports, {{trir_vs_outcomes.sir_plant_years}} plant-years in federal-OSHA states</p>
+    </figure>
+  </div>
+</section>
+
+<!-- 8. what hurts people -->
+<section class="sec" id="energy">
+  <div class="wrap">
+    <div class="split top">
+      <div class="prose">
+        <h2 data-m-split="words">What hurts people at chemical plants</h2>
+        <p>These plants reported {{injury_anatomy_all.events}} serious injuries to OSHA between {{derived.sir_first_year}} and {{derived.sir_last_month}} {{derived.sir_last_year}}. {{injury_anatomy_all.amputations}} were amputations.</p>
+        <p>We sorted each report by the kind of energy that did the harm. <strong>Machinery leads by a wide margin</strong>: {{derived.energy_caught_pct|0}}% of the injuries. At resin and plastics plants it is {{derived.resin_caught_pct|0}}%.</p>
+        <p>None of this is about blame. It shows where the energy is, so it can be controlled before someone is near it.</p>
+      </div>
+      <figure class="fig" id="fig-energy" data-m-reveal data-m-from="right">
+        <p class="fig-title">Serious injuries by the kind of energy involved</p>
+        <p class="fig-note">Share of {{injury_anatomy_all.events}} reports</p>
+        <div class="chart" data-chart="energy"></div>
+        <p class="src">Source: OSHA serious-injury reports, {{derived.sir_first_year}} to {{derived.sir_last_year}}</p>
+      </figure>
+    </div>
+    <div class="energies" data-m-reveal data-m-stagger="0.06">
+      <article class="energy lead"><h3>Caught in machinery <span class="num">{{derived.energy_caught_pct|0}}%</span></h3><p>Lock it out and try it before you clear a jam, change a screen or reach past a guard. If the machine can move, your hands stay out.</p></article>
+      <article class="energy"><h3>Slips, trips and falls <span class="num">{{derived.energy_fall_pct|0}}%</span></h3><p>Keep walkways dry and clear. Use three points of contact on ladders, tank tops and truck beds.</p></article>
+      <article class="energy"><h3>Chemical contact <span class="num">{{derived.energy_chem_pct|0}}%</span></h3><p>Confirm a line is drained and isolated before you open it. Wear the face and skin protection the job calls for, every time.</p></article>
+      <article class="energy"><h3>Heat, steam and hot material <span class="num">{{derived.energy_heat_pct|0}}%</span></h3><p>Treat a line or vessel as hot until you've checked it. Stand to the side when you crack a flange or open a hatch.</p></article>
+      <article class="energy"><h3>Struck by objects, forklifts and vehicles <span class="num">{{derived.energy_struck_pct|0}}% and {{derived.energy_vehicle_pct|0}}%</span></h3><p>Get eye contact with the driver before you cross. Keep people and forklifts on separate paths where you can.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- 9. formaldehyde -->
+<section class="sec" id="formaldehyde">
+  <div class="wrap">
+    <div class="prose">
+      <h2 data-m-split="words">How releases happen at formaldehyde plants</h2>
+      <p>For resin and formaldehyde teams, here is what EPA's chemical accident program shows. It lists {{release_anatomy_formaldehyde.releases}} releases that involved formaldehyde itself, with {{release_anatomy_formaldehyde.worker_injuries}} worker injuries reported alongside them.</p>
+      <p><strong>Spills lead by far.</strong> {{derived.fa_type_liquid_spill_pct|0}}% involved a liquid spill and {{derived.fa_type_gas_release_pct|0}}% a gas release. The most common sources were process vessels and reactors ({{derived.fa_source_process_vessel_or_reactor_pct|0}}%), storage tanks ({{derived.fa_source_storage_tank_pct|0}}%) and piping ({{derived.fa_source_piping_pct|0}}%).</p>
+      <p>Plants named human error in {{derived.fa_cause_human_error_pct|0}}% of these releases, equipment failure in {{derived.fa_cause_equipment_failed_pct|0}}% and a procedure that was wrong or not followed in {{derived.fa_cause_procedure_wrong_or_not_followed_pct|0}}%. "Human error" on a report often stops the question early. The better question is what made the error easy to make.</p>
+      <p>Afterwards, plants most often retrained people ({{derived.fa_fix_retrained_people_pct|0}}%), rewrote procedures ({{derived.fa_fix_rewrote_procedures_pct|0}}%) or bought better equipment ({{derived.fa_fix_better_equipment_pct|0}}%). Holding less chemical on site came up in {{release_anatomy_formaldehyde.fix[8].n}} of the {{release_anatomy_formaldehyde.releases}} reports, though inventory is one of the clearest warning signs above.</p>
+      <p class="caveat">One release can list several types, sources, causes and changes, so the shares in each panel overlap.</p>
+    </div>
+    <div class="multi">
+      <figure class="fig" id="fig-fa-type" data-m-reveal><p class="fig-title">What kind of release</p><p class="fig-note">Share of {{release_anatomy_formaldehyde.releases}} releases</p><div class="chart" data-chart="fa" data-part="type"></div></figure>
+      <figure class="fig" id="fig-fa-source" data-m-reveal><p class="fig-title">Where it came from</p><p class="fig-note">Share of {{release_anatomy_formaldehyde.releases}} releases</p><div class="chart" data-chart="fa" data-part="source"></div></figure>
+      <figure class="fig" id="fig-fa-cause" data-m-reveal><p class="fig-title">What the plant said caused it</p><p class="fig-note">Share of {{release_anatomy_formaldehyde.releases}} releases</p><div class="chart" data-chart="fa" data-part="cause"></div></figure>
+      <figure class="fig" id="fig-fa-fix" data-m-reveal><p class="fig-title">What the plant changed afterwards</p><p class="fig-note">Share of {{release_anatomy_formaldehyde.releases}} releases</p><div class="chart" data-chart="fa" data-part="fix"></div></figure>
+    </div>
+  </div>
+</section>
+
+<!-- 10. monday -->
+<section class="sec" id="monday">
+  <div class="wrap">
+    <h2 data-m-split="words">What to do on Monday</h2>
+    <div class="monday-grid" data-m-reveal data-m-stagger="0.1">
+      <div class="todo">
+        <h3>For plant leaders</h3>
+        <ul>
+          <li><b>Stop ranking small plants on one year's injury rate.</b> Pool three years and compare with the band for the plant's size.</li>
+          <li><b>Track the measures that do warn you.</b> Release history, near-releases and how much regulated chemical is on site.</li>
+          <li><b>Review your high-energy tasks.</b> Clearing jams, opening lines, work at height, forklift traffic.</li>
+          <li><b>Treat a zero year as a result to check,</b> not a reason to relax.</li>
+        </ul>
+      </div>
+      <div class="todo floor">
+        <h3>For the floor</h3>
+        <ul>
+          <li><b>Lock it out and try it</b> before your hands go near a machine that can move.</li>
+          <li><b>Check that a line is drained, isolated and cool</b> before you open it.</li>
+          <li><b>Stop the job</b> when something doesn't look right. You won't be the first to ask.</li>
+          <li><b>Report the near-miss,</b> the small leak and the valve that sticks. Those reports are the early warning this data says injury counts can't give.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="btn-row"><a class="btn btn-primary" data-m-spring href="index.html">Compare your plant</a></div>
+  </div>
+</section>
+
+<!-- 11. method -->
+<section class="sec method" id="method">
+  <div class="wrap">
+    <details>
+      <summary>How we did this</summary>
+      <div class="body">
+        <h3>Sources</h3>
+        <ul>
+          <li>OSHA Injury Tracking Application, Form 300A summaries, {{derived.ita_first_year}} to {{derived.ita_last_year}} (<a href="https://www.osha.gov/Establishment-Specific-Injury-and-Illness-Data">osha.gov</a>).</li>
+          <li>OSHA Severe Injury Reports, January {{derived.sir_first_year}} to {{derived.sir_last_month}} {{derived.sir_last_year}} (<a href="https://www.osha.gov/severe-injury-reports">osha.gov</a>).</li>
+          <li>EPA Risk Management Program accident histories, {{derived.rmp_first_year}} to {{derived.rmp_last_year}}, from the Data Liberation Project's FOIA copy (<a href="https://www.data-liberation-project.org/datasets/epa-risk-management-program-database/">data-liberation-project.org</a>).</li>
+        </ul>
+        <h3>Joining the files</h3>
+        <ul>
+          <li>Plants are chemical manufacturers (NAICS 325). {{coverage.plants}} plants in total: {{coverage.osha_plants}} with OSHA injury logs and {{coverage.rmp_plants}} in the EPA program.</li>
+          <li>Records were joined by normalised street address. {{coverage.linked_plants}} EPA plants matched an OSHA log ({{coverage.rmp_linked_pct|1}}% of EPA plants). {{coverage.serious_injuries_linked}} of {{coverage.serious_injuries}} serious-injury reports matched a plant ({{coverage.serious_injuries_linked_pct|1}}%).</li>
+          <li>Injury rates are recordable cases per 200,000 hours. Filings outside {{derived.min_hours_per_employee}} to {{derived.max_hours_per_employee}} hours per employee were dropped as implausible.</li>
+        </ul>
+        <h3>Comparisons</h3>
+        <ul>
+          <li>Serious-injury comparisons leave out the {{derived.state_plan_count}} states and territories that run their own OSHA plan, because their reports do not reach the federal file.</li>
+          <li>An EPA accident is on file only if it fell in the five years before one of the plant's submissions, so a plant-year counts for releases only when a submission covers it.</li>
+          <li>"Lower" and "higher" rate halves split the plants with at least one injury at the median rate of their size group. Plants with zero injuries are their own group.</li>
+          <li>Ranking stability is the Spearman rank correlation of a plant's rate in one year with the next. The chance band is a 95% Poisson interval around the size group's pooled rate.</li>
+          <li>Everything here is correlation. The data shows which plants had releases and injuries, not why.</li>
+        </ul>
+        <p style="margin-top:14px">No company is named in this story. The <a href="index.html">plant explorer</a> shows individual plants.</p>
+      </div>
+    </details>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <span class="label">ehs-chemical-peers</span>
+    <p>Built from public OSHA and EPA records. Every number on this page is generated from the project's summary file.</p>
+    <div class="footer-links">
+      <a href="index.html">Plant explorer</a>
+      <a href="https://priyatham9.github.io/grounded/">Research hub</a>
+      <a href="https://github.com/priyatham9/ehs-chemical-peers">Repository</a>
+    </div>
+  </div>
+</footer>
+
+<!--STORY_DATA-->
+<script>
+/*STORY_JS_START*/
+/*STORY_JS_END*/
+</script>
+<script>
+"use strict";
+(function () {
+  var D = JSON.parse(document.getElementById("story-data").textContent);
+  var X = D.derived;
+  var NS = "http://www.w3.org/2000/svg";
+  function el(tag, attrs, parent, text) {
+    var n = document.createElementNS(NS, tag);
+    if (attrs) for (var k in attrs) n.setAttribute(k, attrs[k]);
+    if (text != null) n.textContent = text;
+    if (parent) parent.appendChild(n);
+    return n;
+  }
+  function f(v, d) {
+    return Number(v).toLocaleString("en-US", { minimumFractionDigits: d, maximumFractionDigits: d });
+  }
+  function chartEl(name, part) {
+    var sel = '[data-chart="' + name + '"]' + (part ? '[data-part="' + part + '"]' : "");
+    return document.querySelector(sel);
+  }
+  function widthOf(host) {
+    return Math.max(280, Math.round(host.clientWidth || host.parentNode.clientWidth || 520));
+  }
+  function svgFor(host, W, H, label) {
+    var s = el("svg", { viewBox: "0 0 " + W + " " + H, role: "img", "aria-label": label, preserveAspectRatio: "xMinYMin meet" });
+    host.appendChild(s);
+    return s;
+  }
+  function table(host, o) {
+    var fig = host.closest("figure");
+    o.into = fig;
+    if (window.Story && Story.dataTable) Story.dataTable(fig, o);
+  }
+
+  /* horizontal bars, label above bar: works from 280px up.
+     rows: {label, value, cls, mark, head} */
+  function hbars(host, rows, o) {
+    o = o || {};
+    var W = widthOf(host), padR = 64, rowH = o.compact ? 42 : 52, barH = o.compact ? 14 : 20;
+    var H = 6, i;
+    rows.forEach(function (r) { H += r.head ? 30 : rowH; });
+    var max = o.max || Math.max.apply(null, rows.filter(function (r) { return !r.head; }).map(function (r) { return Math.max(r.value, r.mark || 0); }));
+    var sx = function (v) { return (W - padR) * v / max; };
+    var s = svgFor(host, W, H, o.label);
+    var y = 4, g = el("g", { "data-m-bars": "x" }, s);
+    if (o.at != null) g.setAttribute("data-m-at", o.at);
+    rows.forEach(function (r) {
+      if (r.head) { el("text", { x: 0, y: y + 18, "class": "t-head" }, s, r.head); y += 30; return; }
+      el("text", { x: 0, y: y + 14, "class": "t-lab" }, s, r.label);
+      var by = y + 21;
+      var rect = el("rect", { x: 0, y: by, width: Math.max(2, sx(r.value)), height: barH, rx: 4, "class": r.cls || "b-a" }, g);
+      el("title", null, rect, r.label + ": " + f(r.value, o.digits == null ? 1 : o.digits) + (o.unit || ""));
+      el("text", { x: sx(r.value) + 8, y: by + barH / 2 + 5, "class": "t-val" }, s, f(r.value, o.digits == null ? 1 : o.digits) + (o.unit || ""));
+      if (r.mark != null) {
+        el("line", { x1: sx(r.mark), x2: sx(r.mark), y1: by - 4, y2: by + barH + 4, "class": "mark" }, s);
+      }
+      y += rowH;
+    });
+    return s;
+  }
+
+  /* vertical bars (single series or grouped). groups: {label, bars:[{value, cls, name}]} */
+  function vbars(host, groups, o) {
+    o = o || {};
+    var W = widthOf(host), H = o.h || 260, padB = o.twoLine ? 46 : 32, padT = 26, padL = o.axis ? 34 : 0;
+    var max = o.max || Math.max.apply(null, groups.map(function (g) { return Math.max.apply(null, g.bars.map(function (b) { return b.value; })); })) * 1.08;
+    var ch = H - padB - padT, s = svgFor(host, W, H, o.label);
+    var sy = function (v) { return padT + ch - ch * v / max; };
+    if (o.ticks) o.ticks.forEach(function (t) {
+      el("line", { x1: padL, x2: W, y1: sy(t.v), y2: sy(t.v), "class": t.cls || "ax" }, s);
+      el("text", { x: padL - 6, y: sy(t.v) + 4, "text-anchor": "end", "class": "t-tick" }, s, t.label);
+      if (t.note) el("text", { x: W, y: sy(t.v) - 6, "text-anchor": "end", "class": "t-note" }, s, t.note);
+    });
+    var gw = (W - padL) / groups.length, inner = Math.min(gw * 0.78, 38 * groups[0].bars.length + 10);
+    var bw = (inner - (groups[0].bars.length - 1) * 3) / groups[0].bars.length;
+    var gbar = el("g", { "data-m-bars": "y" }, s);
+    groups.forEach(function (gr, gi) {
+      var x0 = padL + gi * gw + (gw - inner) / 2;
+      gr.bars.forEach(function (b, bi) {
+        var x = x0 + bi * (bw + 3), yy = sy(b.value);
+        var r = el("rect", { x: x, y: yy, width: bw, height: Math.max(1, sy(0) - yy), rx: 3, "class": b.cls || "b-a" }, gbar);
+        el("title", null, r, gr.label + (b.name ? ", " + b.name : "") + ": " + f(b.value, o.digits == null ? 1 : o.digits) + (o.unit || ""));
+        el("text", { x: x + bw / 2, y: yy - 7, "text-anchor": "middle", "class": "t-val", style: bw < 30 ? "font-size:11px" : "" }, s, f(b.value, o.digits == null ? 1 : o.digits) + (o.unit || ""));
+      });
+      var lab = gr.label, cx = padL + gi * gw + gw / 2;
+      if (o.twoLine && lab.indexOf(" ") > 0) {
+        var parts = lab.split(" ");
+        el("text", { x: cx, y: H - padB + 18, "text-anchor": "middle", "class": "t-lab" }, s, parts[0]);
+        el("text", { x: cx, y: H - padB + 35, "text-anchor": "middle", "class": "t-lab" }, s, parts.slice(1).join(" "));
+      } else {
+        el("text", { x: cx, y: H - padB + 20, "text-anchor": "middle", "class": "t-lab" }, s, lab);
+      }
+    });
+    el("line", { x1: padL, x2: W, y1: sy(0), y2: sy(0), "class": "ax-0" }, s);
+    return s;
+  }
+
+  function draw() {
+    var sn = D.size_noise, st = D.stability, rp = D.release_predictors, h;
+
+    /* hero */
+    h = chartEl("hero");
+    hbars(h, [
+      { head: "Split by last year's injury rate" },
+      { label: "Lower injury rate half", value: X.rel_below_pooled_pct },
+      { label: "Higher injury rate half", value: X.rel_above_pooled_pct, cls: "b-b" },
+      { head: "Split by release history" },
+      { label: "Release in the past 5 years", value: rp.history.release_in_past_5y.pct },
+      { label: "No release in the past 5 years", value: rp.history.no_release_in_past_5y.pct, cls: "b-b" }
+    ], { unit: "%", label: "Chance of a chemical release the next year. Lower injury-rate half " + f(X.rel_below_pooled_pct, 1) + "%, higher half " + f(X.rel_above_pooled_pct, 1) + "%. Release in the past five years " + f(rp.history.release_in_past_5y.pct, 1) + "%, none " + f(rp.history.no_release_in_past_5y.pct, 1) + "%." });
+    table(h, { caption: "Chance of a chemical release the next year", columns: ["Group", { label: "Chance, %", digits: 2 }],
+      rows: [["Lower injury-rate half", X.rel_below_pooled_pct], ["Higher injury-rate half", X.rel_above_pooled_pct], ["Zero injuries", X.rel_zero_pooled_pct],
+             ["Release in past 5 years", rp.history.release_in_past_5y.pct], ["No release in past 5 years", rp.history.no_release_in_past_5y.pct]],
+      source: "outputs/summary.json (trir_vs_outcomes.release_next_year, release_predictors.history)" });
+
+    /* swing */
+    h = chartEl("swing");
+    hbars(h, sn.map(function (r) { return { label: r.band + " people", value: r.one_case_swing, mark: r.pooled_trir }; }),
+      { digits: 2, at: 1, label: "How far one injury moves the rate. " + sn.map(function (r) { return r.band + " people: " + f(r.one_case_swing, 2) + " points, typical rate " + f(r.pooled_trir, 2); }).join(". ") });
+    table(h, { caption: "One injury's effect on the rate, by plant size", columns: ["People", { label: "Median hours", digits: 0 }, { label: "One injury adds", digits: 2 }, { label: "Typical rate", digits: 2 }, { label: "Plant-years", digits: 0 }],
+      rows: sn.map(function (r) { return [r.band, r.median_hours, r.one_case_swing, r.pooled_trir, r.plant_years]; }), source: "outputs/summary.json (size_noise)" });
+
+    /* zero share + stability */
+    h = chartEl("zero");
+    vbars(h, sn.map(function (r) { return { label: r.band, bars: [{ value: r.zero_share_pct }] }; }), { unit: "%", digits: 0, max: 100, h: 230,
+      label: "Share of plant-years with zero recordable injuries: " + sn.map(function (r) { return r.band + " " + f(r.zero_share_pct, 0) + "%"; }).join(", ") });
+    table(h, { caption: "Plant-years with zero recordable injuries", columns: ["People", { label: "Zero-injury share, %", digits: 2 }, { label: "Plant-years", digits: 0 }],
+      rows: sn.map(function (r) { return [r.band, r.zero_share_pct, r.plant_years]; }), source: "outputs/summary.json (size_noise)" });
+    h = chartEl("stab");
+    vbars(h, st.map(function (r) { return { label: r.band, bars: [{ value: r.rho }] }; }), { digits: 2, max: 1.1, h: 230, axis: true,
+      ticks: [{ v: 1, label: "1", cls: "ref", note: "Pure skill" }, { v: 0.5, label: "0.5" }],
+      label: "Ranking stability from one year to the next: " + st.map(function (r) { return r.band + " " + f(r.rho, 2); }).join(", ") + ". 1 is pure skill, 0 pure luck." });
+    table(h, { caption: "How well one year's ranking predicts the next", columns: ["People", { label: "Score (0 luck, 1 skill)", digits: 3 }, { label: "Year pairs", digits: 0 }],
+      rows: st.map(function (r) { return [r.band, r.rho, r.pairs]; }), source: "outputs/summary.json (stability)" });
+
+    /* funnel */
+    h = chartEl("funnel");
+    (function () {
+      var W = widthOf(h), H = Math.round(Math.min(360, Math.max(260, W * 0.62))), padL = 34, padB = 40, padT = 10;
+      var pts = X.funnel.points, h0 = pts[0][0], h1 = pts[pts.length - 1][0], ymax = 12;
+      var sx = function (v) { return padL + (W - padL - 8) * Math.log(v / h0) / Math.log(h1 / h0); };
+      var sy = function (v) { return padT + (H - padB - padT) * (1 - Math.min(v, ymax) / ymax); };
+      var s = svgFor(h, W, H, "The band of injury rates chance alone produces around a typical rate of " + f(X.funnel.rate, 2) + ". It is wide for plants that work few hours and narrows as hours grow. For a " + sn[1].band + " person plant it runs " + f(X.band_small_lo, 1) + " to " + f(X.band_small_hi, 1) + "; for " + sn[4].band + " people, " + f(X.band_large_lo, 1) + " to " + f(X.band_large_hi, 1) + ".");
+      [0, 3, 6, 9, 12].forEach(function (t) {
+        el("line", { x1: padL, x2: W, y1: sy(t), y2: sy(t), "class": t ? "ax" : "ax-0" }, s);
+        el("text", { x: padL - 6, y: sy(t) + 4, "text-anchor": "end", "class": "t-tick" }, s, String(t));
+      });
+      var clip = el("clipPath", { id: "fclip" }, el("defs", null, s));
+      el("rect", { x: padL, y: padT, width: W - padL, height: H - padB - padT }, clip);
+      var up = "", lo = "";
+      pts.forEach(function (p, i) {
+        var x = sx(p[0]);
+        up += (i ? " L" : "M") + x.toFixed(1) + " " + sy(p[2]).toFixed(1);
+        lo += (i ? " L" : "M") + x.toFixed(1) + " " + sy(p[1]).toFixed(1);
+      });
+      var area = up;
+      for (var i = pts.length - 1; i >= 0; i--) area += " L" + sx(pts[i][0]).toFixed(1) + " " + sy(pts[i][1]).toFixed(1);
+      var gc = el("g", { "clip-path": "url(#fclip)" }, s);
+      el("path", { d: area + " Z", "class": "band" }, gc);
+      var gd = el("g", { "data-m-draw": "" }, gc);
+      el("path", { d: up, "class": "band-edge" }, gd);
+      el("path", { d: lo, "class": "band-edge" }, gd);
+      el("line", { x1: padL, x2: W, y1: sy(X.funnel.rate), y2: sy(X.funnel.rate), "class": "ref" }, s);
+      var placed = [];
+      sn.forEach(function (r, i) { el("circle", { cx: sx(r.median_hours), cy: sy(0), r: 5, "class": i === 1 ? "dot-a" : "dot-b" }, s); });
+      [1, 0, 2, 3, 4].forEach(function (i) {   /* 50-99 first, then any label that fits */
+        var r = sn[i], x = sx(r.median_hours), half = r.band.length * 3.4 + 4;
+        if (placed.some(function (p) { return x + half > p[0] && x - half < p[1]; })) return;
+        placed.push([x - half, x + half]);
+        var tx = el("text", { x: x, y: H - padB + 20, "text-anchor": "middle", "class": "t-tick" }, s, r.band);
+        if (i === 1) tx.setAttribute("style", "fill:var(--accent);font-weight:600");
+      });
+      el("text", { x: W, y: H - 4, "text-anchor": "end", "class": "t-note" }, s, "Hours worked a year (log scale), by size group");
+      table(h, { caption: "Band of rates chance alone produces around a rate of " + f(X.funnel.rate, 2), columns: [{ label: "Hours worked", digits: 0 }, { label: "Low edge", digits: 2 }, { label: "High edge", digits: 2 }],
+        rows: pts.filter(function (p, i) { return i % 6 === 0; }), source: "scripts/build_story.py (derived.funnel, from size_noise)" });
+    })();
+
+    /* question + serious: grouped */
+    function grouped(name, rows, what) {
+      var hh = chartEl(name);
+      vbars(hh, rows.map(function (r) { return { label: r.size, bars: [
+        { value: r.zero_cases.pct, cls: "b-z", name: "zero injuries" },
+        { value: r.below_median.pct, cls: "b-a", name: "lower-rate half" },
+        { value: r.above_median.pct, cls: "b-b", name: "higher-rate half" }] }; }),
+        { unit: "%", digits: 1, h: 280, label: what + ", by size group: " + rows.map(function (r) { return r.size + " people: zero injuries " + f(r.zero_cases.pct, 1) + "%, lower-rate half " + f(r.below_median.pct, 1) + "%, higher-rate half " + f(r.above_median.pct, 1) + "%"; }).join("; ") });
+      table(hh, { caption: what + ", by size group and last year's injury rate",
+        columns: ["People", "Group", { label: "Plant-years", digits: 0 }, { label: "With event", digits: 0 }, { label: "Chance, %", digits: 2 }],
+        rows: [].concat.apply([], rows.map(function (r) { return [["zero_cases", "Zero injuries"], ["below_median", "Lower-rate half"], ["above_median", "Higher-rate half"]].map(function (k) { return [r.size, k[1], r[k[0]].n, r[k[0]].events, r[k[0]].pct]; }); })),
+        source: "outputs/summary.json (trir_vs_outcomes)" });
+    }
+    grouped("question", D.trir_vs_outcomes.release_next_year, "Chance of a chemical release the next year");
+    grouped("serious", D.trir_vs_outcomes.serious_injury_next_year, "Chance of a serious injury the next year");
+
+    /* history */
+    h = chartEl("history");
+    hbars(h, [
+      { label: "Release in the past 5 years", value: rp.history.release_in_past_5y.pct },
+      { label: "No release in the past 5 years", value: rp.history.no_release_in_past_5y.pct, cls: "b-b" },
+      { label: "All plant-years", value: rp.base.pct, cls: "b-z" }
+    ], { unit: "%", at: 1, label: "Chance of a release the next year: " + f(rp.history.release_in_past_5y.pct, 1) + "% with a release in the past five years, " + f(rp.history.no_release_in_past_5y.pct, 1) + "% without, " + f(rp.base.pct, 1) + "% overall." });
+    table(h, { caption: "Chance of a release the next year, by release history", columns: ["Group", { label: "Plant-years", digits: 0 }, { label: "With a release", digits: 0 }, { label: "Chance, %", digits: 2 }],
+      rows: [["Release in past 5 years", rp.history.release_in_past_5y.n, rp.history.release_in_past_5y.events, rp.history.release_in_past_5y.pct],
+             ["No release in past 5 years", rp.history.no_release_in_past_5y.n, rp.history.no_release_in_past_5y.events, rp.history.no_release_in_past_5y.pct],
+             ["All plant-years", rp.base.n, rp.base.events, rp.base.pct]], source: "outputs/summary.json (release_predictors)" });
+
+    /* inventory + count ladders */
+    [["inv", rp.inventory, "band", "Largest amount held"], ["count", rp.chemical_count, "label", "Regulated chemicals"]].forEach(function (c) {
+      var hh = chartEl(c[0]);
+      vbars(hh, c[1].map(function (r) { return { label: r[c[2]], bars: [{ value: r.pct }] }; }), { unit: "%", digits: 1, h: 240, twoLine: c[0] === "inv" && widthOf(hh) < 460,
+        label: "Chance of a release the next year by " + c[3].toLowerCase() + ": " + c[1].map(function (r) { return r[c[2]] + " " + f(r.pct, 1) + "%"; }).join(", ") });
+      table(hh, { caption: "Chance of a release the next year, by " + c[3].toLowerCase(), columns: [c[3], { label: "Plant-years", digits: 0 }, { label: "With a release", digits: 0 }, { label: "Chance, %", digits: 2 }],
+        rows: c[1].map(function (r) { return [r[c[2]], r.n, r.events, r.pct]; }), source: "outputs/summary.json (release_predictors)" });
+    });
+
+    /* family table */
+    (function () {
+      var fam = rp.family.slice().sort(function (a, b) { return b.pct - a.pct; });
+      var max = fam[0].pct;
+      var t = document.createElement("table");
+      t.className = "fam";
+      var cap = document.createElement("caption"); cap.textContent = "Chance of a release the next year, by chemical family"; t.appendChild(cap);
+      var thead = t.createTHead().insertRow();
+      [["Family", ""], ["", ""], ["Chance", "r"], ["Plant-years", "r"]].forEach(function (c) { var th = document.createElement("th"); th.textContent = c[0]; if (c[1]) th.className = c[1]; th.scope = "col"; thead.appendChild(th); });
+      thead.children[1].innerHTML = '<span class="sr-only">Bar</span>';
+      var tb = t.createTBody();
+      fam.forEach(function (r) {
+        var tr = tb.insertRow();
+        if (r.family === "Formaldehyde") tr.className = "hl";
+        tr.insertCell().textContent = r.family;
+        var bc = tr.insertCell(); bc.className = "barc";
+        var b = document.createElement("span"); b.className = "fb"; b.style.width = (100 * r.pct / max).toFixed(1) + "%"; b.setAttribute("aria-hidden", "true"); bc.appendChild(b);
+        var p = tr.insertCell(); p.className = "p"; p.textContent = f(r.pct, 1) + "%";
+        var n = tr.insertCell(); n.className = "n"; n.textContent = f(r.n, 0);
+      });
+      document.getElementById("family-table").appendChild(t);
+    })();
+
+    /* waffle */
+    (function () {
+      var w = document.getElementById("waffle"), on = Math.round(D.green_dashboard.prior_year_zero_pct);
+      for (var i = 0; i < 100; i++) { var sq = document.createElement("span"); if (i < on) sq.className = "on"; w.appendChild(sq); }
+    })();
+
+    /* energy */
+    h = chartEl("energy");
+    var ev = D.injury_anatomy_all.events;
+    hbars(h, X.energy_ranked.map(function (r, i) { return { label: r.label, value: 100 * r.n / ev, cls: i === 0 ? "b-a" : "b-b" }; }),
+      { unit: "%", digits: 0, compact: true, label: "Serious injuries by energy: " + X.energy_ranked.map(function (r) { return r.label + " " + f(100 * r.n / ev, 0) + "%"; }).join(", ") });
+    table(h, { caption: "Serious injuries by kind of energy", columns: ["Energy", { label: "Reports", digits: 0 }, { label: "Share, %", digits: 1 }],
+      rows: X.energy_ranked.map(function (r) { return [r.label, r.n, 100 * r.n / ev]; }), source: "outputs/summary.json (injury_anatomy_all)" });
+
+    /* formaldehyde small multiples */
+    var fa = D.release_anatomy_formaldehyde;
+    var faMax = Math.max.apply(null, ["type", "source", "cause", "fix"].map(function (k) { return Math.max.apply(null, fa[k].map(function (r) { return 100 * r.n / fa.releases; })); }));
+    ["type", "source", "cause", "fix"].forEach(function (part) {
+      var hh = chartEl("fa", part);
+      var rows = fa[part].slice().sort(function (a, b) { return b.n - a.n; });
+      hbars(hh, rows.map(function (r, i) { return { label: r.label, value: 100 * r.n / fa.releases, cls: i === 0 ? "b-a" : "b-b" }; }),
+        { unit: "%", digits: 0, compact: true, max: faMax, label: "Formaldehyde plant releases by " + part + ": " + rows.map(function (r) { return r.label + " " + f(100 * r.n / fa.releases, 0) + "%"; }).join(", ") });
+      table(hh, { caption: "Formaldehyde plant releases by " + part, columns: ["Category", { label: "Releases", digits: 0 }, { label: "Share, %", digits: 1 }],
+        rows: rows.map(function (r) { return [r.label, r.n, 100 * r.n / fa.releases]; }), source: "outputs/summary.json (release_anatomy_formaldehyde)" });
+    });
+  }
+
+  /* one-injury toy */
+  function toy() {
+    var sn = D.size_noise, count = 0, maxRate = 8;
+    var lanes = Array.prototype.slice.call(document.querySelectorAll("#toy .lane"));
+    lanes.forEach(function (l) {
+      var tr = l.querySelector(".track");
+      [0, 2, 4, 6, 8].forEach(function (t) {
+        var pip = document.createElement("span"); pip.className = "pip"; pip.style.left = (100 * t / maxRate) + "%"; tr.appendChild(pip);
+        var tk = document.createElement("span"); tk.className = "tk"; tk.style.left = (100 * t / maxRate) + "%"; tk.textContent = t; tr.appendChild(tk);
+      });
+    });
+    function paint() {
+      var msg = [];
+      lanes.forEach(function (l) {
+        var r = sn[+l.getAttribute("data-lane")], rate = count * r.one_case_swing;
+        var tr = l.querySelector(".track"), w = tr.clientWidth;
+        l.querySelector(".puck-wrap").style.transform = "translateX(" + (w * Math.min(rate, maxRate) / maxRate).toFixed(1) + "px)";
+        var txt = count + (count === 1 ? " injury" : " injuries") + ", rate " + f(rate, 2);
+        l.querySelector("[data-out]").textContent = txt;
+        msg.push(r.band + " people: " + txt);
+      });
+      document.getElementById("toy-live").textContent = msg.join(". ");
+    }
+    document.getElementById("toy-add").addEventListener("click", function () { if (count < 5) count++; paint(); });
+    document.getElementById("toy-reset").addEventListener("click", function () { count = 0; paint(); });
+    addEventListener("resize", paint);
+    paint();
+  }
+
+  draw();
+  toy();
+})();
+</script>
+</body>
+</html>

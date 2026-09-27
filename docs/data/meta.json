@@ -1,0 +1,1002 @@
+{
+ "plant_cols": [
+  "id",
+  "name",
+  "company",
+  "city",
+  "state",
+  "zip",
+  "lat",
+  "lng",
+  "naics",
+  "subsectors",
+  "families",
+  "chemicals",
+  "inventory_lb",
+  "employees",
+  "rmp_id",
+  "active",
+  "match",
+  "years",
+  "releases",
+  "injuries",
+  "rmp_first",
+  "rmp_last"
+ ],
+ "year_cols": [
+  "hours",
+  "emp",
+  "dafw",
+  "djtr",
+  "other",
+  "illness",
+  "dafw_days",
+  "plausible"
+ ],
+ "release_cols": [
+  "plant",
+  "date",
+  "chemicals",
+  "type",
+  "source",
+  "cause",
+  "fix",
+  "worker_inj",
+  "responder_inj",
+  "public_inj",
+  "deaths",
+  "evacuated",
+  "sheltered",
+  "onsite_damage",
+  "offsite_damage"
+ ],
+ "injury_cols": [
+  "plant",
+  "date",
+  "employer",
+  "city",
+  "state",
+  "naics",
+  "energy",
+  "hosp",
+  "amp",
+  "eye",
+  "nature",
+  "body",
+  "source",
+  "narrative"
+ ],
+ "release_type": [
+  "Liquid spill",
+  "Gas release",
+  "Fire",
+  "Explosion",
+  "Runaway reaction"
+ ],
+ "release_source": [
+  "Process vessel or reactor",
+  "Storage tank",
+  "Piping",
+  "Valve",
+  "Transfer hose",
+  "Pump",
+  "Joint or flange"
+ ],
+ "release_cause": [
+  "Equipment failed",
+  "Human error",
+  "Procedure wrong or not followed",
+  "During or due to maintenance",
+  "Pressure built up too high",
+  "Process upset",
+  "Design flaw",
+  "Wrong equipment for the job",
+  "Management system gap",
+  "Safety system bypassed",
+  "Weather"
+ ],
+ "release_fix": [
+  "Better equipment",
+  "Rewrote procedures",
+  "Retrained people",
+  "Changed maintenance",
+  "New process controls",
+  "New mitigation systems",
+  "Changed the process",
+  "Updated emergency plan",
+  "Held less chemical",
+  "No change reported"
+ ],
+ "energy": [
+  "Caught in machinery",
+  "Heat, steam & hot material",
+  "Chemical exposure",
+  "Struck by object or vehicle",
+  "Slip, trip or fall",
+  "Vehicle or forklift",
+  "Rubbed, cut or pinched",
+  "Fire or explosion",
+  "Electricity",
+  "Strain or overexertion",
+  "Violence or other",
+  "Unclassified"
+ ],
+ "subsectors": [
+  "Resins & plastics",
+  "Synthetic rubber",
+  "Fibers",
+  "Petrochemicals",
+  "Industrial gases",
+  "Dyes & pigments",
+  "Acids & inorganics",
+  "Ethanol & biofuels",
+  "Other basic organics (incl. formaldehyde)",
+  "Fertilizer & ag chemicals",
+  "Pharmaceuticals",
+  "Paints & coatings",
+  "Adhesives",
+  "Soaps, cleaners & personal care",
+  "Explosives",
+  "Compounding & specialty",
+  "Plastics resins (older code)",
+  "Other chemical"
+ ],
+ "families": [
+  {
+   "name": "Formaldehyde",
+   "about": "Makes or uses formaldehyde (resin plants, formaldehyde producers)"
+  },
+  {
+   "name": "Epoxy chain",
+   "about": "Epichlorohydrin, the building block of epoxy resins"
+  },
+  {
+   "name": "Ammonia",
+   "about": "Anhydrous or aqueous ammonia"
+  },
+  {
+   "name": "Chlorine & chlor-alkali",
+   "about": "Chlorine gas and chlorinated feedstocks"
+  },
+  {
+   "name": "Strong acids",
+   "about": "Hydrofluoric, hydrochloric, nitric, oleum and sulfur trioxide"
+  },
+  {
+   "name": "Isocyanates",
+   "about": "Toluene diisocyanate and related (polyurethane chain)"
+  },
+  {
+   "name": "Reactive oxides",
+   "about": "Ethylene oxide and propylene oxide"
+  },
+  {
+   "name": "Monomers",
+   "about": "Vinyl acetate, acrylonitrile, butadiene, isoprene"
+  },
+  {
+   "name": "Amines",
+   "about": "Methylamines, ethylenediamine and other amines"
+  },
+  {
+   "name": "Silanes",
+   "about": "Chlorosilanes (silicones chain)"
+  },
+  {
+   "name": "Sulfur compounds",
+   "about": "Sulfur dioxide, hydrogen sulfide, carbon disulfide, mercaptans"
+  },
+  {
+   "name": "Flammable gases & liquids",
+   "about": "Hydrocarbons such as propane, propylene, ethylene, pentane"
+  }
+ ],
+ "size_bands": [
+  "Under 50",
+  "50-99",
+  "100-249",
+  "250-999",
+  "1,000+"
+ ],
+ "inventory_bands": [
+  "Under 100k lb",
+  "100k-1M lb",
+  "1M-5M lb",
+  "5M+ lb"
+ ],
+ "state_plan": [
+  "AK",
+  "AZ",
+  "CA",
+  "HI",
+  "IA",
+  "IN",
+  "KY",
+  "MD",
+  "MI",
+  "MN",
+  "NC",
+  "NM",
+  "NV",
+  "OR",
+  "PR",
+  "SC",
+  "TN",
+  "UT",
+  "VA",
+  "VT",
+  "WA",
+  "WY"
+ ],
+ "plausibility": {
+  "min_hours_per_employee": 120,
+  "max_hours_per_employee": 4500
+ },
+ "built_from": {
+  "ITA_300A_Summary_Data_2023_through_12-31-2024.zip": "25da8bc426db219a",
+  "ITA_300A_Summary_Data_2024_through_12-31-2025.zip": "4cbce7ea32dd4060",
+  "ITA_Data_CY_2016.zip": "9f41c720fb02f787",
+  "ITA_Data_CY_2017.zip": "354fb246be90d6ba",
+  "ITA_Data_CY_2018.zip": "0bd2e8475a5766ba",
+  "ITA_Data_CY_2019.zip": "bf93ea7312bfe34d",
+  "ITA_Data_CY_2020.zip": "eb704f2cc343adc7",
+  "ITA_Data_CY_2021.zip": "5a11abc7c085f07f",
+  "ITA_Data_CY_2022.zip": "e396af8038d40d74",
+  "January2015toNovember2025.zip": "a3f7f434e200fb95",
+  "accidents.csv": "68e72e532b460656",
+  "facilities.csv": "d48909ce4f070b20",
+  "naics-codes.csv": "0747e2bf19563442",
+  "submissions.csv": "126ce0ebbc77b694"
+ },
+ "summary": {
+  "coverage": {
+   "plants": 10597,
+   "rmp_plants": 2773,
+   "osha_plants": 9178,
+   "linked_plants": 1354,
+   "rmp_linked_pct": 48.83,
+   "serious_injuries": 1913,
+   "serious_injuries_linked": 1210,
+   "serious_injuries_linked_pct": 63.25,
+   "ita_plant_years": 42794,
+   "releases": 2611
+  },
+  "size_noise": [
+   {
+    "band": "Under 50",
+    "plant_years": 16467,
+    "median_hours": 56687,
+    "one_case_swing": 3.53,
+    "zero_share_pct": 55.63,
+    "pooled_trir": 3.01
+   },
+   {
+    "band": "50-99",
+    "plant_years": 9693,
+    "median_hours": 138777,
+    "one_case_swing": 1.44,
+    "zero_share_pct": 32.71,
+    "pooled_trir": 2.68
+   },
+   {
+    "band": "100-249",
+    "plant_years": 8357,
+    "median_hours": 294840,
+    "one_case_swing": 0.68,
+    "zero_share_pct": 21.29,
+    "pooled_trir": 2.13
+   },
+   {
+    "band": "250-999",
+    "plant_years": 4791,
+    "median_hours": 788987,
+    "one_case_swing": 0.25,
+    "zero_share_pct": 10.52,
+    "pooled_trir": 1.45
+   },
+   {
+    "band": "1,000+",
+    "plant_years": 705,
+    "median_hours": 3173256,
+    "one_case_swing": 0.06,
+    "zero_share_pct": 1.42,
+    "pooled_trir": 0.79
+   }
+  ],
+  "stability": [
+   {
+    "band": "Under 50",
+    "pairs": 11120,
+    "rho": 0.314
+   },
+   {
+    "band": "50-99",
+    "pairs": 6985,
+    "rho": 0.444
+   },
+   {
+    "band": "100-249",
+    "pairs": 6031,
+    "rho": 0.587
+   },
+   {
+    "band": "250-999",
+    "pairs": 3530,
+    "rho": 0.706
+   },
+   {
+    "band": "1,000+",
+    "pairs": 529,
+    "rho": 0.742
+   }
+  ],
+  "trir_vs_outcomes": {
+   "serious_injury_next_year": [
+    {
+     "size": "Under 100",
+     "zero_cases": {
+      "n": 6950,
+      "events": 68,
+      "pct": 0.98
+     },
+     "below_median": {
+      "n": 3905,
+      "events": 76,
+      "pct": 1.95
+     },
+     "above_median": {
+      "n": 3905,
+      "events": 60,
+      "pct": 1.54
+     },
+     "median_trir_nonzero": 3.95
+    },
+    {
+     "size": "100-249",
+     "zero_cases": {
+      "n": 1113,
+      "events": 23,
+      "pct": 2.07
+     },
+     "below_median": {
+      "n": 1943,
+      "events": 65,
+      "pct": 3.35
+     },
+     "above_median": {
+      "n": 1942,
+      "events": 99,
+      "pct": 5.1
+     },
+     "median_trir_nonzero": 1.96
+    },
+    {
+     "size": "250+",
+     "zero_cases": {
+      "n": 337,
+      "events": 18,
+      "pct": 5.34
+     },
+     "below_median": {
+      "n": 1366,
+      "events": 84,
+      "pct": 6.15
+     },
+     "above_median": {
+      "n": 1365,
+      "events": 99,
+      "pct": 7.25
+     },
+     "median_trir_nonzero": 1.1
+    }
+   ],
+   "release_next_year": [
+    {
+     "size": "Under 100",
+     "zero_cases": {
+      "n": 1648,
+      "events": 26,
+      "pct": 1.58
+     },
+     "below_median": {
+      "n": 1001,
+      "events": 16,
+      "pct": 1.6
+     },
+     "above_median": {
+      "n": 1000,
+      "events": 18,
+      "pct": 1.8
+     },
+     "median_trir_nonzero": 3.29
+    },
+    {
+     "size": "100-249",
+     "zero_cases": {
+      "n": 433,
+      "events": 12,
+      "pct": 2.77
+     },
+     "below_median": {
+      "n": 589,
+      "events": 23,
+      "pct": 3.9
+     },
+     "above_median": {
+      "n": 589,
+      "events": 20,
+      "pct": 3.4
+     },
+     "median_trir_nonzero": 1.57
+    },
+    {
+     "size": "250+",
+     "zero_cases": {
+      "n": 140,
+      "events": 6,
+      "pct": 4.29
+     },
+     "below_median": {
+      "n": 460,
+      "events": 29,
+      "pct": 6.3
+     },
+     "above_median": {
+      "n": 459,
+      "events": 18,
+      "pct": 3.92
+     },
+     "median_trir_nonzero": 0.92
+    }
+   ],
+   "sir_plant_years": 22826,
+   "release_plant_years": 6319
+  },
+  "green_dashboard": {
+   "serious_injuries_with_prior_year": 703,
+   "prior_year_zero": 128,
+   "prior_year_zero_pct": 18.21
+  },
+  "release_predictors": {
+   "plant_years": 27058,
+   "base": {
+    "n": 27058,
+    "events": 710,
+    "pct": 2.62
+   },
+   "history": {
+    "release_in_past_5y": {
+     "n": 2952,
+     "events": 356,
+     "pct": 12.06
+    },
+    "no_release_in_past_5y": {
+     "n": 24106,
+     "events": 354,
+     "pct": 1.47
+    }
+   },
+   "history_ratio": 8.2,
+   "inventory": [
+    {
+     "band": "Under 100k lb",
+     "n": 6525,
+     "events": 59,
+     "pct": 0.9
+    },
+    {
+     "band": "100k-1M lb",
+     "n": 11546,
+     "events": 159,
+     "pct": 1.38
+    },
+    {
+     "band": "1M-5M lb",
+     "n": 5093,
+     "events": 176,
+     "pct": 3.46
+    },
+    {
+     "band": "5M+ lb",
+     "n": 3894,
+     "events": 316,
+     "pct": 8.12
+    }
+   ],
+   "family": [
+    {
+     "family": "Formaldehyde",
+     "n": 2053,
+     "events": 77,
+     "pct": 3.75
+    },
+    {
+     "family": "Epoxy chain",
+     "n": 699,
+     "events": 50,
+     "pct": 7.15
+    },
+    {
+     "family": "Ammonia",
+     "n": 10257,
+     "events": 318,
+     "pct": 3.1
+    },
+    {
+     "family": "Chlorine & chlor-alkali",
+     "n": 5106,
+     "events": 310,
+     "pct": 6.07
+    },
+    {
+     "family": "Strong acids",
+     "n": 2718,
+     "events": 190,
+     "pct": 6.99
+    },
+    {
+     "family": "Isocyanates",
+     "n": 731,
+     "events": 10,
+     "pct": 1.37
+    },
+    {
+     "family": "Reactive oxides",
+     "n": 1439,
+     "events": 80,
+     "pct": 5.56
+    },
+    {
+     "family": "Monomers",
+     "n": 2914,
+     "events": 138,
+     "pct": 4.74
+    },
+    {
+     "family": "Amines",
+     "n": 2011,
+     "events": 91,
+     "pct": 4.53
+    },
+    {
+     "family": "Silanes",
+     "n": 438,
+     "events": 19,
+     "pct": 4.34
+    },
+    {
+     "family": "Sulfur compounds",
+     "n": 1596,
+     "events": 117,
+     "pct": 7.33
+    },
+    {
+     "family": "Flammable gases & liquids",
+     "n": 11279,
+     "events": 349,
+     "pct": 3.09
+    }
+   ],
+   "chemical_count": [
+    {
+     "label": "1 chemical",
+     "n": 15891,
+     "events": 200,
+     "pct": 1.26
+    },
+    {
+     "label": "2",
+     "n": 5296,
+     "events": 146,
+     "pct": 2.76
+    },
+    {
+     "label": "3-4",
+     "n": 3365,
+     "events": 152,
+     "pct": 4.52
+    },
+    {
+     "label": "5+",
+     "n": 2438,
+     "events": 207,
+     "pct": 8.49
+    }
+   ]
+  },
+  "release_anatomy_all": {
+   "releases": 2611,
+   "worker_injuries": 2278,
+   "type": [
+    {
+     "label": "Liquid spill",
+     "n": 878
+    },
+    {
+     "label": "Gas release",
+     "n": 1667
+    },
+    {
+     "label": "Fire",
+     "n": 310
+    },
+    {
+     "label": "Explosion",
+     "n": 118
+    },
+    {
+     "label": "Runaway reaction",
+     "n": 38
+    }
+   ],
+   "source": [
+    {
+     "label": "Process vessel or reactor",
+     "n": 534
+    },
+    {
+     "label": "Storage tank",
+     "n": 275
+    },
+    {
+     "label": "Piping",
+     "n": 731
+    },
+    {
+     "label": "Valve",
+     "n": 481
+    },
+    {
+     "label": "Transfer hose",
+     "n": 236
+    },
+    {
+     "label": "Pump",
+     "n": 125
+    },
+    {
+     "label": "Joint or flange",
+     "n": 152
+    }
+   ],
+   "cause": [
+    {
+     "label": "Equipment failed",
+     "n": 1068
+    },
+    {
+     "label": "Human error",
+     "n": 992
+    },
+    {
+     "label": "Procedure wrong or not followed",
+     "n": 612
+    },
+    {
+     "label": "During or due to maintenance",
+     "n": 467
+    },
+    {
+     "label": "Pressure built up too high",
+     "n": 308
+    },
+    {
+     "label": "Process upset",
+     "n": 221
+    },
+    {
+     "label": "Design flaw",
+     "n": 249
+    },
+    {
+     "label": "Wrong equipment for the job",
+     "n": 153
+    },
+    {
+     "label": "Management system gap",
+     "n": 133
+    },
+    {
+     "label": "Safety system bypassed",
+     "n": 53
+    },
+    {
+     "label": "Weather",
+     "n": 75
+    }
+   ],
+   "fix": [
+    {
+     "label": "Better equipment",
+     "n": 1245
+    },
+    {
+     "label": "Rewrote procedures",
+     "n": 1237
+    },
+    {
+     "label": "Retrained people",
+     "n": 1152
+    },
+    {
+     "label": "Changed maintenance",
+     "n": 691
+    },
+    {
+     "label": "New process controls",
+     "n": 434
+    },
+    {
+     "label": "New mitigation systems",
+     "n": 195
+    },
+    {
+     "label": "Changed the process",
+     "n": 175
+    },
+    {
+     "label": "Updated emergency plan",
+     "n": 243
+    },
+    {
+     "label": "Held less chemical",
+     "n": 22
+    },
+    {
+     "label": "No change reported",
+     "n": 168
+    }
+   ]
+  },
+  "release_anatomy_formaldehyde": {
+   "releases": 75,
+   "worker_injuries": 32,
+   "type": [
+    {
+     "label": "Liquid spill",
+     "n": 53
+    },
+    {
+     "label": "Gas release",
+     "n": 13
+    },
+    {
+     "label": "Fire",
+     "n": 1
+    },
+    {
+     "label": "Explosion",
+     "n": 3
+    },
+    {
+     "label": "Runaway reaction",
+     "n": 7
+    }
+   ],
+   "source": [
+    {
+     "label": "Process vessel or reactor",
+     "n": 26
+    },
+    {
+     "label": "Storage tank",
+     "n": 19
+    },
+    {
+     "label": "Piping",
+     "n": 11
+    },
+    {
+     "label": "Valve",
+     "n": 3
+    },
+    {
+     "label": "Transfer hose",
+     "n": 6
+    },
+    {
+     "label": "Pump",
+     "n": 6
+    },
+    {
+     "label": "Joint or flange",
+     "n": 2
+    }
+   ],
+   "cause": [
+    {
+     "label": "Equipment failed",
+     "n": 23
+    },
+    {
+     "label": "Human error",
+     "n": 32
+    },
+    {
+     "label": "Procedure wrong or not followed",
+     "n": 19
+    },
+    {
+     "label": "During or due to maintenance",
+     "n": 11
+    },
+    {
+     "label": "Pressure built up too high",
+     "n": 12
+    },
+    {
+     "label": "Process upset",
+     "n": 6
+    },
+    {
+     "label": "Design flaw",
+     "n": 3
+    },
+    {
+     "label": "Wrong equipment for the job",
+     "n": 1
+    },
+    {
+     "label": "Management system gap",
+     "n": 6
+    },
+    {
+     "label": "Safety system bypassed",
+     "n": 2
+    },
+    {
+     "label": "Weather",
+     "n": 0
+    }
+   ],
+   "fix": [
+    {
+     "label": "Better equipment",
+     "n": 33
+    },
+    {
+     "label": "Rewrote procedures",
+     "n": 41
+    },
+    {
+     "label": "Retrained people",
+     "n": 43
+    },
+    {
+     "label": "Changed maintenance",
+     "n": 13
+    },
+    {
+     "label": "New process controls",
+     "n": 25
+    },
+    {
+     "label": "New mitigation systems",
+     "n": 7
+    },
+    {
+     "label": "Changed the process",
+     "n": 6
+    },
+    {
+     "label": "Updated emergency plan",
+     "n": 15
+    },
+    {
+     "label": "Held less chemical",
+     "n": 0
+    },
+    {
+     "label": "No change reported",
+     "n": 4
+    }
+   ]
+  },
+  "injury_anatomy_all": {
+   "events": 1913,
+   "amputations": 628,
+   "hospitalizations": 1475,
+   "energy": [
+    {
+     "label": "Caught in machinery",
+     "n": 661
+    },
+    {
+     "label": "Heat, steam & hot material",
+     "n": 187
+    },
+    {
+     "label": "Chemical exposure",
+     "n": 217
+    },
+    {
+     "label": "Struck by object or vehicle",
+     "n": 185
+    },
+    {
+     "label": "Slip, trip or fall",
+     "n": 373
+    },
+    {
+     "label": "Vehicle or forklift",
+     "n": 120
+    },
+    {
+     "label": "Rubbed, cut or pinched",
+     "n": 15
+    },
+    {
+     "label": "Fire or explosion",
+     "n": 85
+    },
+    {
+     "label": "Electricity",
+     "n": 22
+    },
+    {
+     "label": "Strain or overexertion",
+     "n": 23
+    },
+    {
+     "label": "Violence or other",
+     "n": 10
+    },
+    {
+     "label": "Unclassified",
+     "n": 15
+    }
+   ]
+  },
+  "injury_anatomy_resins": {
+   "events": 290,
+   "amputations": 114,
+   "hospitalizations": 214,
+   "energy": [
+    {
+     "label": "Caught in machinery",
+     "n": 118
+    },
+    {
+     "label": "Heat, steam & hot material",
+     "n": 37
+    },
+    {
+     "label": "Chemical exposure",
+     "n": 25
+    },
+    {
+     "label": "Struck by object or vehicle",
+     "n": 45
+    },
+    {
+     "label": "Slip, trip or fall",
+     "n": 37
+    },
+    {
+     "label": "Vehicle or forklift",
+     "n": 11
+    },
+    {
+     "label": "Rubbed, cut or pinched",
+     "n": 2
+    },
+    {
+     "label": "Fire or explosion",
+     "n": 5
+    },
+    {
+     "label": "Electricity",
+     "n": 5
+    },
+    {
+     "label": "Strain or overexertion",
+     "n": 2
+    },
+    {
+     "label": "Unclassified",
+     "n": 3
+    }
+   ]
+  }
+ }
+}

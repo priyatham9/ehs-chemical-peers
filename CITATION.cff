@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+type: software
+title: "ehs-chemical-peers: a public-records peer explorer for US chemical manufacturing plants"
+authors:
+  - family-names: Chimmani
+    given-names: Priyatham
+    email: priyatham9@gmail.com
+repository-code: "https://github.com/priyatham9/ehs-chemical-peers"
+url: "https://priyatham9.github.io/ehs-chemical-peers/"
+license: MIT
+date-released: "2026-09-27"
+version: 0.1.0

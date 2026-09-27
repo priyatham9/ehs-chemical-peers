@@ -1,0 +1,961 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Chemical plant peers - ehs-chemical-peers</title>
+<meta name="description" content="Pick any US chemical plant and see it next to its real peers: injuries, chemical releases and serious injuries from public OSHA and EPA records, read fairly for its size." />
+<link rel="canonical" href="https://priyatham9.github.io/ehs-chemical-peers/" />
+<meta property="og:title" content="Chemical plant peers" />
+<meta property="og:description" content="Pick any US chemical plant and see it next to its real peers: injuries, chemical releases and serious injuries from public OSHA and EPA records." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://priyatham9.github.io/ehs-chemical-peers/" />
+<meta property="og:site_name" content="Grounded" />
+<meta property="og:image" content="https://priyatham9.github.io/ehs-chemical-peers/og.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="theme-color" content="#F7F7F3" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="#0A0C10" media="(prefers-color-scheme: dark)" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%231E40AF'/%3E%3Ctext x='8' y='12' font-family='monospace' font-size='11' font-weight='700' text-anchor='middle' fill='white'%3EC%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" />
+<style>
+:root {
+ color-scheme:light;
+ --paper:#F7F7F3; --surface:#FFFFFF; --surface-2:#EFEFE9;
+ --ink:#101311; --ink-2:#3A403C; --muted:#666D68;
+ --rule:#101311; --rule-soft:#D6D7CE;
+ --accent:#1E40AF; --accent-2:#17307F; --accent-ink:#FFFFFF; --accent-wash:#E2E8FB;
+ --warn:#8A5A00; --warn-wash:#FBF0DC;
+ --grid-dot:rgba(16,19,17,.10); --shadow:rgba(16,19,17,.08);
+ --font-sans:"Archivo",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+ --font-mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+ --maxw:1180px;
+ --fig-paper:#FFFFFF; --fig-grid:#D6D7CE; --fig-axis:#3A403C; --fig-mute:#666D68;
+ --s1:#0072B2; --s2:#D55E00; --s3:#009E73; --s4:#CC79A7;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+ color-scheme:dark;
+ --paper:#0A0C10; --surface:#12151C; --surface-2:#171B24;
+ --ink:#EAECF2; --ink-2:#BFC4CF; --muted:#838A99;
+ --rule:#EAECF2; --rule-soft:#262B36;
+ --accent:#7C9EFF; --accent-2:#5B7FE8; --accent-ink:#06101F; --accent-wash:#151C33;
+ --warn:#E3B25F; --warn-wash:#241C0C;
+ --grid-dot:rgba(234,236,242,.09); --shadow:rgba(0,0,0,.4);
+ --fig-paper:#12151C; --fig-grid:#262B36; --fig-axis:#BFC4CF; --fig-mute:#838A99;
+ --s1:#56B4E9; --s2:#E69F00; --s3:#5ECFA6; --s4:#E58FBE;
+  }
+}
+:root[data-theme="dark"] {
+ color-scheme:dark;
+ --paper:#0A0C10; --surface:#12151C; --surface-2:#171B24;
+ --ink:#EAECF2; --ink-2:#BFC4CF; --muted:#838A99;
+ --rule:#EAECF2; --rule-soft:#262B36;
+ --accent:#7C9EFF; --accent-2:#5B7FE8; --accent-ink:#06101F; --accent-wash:#151C33;
+ --warn:#E3B25F; --warn-wash:#241C0C;
+ --grid-dot:rgba(234,236,242,.09); --shadow:rgba(0,0,0,.4);
+ --fig-paper:#12151C; --fig-grid:#262B36; --fig-axis:#BFC4CF; --fig-mute:#838A99;
+ --s1:#56B4E9; --s2:#E69F00; --s3:#5ECFA6; --s4:#E58FBE;
+}
+:root[data-theme="light"]{color-scheme:light}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-sans);font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased}
+h1,h2,h3{margin:0;line-height:1.1;letter-spacing:-.01em}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+img,svg{max-width:100%}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 30px}
+.label{font-family:var(--font-mono);font-size:.6875rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.mono{font-family:var(--font-mono);font-variant-numeric:tabular-nums}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,[tabindex]:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.skip{position:absolute;left:-9999px;top:0;z-index:100;background:var(--accent);color:var(--accent-ink);padding:11px 17px;font-family:var(--font-mono);font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;text-decoration:none}
+.skip:focus{left:0}
+@media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important} }
+code,.mono,.src{overflow-wrap:anywhere}
+@media print{ .skip{display:none!important} body{background:#fff!important;color:#000!important} a{color:#000!important;text-decoration:underline} }
+
+
+/* page */
+:root{--ok:#17693A;--peer:#8A94A6;--base:#D55E00}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--ok:#5ECFA6;--peer:#5B6475;--base:#E69F00}}
+:root[data-theme="dark"]{--ok:#5ECFA6;--peer:#5B6475;--base:#E69F00}
+.display{font-stretch:125%;font-weight:900;text-transform:uppercase}
+.hero{padding:40px 0 28px;border-bottom:2px solid var(--rule);background-image:radial-gradient(var(--grid-dot) 1px,transparent 1px);background-size:22px 22px}
+.hero h1{font-size:clamp(2rem,6vw,3.4rem);max-width:20ch;line-height:1.02}
+.hero-lede{margin-top:14px;color:var(--ink-2);max-width:64ch;font-size:1.0625rem}
+.hero-lede b{color:var(--ink)}
+.hero-how{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:22px;border:2px solid var(--rule);background:var(--surface);max-width:960px}
+.hero-how div{padding:12px 16px;border-left:2px solid var(--rule-soft);font-size:.875rem;color:var(--ink-2);line-height:1.5}
+.hero-how div:first-child{border-left:0}
+.hero-how b{display:block;font-family:var(--font-mono);font-size:.6875rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:4px}
+@media(max-width:700px){.hero-how{grid-template-columns:1fr}.hero-how div{border-left:0;border-top:2px solid var(--rule-soft)}.hero-how div:first-child{border-top:0}}
+
+/* picker */
+.pick{padding:26px 0;border-bottom:2px solid var(--rule)}
+.pick-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:end;max-width:960px}
+.pick-box{position:relative}
+.pick label{display:block;font-family:var(--font-mono);font-size:.6875rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;font-weight:700}
+input[type="search"],select,input[type="number"]{font:inherit;font-family:var(--font-mono);font-size:1rem;padding:9px 10px;border:2px solid var(--rule);background:var(--paper);color:var(--ink);border-radius:0;min-height:44px;width:100%;min-width:0}
+.sugg{position:absolute;left:0;right:0;top:100%;z-index:30;background:var(--surface);border:2px solid var(--rule);border-top:0;max-height:340px;overflow:auto;margin:0;padding:0;list-style:none;box-shadow:0 12px 30px var(--shadow)}
+.sugg li{padding:10px 12px;cursor:pointer;border-top:1px solid var(--rule-soft);font-size:.9375rem;line-height:1.35}
+.sugg li small{display:block;color:var(--muted);font-family:var(--font-mono);font-size:.6875rem;letter-spacing:.04em}
+.sugg li[aria-selected="true"],.sugg li:hover{background:var(--accent-wash)}
+.examples{margin-top:10px;font-size:.875rem;color:var(--muted)}
+.examples button{background:none;border:0;padding:4px 2px;color:var(--accent);font:inherit;cursor:pointer;text-decoration:underline;text-underline-offset:3px;min-height:32px}
+
+/* plant card */
+.plant{padding:26px 0;border-bottom:2px solid var(--rule)}
+.plant[hidden]{display:none}
+.plant-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 16px}
+.plant-head h2{font-size:clamp(1.4rem,3.4vw,2.1rem);font-stretch:115%;font-weight:800}
+.plant-meta{font-family:var(--font-mono);font-size:.75rem;color:var(--muted);letter-spacing:.04em}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 0}
+.tag{font-family:var(--font-mono);font-size:.6875rem;letter-spacing:.06em;padding:3px 8px;border:1.5px solid var(--rule-soft);background:var(--surface);color:var(--ink-2)}
+.tag.acc{border-color:var(--accent);color:var(--accent)}
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:2px solid var(--rule);margin-top:18px;background:var(--surface)}
+.kpis > div{padding:14px 16px;min-width:0;border-left:2px solid var(--rule-soft)}
+.kpis > div:first-child{border-left:0}
+@media(max-width:860px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.kpis > div:nth-child(3){border-left:0}.kpis > div:nth-child(n+3){border-top:2px solid var(--rule-soft)}}
+.k-k{display:block;font-family:var(--font-mono);font-size:.625rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.k-n{display:block;font-family:var(--font-mono);font-weight:700;font-size:clamp(1.5rem,3.6vw,2.2rem);line-height:1.05;font-variant-numeric:tabular-nums}
+.k-n small{font-size:.8rem;color:var(--muted);font-weight:600}
+.k-s{display:block;margin-top:6px;font-size:.8125rem;color:var(--ink-2);line-height:1.45}
+
+/* layout: filters + results */
+.work{display:grid;grid-template-columns:300px minmax(0,1fr);gap:0;border-bottom:2px solid var(--rule)}
+.filters{border-right:2px solid var(--rule);padding:22px 20px 30px 0;align-self:start;position:sticky;top:64px;max-height:calc(100vh - 70px);overflow:auto}
+.results{padding:22px 0 30px 26px;min-width:0}
+@media(max-width:980px){.work{grid-template-columns:minmax(0,1fr)}.filters{position:static;max-height:none;border-right:0;border-bottom:2px solid var(--rule-soft);padding:18px 0}.results{padding:22px 0}}
+.filters h2{font-size:1.05rem;font-weight:800;margin-bottom:4px}
+.f-note{font-size:.8125rem;color:var(--muted);margin-bottom:12px;line-height:1.45}
+details.f{border-top:1.5px solid var(--rule-soft);padding:8px 0}
+details.f > summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;min-height:36px;font-family:var(--font-mono);font-size:.6875rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--ink)}
+details.f > summary::-webkit-details-marker{display:none}
+details.f > summary::after{content:"+";font-size:1rem;color:var(--muted)}
+details.f[open] > summary::after{content:"–"}
+details.f > summary .cnt{margin-left:auto;margin-right:8px;color:var(--accent)}
+.opts{display:flex;flex-wrap:wrap;gap:6px;padding:4px 0 6px}
+.chip{min-height:34px;padding:5px 9px;border:1.5px solid var(--rule-soft);background:var(--surface);color:var(--ink);font-family:var(--font-sans);font-size:.8125rem;cursor:pointer;border-radius:0;text-align:left;line-height:1.25}
+.chip:hover{border-color:var(--accent)}
+.chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.chip .n{font-family:var(--font-mono);font-size:.6875rem;opacity:.7;margin-left:4px}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:4px 0 8px}
+.f-row label{font-family:var(--font-mono);font-size:.625rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:4px}
+.f-check{display:flex;gap:8px;align-items:center;min-height:36px;font-size:.875rem}
+.f-check input{width:18px;height:18px;accent-color:var(--accent)}
+.btns{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:40px;padding:8px 12px;border:2px solid var(--rule);background:var(--surface);color:var(--ink);font-family:var(--font-mono);font-size:.6875rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;cursor:pointer;border-radius:0;text-decoration:none}
+.btn:hover{border-color:var(--accent);color:var(--accent)}
+.btn-primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn-primary:hover{background:var(--accent-2);color:var(--accent-ink)}
+.peer-count{font-family:var(--font-mono);font-size:.8125rem;padding:10px 12px;background:var(--accent-wash);border-left:4px solid var(--accent);margin:8px 0 4px}
+.peer-count b{font-size:1.1rem}
+
+/* result blocks */
+.block{padding:0 0 30px;margin-bottom:30px;border-bottom:1.5px solid var(--rule-soft)}
+.block:last-child{border-bottom:0}
+.sec-k{display:block;font-family:var(--font-mono);font-size:.6875rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:6px}
+.block h3{font-size:clamp(1.2rem,2.6vw,1.6rem);font-stretch:112%;font-weight:800;margin-bottom:8px}
+.lede{color:var(--ink-2);max-width:70ch;margin-bottom:14px}
+.readout{font-size:1.0625rem;line-height:1.55;max-width:66ch;margin:0 0 14px;padding:12px 14px;background:var(--surface);border:2px solid var(--rule)}
+.readout b{font-weight:700}
+.readout .hi{color:var(--warn);font-weight:700}
+.readout .ok{color:var(--ok);font-weight:700}
+.seg{display:inline-flex;flex-wrap:wrap;border:2px solid var(--rule);margin:0 0 12px}
+.seg button{min-height:36px;padding:6px 10px;border:0;border-left:1.5px solid var(--rule-soft);background:var(--surface);color:var(--ink);font-family:var(--font-mono);font-size:.6875rem;letter-spacing:.06em;text-transform:uppercase;cursor:pointer}
+.seg button:first-child{border-left:0}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.chart{position:relative;width:100%;min-width:0}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.chart text{font-family:var(--font-mono);font-size:11px;fill:var(--fig-axis)}
+.chart .muted{fill:var(--fig-mute)}
+.chart .grid{stroke:var(--fig-grid);stroke-width:1}
+.tip{position:absolute;pointer-events:none;z-index:20;background:var(--surface);border:2px solid var(--rule);padding:8px 10px;font-size:.8125rem;line-height:1.4;max-width:260px;box-shadow:0 8px 20px var(--shadow)}
+.tip[hidden]{display:none}
+.tip b{display:block}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:8px;font-family:var(--font-mono);font-size:.6875rem;color:var(--ink-2)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:50%}
+.legend i.band{border-radius:0;height:10px;width:18px;background:var(--accent-wash);border:1.5px dashed var(--accent)}
+.bars{display:grid;gap:6px}
+.bar{display:grid;grid-template-columns:minmax(120px,210px) minmax(0,1fr) 64px;gap:10px;align-items:center;font-size:.875rem}
+.bar .t{position:relative;height:18px;background:var(--surface-2)}
+.bar .t i{position:absolute;left:0;top:0;bottom:0;background:var(--accent)}
+.bar .t u{position:absolute;top:-3px;bottom:-3px;width:3px;background:var(--base)}
+.bar .v{font-family:var(--font-mono);font-size:.75rem;text-align:right;font-variant-numeric:tabular-nums}
+@media(max-width:560px){.bar{grid-template-columns:minmax(0,1fr) 56px}.bar .l{grid-column:1/-1}}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px}
+@media(max-width:760px){.two{grid-template-columns:minmax(0,1fr)}}
+.sub-h{font-family:var(--font-mono);font-size:.6875rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:700;margin:0 0 8px}
+.tbl-scroll{overflow-x:auto;max-width:100%;border:1.5px solid var(--rule-soft)}
+table{border-collapse:collapse;width:100%;font-size:.8125rem;font-variant-numeric:tabular-nums}
+th,td{border-bottom:1px solid var(--rule-soft);padding:7px 9px;text-align:right;white-space:nowrap}
+th:first-child,td:first-child{text-align:left;white-space:normal;min-width:180px}
+th{font-family:var(--font-mono);font-size:.625rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);position:sticky;top:0;background:var(--surface);cursor:pointer;user-select:none}
+th[aria-sort="ascending"]::after{content:" ▲"}
+th[aria-sort="descending"]::after{content:" ▼"}
+tr.is-base td{background:var(--accent-wash);font-weight:700}
+td button.linkish{background:none;border:0;padding:0;color:var(--accent);font:inherit;cursor:pointer;text-align:left;text-decoration:underline;text-underline-offset:2px}
+.st{font-family:var(--font-mono);font-size:.625rem;letter-spacing:.06em;text-transform:uppercase;padding:2px 6px;border:1.5px solid currentColor}
+.st.above{color:var(--warn)}.st.below{color:var(--ok)}.st.within{color:var(--muted)}
+.cards{display:grid;gap:10px}
+.icard{border:1.5px solid var(--rule-soft);background:var(--surface);padding:12px 14px}
+.icard .ih{display:flex;flex-wrap:wrap;gap:4px 12px;font-family:var(--font-mono);font-size:.6875rem;color:var(--muted);margin-bottom:6px}
+.icard .ih b{color:var(--ink)}
+.icard p{margin:0;font-size:.9rem;line-height:1.5}
+.note{font-size:.8125rem;color:var(--muted);margin-top:10px;max-width:72ch}
+.warnbox{background:var(--warn-wash);border-left:4px solid var(--warn);padding:10px 12px;font-size:.875rem;margin:0 0 12px;color:var(--ink-2)}
+.empty{padding:26px;text-align:center;color:var(--muted);border:2px dashed var(--rule-soft)}
+.loading{padding:40px 0;font-family:var(--font-mono);color:var(--muted)}
+footer.foot{padding:30px 0 50px;font-size:.8125rem;color:var(--muted)}
+footer.foot a{color:var(--muted)}
+@media (max-width:980px),(pointer:coarse){
+ .btn,.chip,.seg button,details.f > summary,.examples button,td button.linkish{min-height:44px}
+ .seg button,.chip{min-width:48px}
+ .f-check{padding:4px 0}
+ .examples button{display:inline-flex;align-items:center}
+ .f-check{min-height:44px}.f-check input{width:24px;height:24px}
+}
+@media print{.filters,.pick{display:none}.work{grid-template-columns:1fr}.results{padding:0}}
+</style>
+<script id="rs-theme-init">try{var t=localStorage.getItem("pc-theme")||localStorage.getItem("ehs-ai-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t);}catch(e){}</script><style id="rs-header-css">.rs-header,.rs-k{--rs-paper:var(--paper,#F7F7F3);--rs-surface:var(--surface,#FFFFFF);--rs-surface-2:var(--surface-2,#EFEFE9);--rs-ink:var(--ink,#101311);--rs-muted:var(--muted,var(--ink-2,#5E655F));--rs-rule:var(--rule,#101311);--rs-rule-soft:var(--rule-soft,#D6D7CE);--rs-accent:var(--accent,#1E40AF);--rs-mono:var(--font-mono,"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace);--rs-sans:var(--font-sans,"Archivo",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif);}:root[data-theme="dark"] .rs-header,:root[data-theme="dark"] .rs-k{--rs-paper:var(--paper,#0A0C10);--rs-surface:var(--surface,#12151C);--rs-surface-2:var(--surface-2,#171B24);--rs-ink:var(--ink,#EAECF2);--rs-muted:var(--muted,var(--ink-2,#959CAB));--rs-rule:var(--rule,#EAECF2);--rs-rule-soft:var(--rule-soft,#2C3240);--rs-accent:var(--accent,#7C9EFF);}@media (prefers-color-scheme:dark){:root:not([data-theme]) .rs-header,:root:not([data-theme]) .rs-k{--rs-paper:var(--paper,#0A0C10);--rs-surface:var(--surface,#12151C);--rs-surface-2:var(--surface-2,#171B24);--rs-ink:var(--ink,#EAECF2);--rs-muted:var(--muted,var(--ink-2,#959CAB));--rs-rule:var(--rule,#EAECF2);--rs-rule-soft:var(--rule-soft,#2C3240);--rs-accent:var(--accent,#7C9EFF);}}:root{--rs-header-h:58px}html{scroll-padding-top:calc(var(--rs-header-h) + 12px)}a.skip,a.skip-link{min-height:44px;box-sizing:border-box}.rs-header :where(a,button,nav,div,span,summary,details,b,i){all:revert;box-sizing:border-box}.rs-header [hidden]{display:none!important}.rs-header{transition:transform .28s cubic-bezier(.2,.8,.2,1)}.rs-header.rs-hide{transform:translateY(-100%)}@media (prefers-reduced-motion:reduce){.rs-header{transition:none}}.rs-header svg{display:block;width:18px;height:18px;fill:none;stroke:currentColor}.rs-header{all:revert;display:block;position:sticky;top:0;z-index:1000;margin:0;padding:0;width:auto;max-width:none;float:none;transform:none;box-sizing:border-box;background:var(--rs-paper);color:var(--rs-ink);border:0;box-shadow:none;font:400 14px/1.3 var(--rs-sans);text-align:left}.rs-header .rs-bar{border-bottom:2px solid var(--rs-rule);background:var(--rs-paper)}.rs-header .rs-row{display:flex;align-items:center;max-width:1180px;height:56px;margin:0 auto;padding:0 24px}.rs-header .rs-brand{display:flex;align-items:center;gap:10px;height:56px;padding:0 16px 0 0;font:700 13px/1 var(--rs-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--rs-ink);text-decoration:none;white-space:nowrap}.rs-header .rs-mark{display:block;width:14px;height:14px;background:var(--rs-accent);flex:none}.rs-header .rs-author{display:flex;align-items:center;height:44px;padding:0 0 0 16px;background:linear-gradient(var(--rs-rule-soft),var(--rs-rule-soft)) 0 50%/2px 24px no-repeat;font:500 12px/1 var(--rs-mono);letter-spacing:.06em;color:var(--rs-muted);text-decoration:none;white-space:nowrap;margin-right:8px}.rs-header .rs-author:hover{color:var(--rs-accent)}.rs-header .rs-nav{display:flex;align-items:center;height:56px;margin:0 0 0 auto;padding:0}.rs-header .rs-menu{display:flex;align-items:center;position:relative;height:56px;margin:0;padding:0}.rs-header .rs-item{display:flex;align-items:center;gap:6px;height:56px;margin:0;padding:0 14px;font:600 12px/1 var(--rs-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--rs-muted);text-decoration:none;white-space:nowrap;cursor:pointer;list-style:none;background:transparent;border:0}.rs-header .rs-item::-webkit-details-marker{display:none}.rs-header .rs-item::marker{content:""}.rs-header .rs-item:hover,.rs-header .rs-menu[open]>.rs-item{background:var(--rs-surface-2);color:var(--rs-ink)}.rs-header .rs-item[aria-current="page"],.rs-header .rs-menu[data-current]>.rs-item{color:var(--rs-ink);box-shadow:inset 0 -3px 0 var(--rs-accent)}.rs-header .rs-story{color:var(--rs-accent);font-weight:700;box-shadow:inset 0 -3px 0 var(--rs-accent)}.rs-header .rs-story::before{content:"";display:block;width:7px;height:7px;background:var(--rs-accent);flex:none}.rs-header .rs-story:hover{background:var(--rs-accent);color:var(--rs-paper)}.rs-header .rs-story:hover::before{background:var(--rs-paper)}.rs-header .rs-caret{display:block;width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid currentColor;transition:transform .15s}.rs-header .rs-menu[open] .rs-caret{transform:rotate(180deg)}.rs-header .rs-panel{display:block;position:absolute;top:calc(100% + 2px);right:0;width:340px;max-width:calc(100vw - 32px);margin:0;padding:0;background:var(--rs-surface);border:2px solid var(--rs-rule);box-shadow:6px 6px 0 var(--rs-rule);z-index:1}.rs-header .rs-opt{display:flex;flex-direction:column;justify-content:center;gap:4px;min-height:44px;padding:9px 14px;border-bottom:1px solid var(--rs-rule-soft);color:var(--rs-ink);text-decoration:none}.rs-header .rs-opt:last-child{border-bottom:0}.rs-header .rs-opt:hover{background:var(--rs-surface-2)}.rs-header .rs-opt[aria-current="page"]{box-shadow:inset 4px 0 0 var(--rs-accent);background:var(--rs-surface-2)}.rs-header .rs-t{display:block;font:500 14px/1.25 var(--rs-sans);color:var(--rs-ink)}.rs-header .rs-n{display:block;font:400 12px/1.25 var(--rs-mono);letter-spacing:.04em;color:var(--rs-muted)}.rs-header .rs-opt[aria-current="page"] .rs-n::after{content:" \00B7  you are here";color:var(--rs-accent)}.rs-header .rs-sep{display:block;width:2px;height:24px;margin:0 12px 0 10px;background:var(--rs-rule-soft);flex:none}.rs-header .rs-btn{display:inline-flex;align-items:center;justify-content:center;flex:none;width:44px;height:44px;margin:0;padding:0;background:var(--rs-paper);color:var(--rs-ink);border:2px solid var(--rs-rule);border-radius:0;cursor:pointer;font:600 12px/1 var(--rs-mono);touch-action:manipulation}.rs-header .rs-find{margin-right:8px;gap:8px}.rs-header .rs-find span{display:none}.rs-header:not(.rs-js) .rs-find{display:none}.rs-header .rs-btn:hover{background:var(--rs-surface-2)}.rs-header .rs-moon{display:none}:root[data-theme="dark"] .rs-header .rs-sun{display:none}:root[data-theme="dark"] .rs-header .rs-moon{display:block}@media (prefers-color-scheme:dark){:root:not([data-theme]) .rs-header .rs-sun{display:none}:root:not([data-theme]) .rs-header .rs-moon{display:block}}.rs-header .rs-burger{display:none;width:44px;height:44px;margin-left:8px}.rs-header .rs-burger i{display:block;position:relative;width:18px;height:2px;background:currentColor;transition:background .15s}.rs-header .rs-burger i::before,.rs-header .rs-burger i::after{content:"";position:absolute;left:0;width:18px;height:2px;background:currentColor;transition:transform .15s}.rs-header .rs-burger i::before{top:-6px}.rs-header .rs-burger i::after{top:6px}.rs-header .rs-burger[aria-expanded="true"] i{background:transparent}.rs-header .rs-burger[aria-expanded="true"] i::before{transform:translateY(6px) rotate(45deg)}.rs-header .rs-burger[aria-expanded="true"] i::after{transform:translateY(-6px) rotate(-45deg)}.rs-header :focus-visible{outline:2px solid var(--rs-accent);outline-offset:-2px}.rs-header .rs-sub{position:relative;border-bottom:2px solid var(--rs-rule-soft);background:var(--rs-paper)}.rs-header .rs-subrow{height:44px}.rs-header .rs-sublabel{display:block;flex:none;padding:0 12px 0 0;font:500 12px/1 var(--rs-mono);letter-spacing:.06em;color:var(--rs-muted);white-space:nowrap}.rs-header .rs-sections{display:flex;align-items:center;position:relative;flex:1 1 auto;min-width:0;height:44px;margin:0;padding:0;overflow-x:auto;scrollbar-width:none}.rs-header .rs-sections::-webkit-scrollbar{display:none}.rs-header .rs-sections.rs-fl{-webkit-mask-image:linear-gradient(90deg,transparent,#000 32px);mask-image:linear-gradient(90deg,transparent,#000 32px)}.rs-header .rs-sections.rs-fr{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 32px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 32px),transparent)}.rs-header .rs-sections.rs-fl.rs-fr{-webkit-mask-image:linear-gradient(90deg,transparent,#000 32px,#000 calc(100% - 32px),transparent);mask-image:linear-gradient(90deg,transparent,#000 32px,#000 calc(100% - 32px),transparent)}.rs-header .rs-sec{display:flex;align-items:center;flex:none;height:44px;padding:0 10px;font:600 12px/1 var(--rs-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--rs-muted);text-decoration:none;white-space:nowrap}.rs-header .rs-sec:hover{color:var(--rs-ink)}.rs-header .rs-sec.rs-active{color:var(--rs-accent);box-shadow:inset 0 -2px 0 var(--rs-accent)}.rs-header .rs-subbtn{display:none;align-items:center;gap:8px;width:100%;height:44px;margin:0;padding:0;background:transparent;border:0;color:var(--rs-muted);font:500 12px/1 var(--rs-mono);letter-spacing:.06em;cursor:pointer;text-align:left}.rs-header .rs-subbtn b{flex:1 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--rs-ink);font-weight:600;text-transform:uppercase}.rs-header .rs-subbtn[aria-expanded="true"] .rs-caret{transform:rotate(180deg)}.rs-header .rs-sublist{position:absolute;top:calc(100% + 2px);left:0;right:0;max-height:60vh;overflow-y:auto;margin:0;padding:0;background:var(--rs-surface);border-top:2px solid var(--rs-rule);border-bottom:2px solid var(--rs-rule);box-shadow:0 6px 0 var(--rs-rule)}.rs-header .rs-sublist .rs-sec{height:auto;min-height:44px;padding:0 16px;border-bottom:1px solid var(--rs-rule-soft)}.rs-header .rs-sublist .rs-sec.rs-active{box-shadow:inset 4px 0 0 var(--rs-accent)}.rs-header .rs-progress{display:block;position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--rs-accent);transform:scaleX(0);transform-origin:0 50%;pointer-events:none}.rs-header .rs-sheet{position:fixed;top:58px;overscroll-behavior:contain;left:0;right:0;bottom:0;overflow-y:auto;margin:0;padding:8px 16px 32px;background:var(--rs-paper);border-top:0;z-index:2}.rs-header .rs-sheet a{display:flex;align-items:center;min-height:48px;padding:0 4px;border-bottom:1px solid var(--rs-rule-soft);color:var(--rs-ink);text-decoration:none;font:600 13px/1.2 var(--rs-mono);letter-spacing:.06em;text-transform:uppercase}.rs-header .rs-sheet a[aria-current="page"]{color:var(--rs-accent);box-shadow:inset 4px 0 0 var(--rs-accent);padding-left:14px}.rs-header .rs-sheet .rs-opt{align-items:flex-start;font:inherit;text-transform:none;letter-spacing:0;padding:8px 4px}.rs-header .rs-sheet .rs-opt[aria-current="page"]{padding-left:14px}.rs-header .rs-group{display:block;margin:24px 0 4px;font:500 12px/1 var(--rs-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--rs-muted)}.rs-header .rs-sheet a.rs-sheet-author{margin-top:24px;border-top:2px solid var(--rs-rule);border-bottom:0;color:var(--rs-muted);text-transform:none;font-weight:500}htmlhtml.rs-lock{overflow:hidden}@media (max-width:1279.98px){.rs-header .rs-author{display:none}}.rs-header .rs-crumb{display:flex;align-items:center;gap:10px;min-width:0;height:56px;padding:0 4px 0 0}.rs-header .rs-slash{color:var(--rs-muted);font:400 20px/1 var(--rs-sans)}.rs-header .rs-proj,.rs-header .rs-here{display:block;min-width:0;line-height:44px!important;min-height:44px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font:700 15px/1.2 var(--rs-sans);color:var(--rs-ink);text-decoration:none}.rs-header a.rs-proj:hover{text-decoration:underline}.rs-header .rs-tabs{display:flex;align-items:center;height:56px;margin:0 0 0 14px;padding:0}.rs-header .rs-tab{display:flex;align-items:center;height:56px;padding:0 12px;font:600 12px/1 var(--rs-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--rs-muted);text-decoration:none;white-space:nowrap}.rs-header .rs-tab:hover{background:var(--rs-surface-2);color:var(--rs-ink)}.rs-header .rs-tab[aria-current="page"]{color:var(--rs-ink);box-shadow:inset 0 -3px 0 var(--rs-accent)}.rs-header .rs-tab:focus-visible,.rs-header .rs-proj:focus-visible{outline:3px solid var(--rs-accent);outline-offset:-3px}@media (max-width:599.98px){.rs-header .rs-brand:has(+.rs-crumb){font-size:0;gap:0;min-width:44px;padding-right:0;justify-content:center}.rs-header .rs-crumb{gap:8px}}@media (max-width:1100px){.rs-header .rs-item{padding:0 10px}}@media (min-width:1280px){.rs-header .rs-find{width:auto;padding:0 12px}.rs-header .rs-find span{display:block}.rs-header .rs-item{padding:0 12px}}@media (max-width:1099.98px){.rs-header .rs-tabs{display:none}.rs-header .rs-find{margin-left:auto}.rs-header .rs-row{padding:0 16px}.rs-header.rs-js .rs-nav,.rs-header.rs-js .rs-sep,.rs-header .rs-author{display:none}.rs-header.rs-js .rs-burger{display:inline-flex}.rs-header:not(.rs-js) .rs-nav{overflow-x:auto;margin-left:0}.rs-header.rs-js .rs-sublabel,.rs-header.rs-js .rs-subrow>.rs-sections{display:none}.rs-header.rs-js .rs-subbtn{display:flex}}@media (min-width:1100px){.rs-header .rs-sheet,.rs-header .rs-sublist{display:none}}.rs-k,.rs-k :where(div,span,a,button,input,p,mark,kbd,b,svg){all:revert;box-sizing:border-box}.rs-k{width:min(640px,100vw - 32px);max-width:none;max-height:min(76vh,680px);margin:10vh auto auto;padding:0;overflow:hidden;background:var(--rs-surface);color:var(--rs-ink);border:2px solid var(--rs-rule);box-shadow:8px 8px 0 var(--rs-rule);font:400 15px/1.4 var(--rs-sans)}.rs-k[open]{display:flex;flex-direction:column}.rs-k::backdrop{background:#0a0c108c}.rs-k svg{flex:none;width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2}.rs-k-top{display:flex;align-items:center;gap:10px;padding:0 8px 0 16px;border-bottom:2px solid var(--rs-rule);color:var(--rs-muted)}.rs-k-top:focus-within{box-shadow:inset 0 -2px var(--rs-accent)}.rs-k input{flex:1;min-width:0;height:56px;border:0;outline:0;background:none;color:var(--rs-ink);font:500 17px var(--rs-sans);appearance:none}.rs-k input::placeholder{color:var(--rs-muted)}.rs-k-x{min-width:44px;height:44px;padding:0 10px;background:none;color:var(--rs-muted);border:1px solid var(--rs-rule-soft);font:600 12px var(--rs-mono);text-transform:uppercase;cursor:pointer}#rs-k-list{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;padding-bottom:8px}#rs-k-list:empty{display:none}.rs-k-g{padding:14px 16px 6px;font:600 12px var(--rs-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--rs-muted)}.rs-k [role=option]{display:block;padding:9px 16px 9px 13px;border-left:3px solid transparent;color:var(--rs-ink);text-decoration:none}.rs-k [role=option]:hover,.rs-k [aria-selected=true]{background:var(--rs-surface-2);border-color:var(--rs-accent)}.rs-k-t{display:block;font-weight:500}.rs-k-c{display:block;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font-size:13px;color:var(--rs-muted)}.rs-k-c b{margin-right:6px;color:var(--rs-ink)}.rs-k mark{background:none;color:inherit;font-weight:700;text-decoration:underline 2px var(--rs-accent);text-underline-offset:2px}.rs-k-e{margin:0;padding:20px 16px;color:var(--rs-muted)}.rs-k-f{margin:0;padding:10px 16px;border-top:1px solid var(--rs-rule-soft);font:500 12px var(--rs-mono);color:var(--rs-muted);word-spacing:6px}.rs-k-f kbd{margin:0 4px 0 0;padding:2px 5px;border:1px solid var(--rs-rule-soft);font:inherit;word-spacing:0}.rs-k-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}.rs-k :focus-visible{outline:2px solid var(--rs-accent);outline-offset:-2px}@media (max-width:640px){.rs-k{width:100%;height:100%;max-height:100%;margin:0;border:0;box-shadow:none}.rs-k-f{display:none}}@media (prefers-reduced-motion:reduce){.rs-header *,.rs-header *::before,.rs-header *::after{transition:none!important}}@media print{.rs-header,.rs-k{display:none!important}}</style></head>
+<body>
+<a class="skip" href="#main">Skip to content</a><header class="rs-header" id="rs-header"><div class="rs-bar"><div class="rs-row"><a class="rs-brand" href="https://priyatham9.github.io/grounded/" aria-label="Grounded home"><span class="rs-mark" aria-hidden="true"></span>Grounded</a><span class="rs-crumb"><span class="rs-slash" aria-hidden="true">/</span><a class="rs-proj" href="https://priyatham9.github.io/ehs-chemical-peers/">Chemical plant peers</a></span><nav class="rs-tabs" aria-label="Pages in Chemical plant peers"><a class="rs-tab" href="https://priyatham9.github.io/ehs-chemical-peers/" aria-current="page">Plant explorer</a><a class="rs-tab" href="https://priyatham9.github.io/ehs-chemical-peers/story.html">Story</a><a class="rs-tab" href="https://priyatham9.github.io/ehs-chemical-peers/method.html">Data &amp; method</a></nav><nav class="rs-nav" aria-label="Research site"><a class="rs-item" href="https://priyatham9.github.io/grounded/#projects">All projects</a><a class="rs-item" href="https://priyatham9.github.io/grounded/#papers">Papers</a></nav><span class="rs-sep" aria-hidden="true"></span><button class="rs-btn rs-find" id="rs-find" type="button" aria-haspopup="dialog" aria-keyshortcuts="Control+K Meta+K /" aria-label="Search the research" title="Search (/ or Ctrl+K)"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg><span>Search</span></button><button class="rs-btn" id="rs-theme" type="button" aria-label="Dark theme" aria-pressed="false" title="Switch colour theme"><svg class="rs-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"/></svg><svg class="rs-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/></svg></button><button class="rs-btn rs-burger" id="rs-menu-btn" type="button" aria-expanded="false" aria-controls="rs-sheet" aria-label="Open menu"><i></i></button></div></div><div class="rs-sheet" id="rs-sheet" hidden><a href="https://priyatham9.github.io/grounded/">Grounded home</a><span class="rs-group">Chemical plant peers</span><a href="https://priyatham9.github.io/ehs-chemical-peers/" aria-current="page">Plant explorer</a><a href="https://priyatham9.github.io/ehs-chemical-peers/story.html">Story</a><a href="https://priyatham9.github.io/ehs-chemical-peers/method.html">Data &amp; method</a><span class="rs-group">All projects</span><a class="rs-opt" href="https://priyatham9.github.io/ehs-osha-analysis/"><span class="rs-t">OSHA data quality</span><span class="rs-n">2.8M real filings</span></a><a class="rs-opt" href="https://priyatham9.github.io/ehs-ai-grounding-eval/"><span class="rs-t">Grounding benchmark</span><span class="rs-n">first baselines</span></a><a class="rs-opt" href="https://priyatham9.github.io/ehs-human-factors-ontology/"><span class="rs-t">Human factors ontology</span><span class="rs-n">derivation traces</span></a><a class="rs-opt" href="https://priyatham9.github.io/ehs-risk-sem/"><span class="rs-t">SEM for safety risk</span><span class="rs-n">simulation studies</span></a><a class="rs-opt" href="https://priyatham9.github.io/ehs-capitals-calculator/"><span class="rs-t">Cost-benefit calculator</span><span class="rs-n">interactive tool</span></a><a class="rs-opt" href="https://priyatham9.github.io/ehs-benchmarks/"><span class="rs-t">OSHA benchmarks</span><span class="rs-n">TRIR/DART library</span></a><a class="rs-opt" href="https://priyatham9.github.io/ehs-chemical-peers/" aria-current="page"><span class="rs-t">Chemical plant peers</span><span class="rs-n">peer explorer</span></a><span class="rs-group">Papers</span><a class="rs-opt" href="https://priyatham9.github.io/grounded/paper.html"><span class="rs-t">Grounded reasoning for safety-critical AI</span><span class="rs-n">bundled draft</span></a><a class="rs-opt" href="https://priyatham9.github.io/grounded/paper-osha.html"><span class="rs-t">The hours denominator</span><span class="rs-n">standalone OSHA paper</span></a><a class="rs-sheet-author" href="https://priyatham9.github.io/">Priyatham Chimmani&nbsp;&#8599;</a></div><span class="rs-progress" aria-hidden="true"></span></header>
+<main id="main">
+  <section class="hero">
+    <div class="wrap">
+      <span class="sec-k">Chemical manufacturing · public OSHA and EPA records</span>
+      <h1 class="display">How does your plant compare?</h1>
+      <p class="hero-lede">Pick any US chemical plant. See its injuries, chemical releases and serious injuries next to plants that make similar products, hold similar chemicals and employ a similar number of people. The chart shows how much of a small plant's record is chance, so the comparison stays fair.</p>
+      <div class="hero-how">
+        <div><b>1 · Pick a plant</b>Search by name, city, or EPA facility ID. Any plant works.</div>
+        <div><b>2 · Choose its peers</b>Filter by product type, chemicals held, size, state and years. Or press "Match my plant".</div>
+        <div><b>3 · Read it fairly</b>Each chart says in plain words whether a difference is real or within the range of luck.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pick" aria-labelledby="pick-h">
+    <div class="wrap">
+      <div class="pick-row">
+        <div class="pick-box">
+          <label id="pick-h" for="q">Your plant (the baseline)</label>
+          <input id="q" type="search" autocomplete="off" placeholder="Plant name, company, city or EPA ID" role="combobox" aria-expanded="false" aria-controls="sugg" aria-autocomplete="list" />
+          <ul id="sugg" class="sugg" role="listbox" hidden></ul>
+        </div>
+        <button class="btn" id="clear-base" type="button">No baseline</button>
+      </div>
+      <p class="examples" id="examples">Loading plants…</p>
+    </div>
+  </section>
+
+  <section class="plant" id="plant" hidden aria-live="polite">
+    <div class="wrap" id="plant-body"></div>
+  </section>
+
+  <div class="wrap">
+    <div class="work">
+      <aside class="filters" aria-labelledby="f-h">
+        <h2 id="f-h">Peer group</h2>
+        <p class="f-note">Every chart below compares your plant with the plants that pass these filters.</p>
+        <div class="btns">
+          <button class="btn btn-primary" id="match" type="button" disabled>Match my plant</button>
+          <button class="btn" id="reset" type="button">Clear filters</button>
+        </div>
+        <div class="peer-count" id="peer-count" aria-live="polite">…</div>
+        <div id="filter-body"></div>
+      </aside>
+      <div class="results" id="results"><p class="loading">Loading public records…</p></div>
+    </div>
+  </div>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <p>Sources: OSHA Injury Tracking Application (Form 300A, 2016-2024); EPA Risk Management Program accident histories (Data Liberation Project FOIA copy, through 2025); OSHA Severe Injury Reports (January 2015 to November 2025). Plants are joined across sources by address. Figures are what plants reported to the government; nothing here is an audit. <a href="method.html">How the data was built</a> · <a href="https://github.com/priyatham9/ehs-chemical-peers">Code</a> · MIT licence.</p>
+  </div>
+</footer>
+<script>
+(function () {
+"use strict";
+var PER = 200000;
+var D = {};            // meta, plants, releases, injuries
+var byId = {};
+var S = {base: null, f: null, view: {rel: "cause", inj: "all", norm: "plant-year"}, sort: {key: "hours", dir: -1}};
+var $ = function (s, r) { return (r || document).querySelector(s); };
+var esc = function (s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) { return {"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]; }); };
+var fmt = function (n, d) { if (n == null || isNaN(n)) return "–"; return Number(n).toLocaleString("en-US", {minimumFractionDigits: d || 0, maximumFractionDigits: d || 0}); };
+var fmtLb = function (n) { if (!n) return "–"; if (n >= 1e6) return fmt(n / 1e6, 1) + "M lb"; if (n >= 1e3) return fmt(n / 1e3, 0) + "k lb"; return fmt(n) + " lb"; };
+var title = function (s) { return String(s || "").toLowerCase().replace(/\b[a-z]/g, function (c) { return c.toUpperCase(); }); };
+
+// ---------------------------------------------------------------- stats
+function poissonCdf(k, mu) {
+  if (k < 0) return 0; if (mu <= 0) return 1;
+  var logp = -mu, total = Math.exp(logp);
+  for (var i = 1; i <= k; i++) { logp += Math.log(mu) - Math.log(i); total += Math.exp(logp); }
+  return Math.min(total, 1);
+}
+function poissonQ(p, mu) {
+  if (mu <= 0) return 0;
+  var k = Math.max(0, Math.floor(mu - 10 * Math.sqrt(mu) - 10));
+  while (poissonCdf(k, mu) < p) k++;
+  return k;
+}
+// Exact Poisson quantile, interpolated between whole counts (Spiegelhalter 2005)
+// so the band is a smooth curve instead of a staircase.
+function smoothQ(p, mu) {
+  var k = poissonQ(p, mu), hi = poissonCdf(k, mu), lo = poissonCdf(k - 1, mu);
+  var a = hi > lo ? (hi - p) / (hi - lo) : 0;
+  return Math.max(0, k - a);
+}
+function limits(rate, hours, p) {
+  var mu = rate * hours / PER;
+  return [smoothQ(1 - p, mu) * PER / hours, smoothQ(p, mu) * PER / hours];
+}
+function median(a) { a = a.filter(function (x) { return x != null && !isNaN(x); }).sort(function (x, y) { return x - y; }); if (!a.length) return null; var m = a.length >> 1; return a.length % 2 ? a[m] : (a[m - 1] + a[m]) / 2; }
+function pctRank(a, v) { var n = 0, le = 0; a.forEach(function (x) { if (x == null) return; n++; if (x < v) le++; else if (x === v) le += 0.5; }); return n ? 100 * le / n : null; }
+
+// ---------------------------------------------------------------- data
+function load() {
+  var files = ["meta", "plants", "releases", "injuries"];
+  return Promise.all(files.map(function (f) { return fetch("data/" + f + ".json").then(function (r) { if (!r.ok) throw new Error(f); return r.json(); }); }))
+    .then(function (res) {
+      D.meta = res[0];
+      var pc = D.meta.plant_cols, yc = D.meta.year_cols;
+      D.plants = res[1].map(function (row) {
+        var p = {}; pc.forEach(function (c, i) { p[c] = row[i]; });
+        var ys = {}; Object.keys(p.years).forEach(function (y) { var o = {}; yc.forEach(function (c, i) { o[c] = p.years[y][i]; }); ys[y] = o; });
+        p.years = ys;
+        p.search = [p.name, p.company, p.city, p.state, p.rmp_id, p.zip].join(" ").toLowerCase();
+        p.statePlan = D.meta.state_plan.indexOf(p.state) >= 0;
+        byId[p.id] = p;
+        return p;
+      });
+      var rc = D.meta.release_cols, ic = D.meta.injury_cols;
+      D.releases = res[2].map(function (row) { var o = {}; rc.forEach(function (c, i) { o[c] = row[i]; }); return o; });
+      D.injuries = res[3].map(function (row) { var o = {}; ic.forEach(function (c, i) { o[c] = row[i]; }); return o; });
+      D.injSub = {};
+      D.injuries.forEach(function (x) { x.sub = subsectorOf(x.naics); });
+      D.chemicals = {};
+      D.plants.forEach(function (p) { p.chemicals.forEach(function (c) { D.chemicals[c[0]] = (D.chemicals[c[0]] || 0) + 1; }); });
+      D.states = {};
+      D.plants.forEach(function (p) { if (p.state) D.states[p.state] = (D.states[p.state] || 0) + 1; });
+    });
+}
+var SUBPREFIX = null;
+function subsectorOf(naics) {
+  if (!SUBPREFIX) {
+    SUBPREFIX = [["325211","Resins & plastics"],["325212","Synthetic rubber"],["32522","Fibers"],["32511","Petrochemicals"],["32512","Industrial gases"],["32513","Dyes & pigments"],["32518","Acids & inorganics"],["325193","Ethanol & biofuels"],["32519","Other basic organics (incl. formaldehyde)"],["3253","Fertilizer & ag chemicals"],["3254","Pharmaceuticals"],["32551","Paints & coatings"],["32552","Adhesives"],["3256","Soaps, cleaners & personal care"],["32592","Explosives"],["3259","Compounding & specialty"],["32521","Plastics resins (older code)"]];
+  }
+  naics = String(naics || "");
+  for (var i = 0; i < SUBPREFIX.length; i++) if (naics.indexOf(SUBPREFIX[i][0]) === 0) return SUBPREFIX[i][1];
+  return "Other chemical";
+}
+
+// ---------------------------------------------------------------- filters
+function defaults() {
+  return {sub: [], fam: [], chem: [], size: [], inv: [], state: [], company: "", src: "any", cov: "any", active: true, y0: 2016, y1: 2024};
+}
+function sizeBand(e) { if (e == null) return ""; if (e < 50) return "Under 50"; if (e < 100) return "50-99"; if (e < 250) return "100-249"; if (e < 1000) return "250-999"; return "1,000+"; }
+function invBand(v) { if (!v) return ""; if (v < 1e5) return "Under 100k lb"; if (v < 1e6) return "100k-1M lb"; if (v < 5e6) return "1M-5M lb"; return "5M+ lb"; }
+function passes(p, f) {
+  if (f.sub.length && !p.subsectors.some(function (s) { return f.sub.indexOf(s) >= 0; })) return false;
+  if (f.fam.length && !p.families.some(function (s) { return f.fam.indexOf(s) >= 0; })) return false;
+  if (f.chem.length && !p.chemicals.some(function (c) { return f.chem.indexOf(c[0]) >= 0; })) return false;
+  if (f.size.length && f.size.indexOf(sizeBand(p.employees)) < 0) return false;
+  if (f.inv.length && f.inv.indexOf(invBand(p.inventory_lb)) < 0) return false;
+  if (f.state.length && f.state.indexOf(p.state) < 0) return false;
+  if (f.company && (p.company + " " + p.name).toLowerCase().indexOf(f.company.toLowerCase()) < 0) return false;
+  if (f.src === "epa" && !p.rmp_id) return false;
+  if (f.src === "osha" && !Object.keys(p.years).length) return false;
+  if (f.src === "both" && (!p.rmp_id || !Object.keys(p.years).length)) return false;
+  if (f.cov === "federal" && p.statePlan) return false;
+  if (f.cov === "state" && !p.statePlan) return false;
+  if (f.active && !p.active) return false;
+  return true;
+}
+function peers() {
+  var f = S.f;
+  return D.plants.filter(function (p) { return passes(p, f) && (!S.base || p.id !== S.base.id); });
+}
+function matchBase() {
+  var b = S.base; if (!b) return;
+  var f = defaults();
+  f.sub = [b.subsectors[0]];
+  f.fam = b.families.slice(0, 1);
+  var sb = sizeBand(b.employees);
+  var bands = D.meta.size_bands, i = bands.indexOf(sb);
+  f.size = i < 0 ? [] : bands.slice(Math.max(0, i - 1), i + 2).filter(function (x, j, a) { return j === 1 || a.length < 3 || true; });
+  if (i >= 0) f.size = [bands[i]].concat(i > 0 ? [bands[i - 1]] : []).concat(i < bands.length - 1 ? [bands[i + 1]] : []);
+  f.y0 = S.f.y0; f.y1 = S.f.y1;
+  S.f = f;
+  renderFilters(); render();
+}
+
+function chipGroup(key, label, options, counts, hint) {
+  var sel = S.f[key];
+  var html = '<details class="f"' + (sel.length ? " open" : "") + ' data-key="' + key + '"><summary>' + esc(label) + (sel.length ? '<span class="cnt">' + sel.length + "</span>" : "") + "</summary>";
+  if (hint) html += '<p class="f-note">' + esc(hint) + "</p>";
+  html += '<div class="opts">' + options.map(function (o) {
+    var v = typeof o === "string" ? o : o.v, lab = typeof o === "string" ? o : o.l;
+    return '<button type="button" class="chip" data-k="' + key + '" data-v="' + esc(v) + '" aria-pressed="' + (sel.indexOf(v) >= 0) + '">' + esc(lab) + (counts && counts[v] != null ? '<span class="n">' + fmt(counts[v]) + "</span>" : "") + "</button>";
+  }).join("") + "</div></details>";
+  return html;
+}
+function counter(fn) { var c = {}; D.plants.forEach(function (p) { fn(p).forEach(function (v) { if (v) c[v] = (c[v] || 0) + 1; }); }); return c; }
+function renderFilters() {
+  var f = S.f, m = D.meta;
+  var subC = counter(function (p) { return p.subsectors; });
+  var famC = counter(function (p) { return p.families; });
+  var sizeC = counter(function (p) { return [sizeBand(p.employees)]; });
+  var invC = counter(function (p) { return [invBand(p.inventory_lb)]; });
+  var chems = Object.keys(D.chemicals).sort(function (a, b) { return D.chemicals[b] - D.chemicals[a]; }).slice(0, 40);
+  var states = Object.keys(D.states).sort();
+  var yrs = []; for (var y = 2016; y <= 2024; y++) yrs.push(y);
+  var yopt = function (sel) { return yrs.map(function (y) { return '<option value="' + y + '"' + (y === sel ? " selected" : "") + ">" + y + "</option>"; }).join(""); };
+  var html = "";
+  html += '<details class="f" open><summary>Years</summary><div class="f-row"><div><label for="y0">From</label><select id="y0">' + yopt(f.y0) + '</select></div><div><label for="y1">To</label><select id="y1">' + yopt(f.y1) + '</select></div></div><p class="f-note">Injury rates pool every year in this window. Releases and serious injuries use the same years.</p></details>';
+  html += chipGroup("sub", "Product type", m.subsectors.filter(function (s) { return subC[s]; }), subC, "What the plant makes, from its industry code. A plant can have more than one.");
+  html += chipGroup("fam", "Chemical family", m.families.map(function (x) { return {v: x.name, l: x.name}; }).filter(function (o) { return famC[o.v]; }), famC, "From chemicals the plant holds above EPA's reporting limit. Only EPA-registered plants have these.");
+  html += chipGroup("chem", "Chemical held", chems.map(function (c) { return {v: c, l: c.replace(/\s*\[.*?\]/, "")}; }), D.chemicals, "The 40 most common EPA-listed chemicals at chemical plants.");
+  html += chipGroup("size", "Workforce", m.size_bands, sizeC);
+  html += chipGroup("inv", "Chemical on site", m.inventory_bands, invC, "Total pounds of EPA-listed chemicals held.");
+  html += '<details class="f"' + (f.state.length ? " open" : "") + '><summary>State' + (f.state.length ? '<span class="cnt">' + f.state.length + "</span>" : "") + '</summary><div class="opts">' + states.map(function (s) { return '<button type="button" class="chip" data-k="state" data-v="' + s + '" aria-pressed="' + (f.state.indexOf(s) >= 0) + '">' + s + '<span class="n">' + D.states[s] + "</span></button>"; }).join("") + "</div></details>";
+  html += '<details class="f"' + (f.company || f.src !== "any" || f.cov !== "any" ? " open" : "") + '><summary>More</summary>' +
+    '<div style="padding:4px 0 8px"><label class="f-note" for="company" style="display:block;margin:0 0 4px">Company or name contains</label><input id="company" type="search" value="' + esc(f.company) + '" placeholder="e.g. a parent company" /></div>' +
+    '<div class="f-row"><div><label for="src">Records</label><select id="src"><option value="any">Any</option><option value="epa">EPA registered</option><option value="osha">Files OSHA logs</option><option value="both">Both</option></select></div>' +
+    '<div><label for="cov">OSHA program</label><select id="cov"><option value="any">Any</option><option value="federal">Federal OSHA</option><option value="state">State-run</option></select></div></div>' +
+    '<label class="f-check"><input type="checkbox" id="active"' + (f.active ? " checked" : "") + " /> Currently registered plants only</label>" +
+    '<p class="f-note">Serious-injury reports only exist for states under federal OSHA. In state-run states the serious-injury charts will be empty.</p></details>';
+  $("#filter-body").innerHTML = html;
+  $("#src").value = f.src; $("#cov").value = f.cov;
+}
+function bindFilters() {
+  var fb = $("#filter-body");
+  fb.addEventListener("click", function (e) {
+    var c = e.target.closest(".chip"); if (!c) return;
+    var k = c.getAttribute("data-k"), v = c.getAttribute("data-v"), a = S.f[k], i = a.indexOf(v);
+    if (i >= 0) a.splice(i, 1); else a.push(v);
+    c.setAttribute("aria-pressed", i < 0);
+    var sum = c.closest("details").querySelector("summary");
+    var cnt = sum.querySelector(".cnt");
+    if (a.length) { if (!cnt) { cnt = document.createElement("span"); cnt.className = "cnt"; sum.appendChild(cnt); } cnt.textContent = a.length; } else if (cnt) cnt.remove();
+    render();
+  });
+  fb.addEventListener("change", function (e) {
+    var t = e.target;
+    if (t.id === "y0" || t.id === "y1") {
+      S.f[t.id] = +t.value;
+      if (S.f.y0 > S.f.y1) { var x = S.f.y0; S.f.y0 = S.f.y1; S.f.y1 = x; $("#y0").value = S.f.y0; $("#y1").value = S.f.y1; }
+    }
+    if (t.id === "src" || t.id === "cov") S.f[t.id] = t.value;
+    if (t.id === "active") S.f.active = t.checked;
+    render();
+  });
+  var tmr;
+  fb.addEventListener("input", function (e) { if (e.target.id !== "company") return; clearTimeout(tmr); tmr = setTimeout(function () { S.f.company = e.target.value.trim(); render(); }, 250); });
+  $("#reset").addEventListener("click", function () { S.f = defaults(); renderFilters(); render(); });
+  $("#match").addEventListener("click", matchBase);
+}
+
+// ---------------------------------------------------------------- per-plant numbers
+function pooled(p) {
+  var h = 0, c = 0, lost = 0, n = 0, bad = 0, yrs = [];
+  for (var y = S.f.y0; y <= S.f.y1; y++) {
+    var r = p.years[y]; if (!r) continue;
+    if (!r.plausible || !r.hours) { bad++; continue; }
+    h += r.hours; c += r.dafw + r.djtr + r.other; lost += r.dafw; n++;
+    yrs.push({y: y, h: r.hours, c: r.dafw + r.djtr + r.other, e: r.emp});
+  }
+  return {hours: h, cases: c, lost: lost, years: n, dropped: bad, rate: h ? c * PER / h : null, lostRate: h ? lost * PER / h : null, list: yrs};
+}
+function inWindow(date) { var y = +String(date).slice(0, 4); return y >= S.f.y0 && y <= S.f.y1 + (S.f.y1 === 2024 ? 1 : 0); }
+function relYears(p) {
+  if (!p.rmp_id || !p.rmp_first) return 0;
+  var end = p.active ? 2025 : Math.min(p.rmp_last || 2025, 2025);
+  var a = Math.max(S.f.y0, p.rmp_first - 5), b = Math.min(S.f.y1 === 2024 ? 2025 : S.f.y1, end);
+  return Math.max(0, b - a + 1);
+}
+function plantReleases(p) { return p.releases.map(function (i) { return D.releases[i]; }).filter(function (r) { return inWindow(r.date); }); }
+function plantInjuries(p) { return p.injuries.map(function (i) { return D.injuries[i]; }).filter(function (r) { return inWindow(r.date); }); }
+
+// ---------------------------------------------------------------- render
+function render() {
+  if (!D.plants) return;
+  var ps = peers();
+  S.peers = ps;
+  var agg = {hours: 0, cases: 0, lost: 0, n: 0};
+  ps.forEach(function (p) { var q = p._pool = pooled(p); if (q.hours) { agg.hours += q.hours; agg.cases += q.cases; agg.lost += q.lost; agg.n++; } });
+  S.peerRate = agg.hours ? agg.cases * PER / agg.hours : null;
+  S.agg = agg;
+  if (S.base) S.base._pool = pooled(S.base);
+  $("#peer-count").innerHTML = "<b>" + fmt(ps.length) + "</b> peer plants · " + fmt(agg.n) + " with injury logs · " + fmt(ps.filter(function (p) { return p.rmp_id; }).length) + " EPA-registered";
+  $("#match").disabled = !S.base;
+  renderPlant();
+  var out = "";
+  if (!ps.length) { $("#results").innerHTML = '<div class="empty">No plants match these filters. Clear a filter or two.</div>'; return; }
+  out += blockFunnel();
+  out += blockTrend();
+  out += blockReleases(ps);
+  out += blockInjuries(ps);
+  out += blockTable(ps);
+  $("#results").innerHTML = out;
+  drawFunnel();
+  bindResults();
+  writeUrl();
+}
+
+function renderPlant() {
+  var b = S.base, el = $("#plant");
+  if (!b) { el.hidden = true; return; }
+  el.hidden = false;
+  var q = b._pool, rel = plantReleases(b), inj = plantInjuries(b);
+  var peerRates = S.peers.map(function (p) { return p._pool && p._pool.hours ? p._pool.rate : null; });
+  var pr = q.rate != null ? pctRank(peerRates, q.rate) : null;
+  var relAll = b.releases.map(function (i) { return D.releases[i]; });
+  var lastRel = relAll.length ? relAll[relAll.length - 1].date : null;
+  var tags = b.subsectors.map(function (s) { return '<span class="tag acc">' + esc(s) + "</span>"; }).join("") +
+    b.families.map(function (s) { return '<span class="tag">' + esc(s) + "</span>"; }).join("");
+  var chem = b.chemicals.length ? b.chemicals.slice(0, 5).map(function (c) { return esc(c[0].replace(/\s*\[.*?\]/, "")) + " (" + fmtLb(c[1]) + ")"; }).join(" · ") : "Not registered with EPA's chemical accident program";
+  var yrsTxt = S.f.y0 === S.f.y1 ? S.f.y0 : S.f.y0 + "-" + S.f.y1;
+  var html = '<div class="plant-head"><h2>' + esc(b.name || b.company) + '</h2><span class="plant-meta">' + esc(title(b.city)) + ", " + esc(b.state) + (b.rmp_id ? " · EPA ID " + esc(b.rmp_id) : "") + (b.company && b.company !== b.name ? " · " + esc(b.company) : "") + "</span></div>";
+  html += '<div class="tags">' + tags + "</div>";
+  html += '<p class="note" style="margin-top:10px">' + chem + "</p>";
+  html += '<div class="kpis">';
+  html += '<div><span class="k-k">Injury rate ' + yrsTxt + '</span><span class="k-n">' + (q.rate != null ? fmt(q.rate, 2) : "–") + '</span><span class="k-s">' + (q.hours ? fmt(q.cases) + " recordable injuries in " + fmt(q.hours) + " hours" + (pr != null ? " · lower than " + fmt(100 - pr) + "% of peers" : "") : "No usable OSHA injury log in these years") + "</span></div>";
+  html += '<div><span class="k-k">Workforce</span><span class="k-n">' + fmt(b.employees) + '<small> people</small></span><span class="k-s">' + (q.years ? "About " + fmt(q.hours / Math.max(q.years, 1)) + " hours a year. One injury moves the rate by " + fmt(PER / (q.hours / Math.max(q.years, 1)), 2) + " points in a single year." : "From EPA filing") + "</span></div>";
+  html += '<div><span class="k-k">Chemical releases ' + yrsTxt + '</span><span class="k-n">' + fmt(rel.length) + '</span><span class="k-s">' + (b.rmp_id ? fmt(relAll.length) + " reported to EPA since 1994" + (lastRel ? ", most recent " + lastRel.slice(0, 4) : "") : "Not EPA-registered") + "</span></div>";
+  html += '<div><span class="k-k">Serious injuries ' + yrsTxt + '</span><span class="k-n">' + (b.statePlan ? "n/a" : fmt(inj.length)) + '</span><span class="k-s">' + (b.statePlan ? esc(b.state) + " runs its own OSHA program, so these reports are not in the federal file." : "Amputations, eye losses and hospital stays reported to OSHA") + "</span></div>";
+  html += "</div>";
+  $("#plant-body").innerHTML = html;
+}
+
+// ---- funnel
+function blockFunnel() {
+  var yrs = S.f.y0 === S.f.y1 ? String(S.f.y0) : S.f.y0 + "-" + S.f.y1;
+  var b = S.base, txt = "";
+  if (S.peerRate == null) return "";
+  if (b && b._pool.hours) {
+    var q = b._pool, L = limits(S.peerRate, q.hours, 0.975);
+    var mu = S.peerRate * q.hours / PER, loN = poissonQ(0.025, mu), hiN = poissonQ(0.975, mu);
+    var verdict = q.rate > L[1] ? '<span class="hi">above the range chance explains</span>. The difference from peers is probably real and worth looking into.' : q.rate < L[0] ? '<span class="ok">below the range chance explains</span>. The plant is probably doing better than its peers, not just lucky.' : "<b>inside the range chance explains</b>. On injury rate alone, this plant cannot be told apart from its peers.";
+    txt = '<p class="readout">Over ' + yrs + ", this plant worked <b>" + fmt(q.hours) + " hours</b>. A plant that size, running exactly at the peer rate of " + fmt(S.peerRate, 2) + ", would record between <b>" + fmt(loN) + " and " + fmt(hiN) + " injuries</b> 19 times out of 20. It recorded <b>" + fmt(q.cases) + "</b>: " + verdict + "</p>";
+  } else if (b) {
+    txt = '<p class="readout">This plant has no usable OSHA injury log for ' + yrs + ". Pick a wider year range, or read the peer chart on its own.</p>";
+  }
+  return '<div class="block" id="b-funnel"><span class="sec-k">Injuries · fair comparison</span><h3>Is the difference real, or luck?</h3>' +
+    '<p class="lede">Each dot is a peer plant: its injury rate over the chosen years against how many hours it worked. The shaded band is the range chance alone produces for a plant running at the peer rate. Small plants sit on the left, where the band is wide, because one injury swings their rate a lot. Only dots outside the band are different from their peers.</p>' + txt +
+    '<div class="chart" id="funnel"></div><div class="legend"><span><i style="background:var(--peer)"></i>Peer plant</span><span><i style="background:var(--base)"></i>Your plant</span><span><i class="band"></i>Range chance explains (95%)</span></div>' +
+    '<p class="note">Injury rate means recordable injuries per 100 full-time workers a year (per 200,000 hours). Filings with impossible hours (under 120 or over 4,500 per employee) are left out. Hover or tap a dot for the plant; click it to make it your baseline.</p></div>';
+}
+function drawFunnel() {
+  var host = $("#funnel"); if (!host) return;
+  var pts = S.peers.filter(function (p) { return p._pool && p._pool.hours > 0; }).map(function (p) { return {p: p, h: p._pool.hours, r: p._pool.rate}; });
+  var b = S.base && S.base._pool.hours ? {p: S.base, h: S.base._pool.hours, r: S.base._pool.rate} : null;
+  var all = b ? pts.concat([b]) : pts;
+  if (!all.length) { host.innerHTML = '<div class="empty">No injury logs for these peers and years.</div>'; return; }
+  var W = Math.max(320, host.clientWidth || 800), H = W < 560 ? 320 : 400, m = {l: 44, r: 12, t: 12, b: 40};
+  var hs = all.map(function (d) { return d.h; });
+  var x0 = Math.log10(Math.max(1000, Math.min.apply(null, hs) * 0.8)), x1 = Math.log10(Math.max.apply(null, hs) * 1.2);
+  var rates = all.map(function (d) { return d.r; }).sort(function (a, c) { return a - c; });
+  var yMax = Math.max(S.peerRate * 3, rates[Math.floor(rates.length * 0.97)] || 1, b ? b.r * 1.1 : 0, 1);
+  yMax = Math.ceil(yMax);
+  var X = function (h) { return m.l + (Math.log10(h) - x0) / (x1 - x0) * (W - m.l - m.r); };
+  var Y = function (r) { return m.t + (1 - Math.min(r, yMax) / yMax) * (H - m.t - m.b); };
+  var up = [], lo = [], up2 = [];
+  for (var i = 0; i <= 60; i++) {
+    var h = Math.pow(10, x0 + (x1 - x0) * i / 60), L = limits(S.peerRate, h, 0.975), L2 = limits(S.peerRate, h, 0.999);
+    up.push([X(h), Y(L[1])]); lo.push([X(h), Y(L[0])]); up2.push([X(h), Y(L2[1])]);
+  }
+  var band = "M" + up.map(function (q) { return q.join(","); }).join("L") + "L" + lo.reverse().map(function (q) { return q.join(","); }).join("L") + "Z";
+  var s = '<svg viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="Injury rate against hours worked for ' + pts.length + ' peer plants, with the range chance explains">';
+  var yt = []; var step = yMax <= 4 ? 1 : yMax <= 10 ? 2 : 5; for (var t = 0; t <= yMax; t += step) yt.push(t);
+  yt.forEach(function (t) { s += '<line class="grid" x1="' + m.l + '" x2="' + (W - m.r) + '" y1="' + Y(t) + '" y2="' + Y(t) + '"/><text x="' + (m.l - 6) + '" y="' + (Y(t) + 4) + '" text-anchor="end">' + t + "</text>"; });
+  [1e3, 1e4, 1e5, 1e6, 1e7, 1e8].forEach(function (h) { var lx = Math.log10(h); if (lx < x0 || lx > x1) return; s += '<line class="grid" x1="' + X(h) + '" x2="' + X(h) + '" y1="' + m.t + '" y2="' + (H - m.b) + '"/><text x="' + X(h) + '" y="' + (H - m.b + 16) + '" text-anchor="middle">' + (h >= 1e6 ? h / 1e6 + "M" : h / 1e3 + "k") + "</text>"; });
+  s += '<text x="' + ((W + m.l) / 2) + '" y="' + (H - 6) + '" text-anchor="middle" class="muted">Hours worked in the chosen years (log scale)</text>';
+  s += '<text x="12" y="' + (m.t + 4) + '" class="muted" transform="rotate(-90 12 ' + (m.t + 4) + ')" text-anchor="end">Injury rate</text>';
+  s += '<path d="' + band + '" fill="var(--accent-wash)" stroke="var(--accent)" stroke-width="1.5" stroke-dasharray="5 4" opacity=".9"/>';
+  s += '<path d="M' + up2.map(function (q) { return q.join(","); }).join("L") + '" fill="none" stroke="var(--accent)" stroke-width="1" stroke-dasharray="2 4" opacity=".6"/>';
+  s += '<line x1="' + m.l + '" x2="' + (W - m.r) + '" y1="' + Y(S.peerRate) + '" y2="' + Y(S.peerRate) + '" stroke="var(--accent)" stroke-width="2"/>';
+  s += '<text x="' + (W - m.r - 4) + '" y="' + (Y(S.peerRate) - 6) + '" text-anchor="end" style="fill:var(--accent);font-weight:700">Peer rate ' + fmt(S.peerRate, 2) + "</text>";
+  var rr = pts.length > 1500 ? 2.4 : 3.4;
+  pts.forEach(function (d, k) { s += '<circle data-i="' + k + '" cx="' + X(d.h).toFixed(1) + '" cy="' + Y(d.r).toFixed(1) + '" r="' + rr + '" fill="var(--peer)" fill-opacity=".6"' + (d.r > yMax ? ' stroke="var(--ink)"' : "") + "/>"; });
+  if (b) s += '<circle cx="' + X(b.h) + '" cy="' + Y(b.r) + '" r="8" fill="var(--base)" stroke="var(--paper)" stroke-width="2.5"/><text x="' + (X(b.h) + 12) + '" y="' + (Y(b.r) + 4) + '" style="fill:var(--base);font-weight:700">' + esc(shortName(b.p)) + "</text>";
+  s += "</svg><div class='tip' id='ftip' hidden></div>";
+  host.innerHTML = s;
+  var tip = $("#ftip"), svg = host.querySelector("svg");
+  var pick = function (e) { var c = e.target.closest("circle[data-i]"); return c ? pts[+c.getAttribute("data-i")] : null; };
+  svg.addEventListener("mousemove", function (e) {
+    var d = pick(e); if (!d) { tip.hidden = true; return; }
+    var r = host.getBoundingClientRect();
+    tip.innerHTML = "<b>" + esc(d.p.name) + "</b>" + esc(title(d.p.city)) + ", " + esc(d.p.state) + "<br>Rate " + fmt(d.r, 2) + " · " + fmt(d.p._pool.cases) + " injuries · " + fmt(d.h) + " hours";
+    tip.hidden = false;
+    var x = e.clientX - r.left + 12, y = e.clientY - r.top + 12;
+    if (x > r.width - 250) x = e.clientX - r.left - 262;
+    tip.style.left = x + "px"; tip.style.top = y + "px";
+  });
+  svg.addEventListener("mouseleave", function () { tip.hidden = true; });
+  svg.addEventListener("click", function (e) { var d = pick(e); if (d) setBase(d.p.id, true); });
+}
+function shortName(p) { var n = p.name || p.company || ""; return n.length > 26 ? n.slice(0, 24) + "…" : n; }
+
+// ---- trend
+function blockTrend() {
+  var b = S.base; if (!b || !Object.keys(b.years).length) return "";
+  var rows = [];
+  for (var y = 2016; y <= 2024; y++) {
+    var r = b.years[y];
+    var peerH = 0, peerC = 0;
+    S.peers.forEach(function (p) { var q = p.years[y]; if (q && q.plausible && q.hours) { peerH += q.hours; peerC += q.dafw + q.djtr + q.other; } });
+    rows.push({y: y, r: r && r.plausible && r.hours ? (r.dafw + r.djtr + r.other) * PER / r.hours : null, c: r ? r.dafw + r.djtr + r.other : null, h: r ? r.hours : null, pr: peerH ? peerC * PER / peerH : null, bad: r && !r.plausible});
+  }
+  var max = Math.max(1, Math.max.apply(null, rows.map(function (x) { return Math.max(x.r || 0, x.pr || 0); })));
+  var W = 720, H = 220, m = {l: 36, r: 10, t: 14, b: 30}, bw = (W - m.l - m.r) / rows.length;
+  var Y = function (v) { return m.t + (1 - v / max) * (H - m.t - m.b); };
+  var s = '<svg viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="This plant\'s injury rate by year against the peer rate">';
+  [0, max / 2, max].forEach(function (t) { s += '<line class="grid" x1="' + m.l + '" x2="' + (W - m.r) + '" y1="' + Y(t) + '" y2="' + Y(t) + '"/><text x="' + (m.l - 6) + '" y="' + (Y(t) + 4) + '" text-anchor="end">' + fmt(t, 1) + "</text>"; });
+  var line = [];
+  rows.forEach(function (x, i) {
+    var cx = m.l + bw * i + bw / 2;
+    if (x.r != null) s += '<rect x="' + (cx - bw * 0.3) + '" y="' + Y(x.r) + '" width="' + bw * 0.6 + '" height="' + Math.max(0, H - m.b - Y(x.r)) + '" fill="var(--base)"/>' + '<text x="' + cx + '" y="' + (Y(x.r) - 5) + '" text-anchor="middle">' + x.c + "</text>";
+    else s += '<text x="' + cx + '" y="' + (H - m.b - 6) + '" text-anchor="middle" class="muted">' + (x.bad ? "bad hrs" : "–") + "</text>";
+    if (x.pr != null) line.push([cx, Y(x.pr)]);
+    s += '<text x="' + cx + '" y="' + (H - 10) + '" text-anchor="middle">' + x.y + "</text>";
+  });
+  if (line.length) s += '<path d="M' + line.map(function (q) { return q.join(","); }).join("L") + '" fill="none" stroke="var(--accent)" stroke-width="2.5"/>';
+  s += "</svg>";
+  var swing = b._pool.years ? PER / (b._pool.hours / b._pool.years) : null;
+  return '<div class="block" id="b-trend"><span class="sec-k">Injuries · year by year</span><h3>One injury, one big jump</h3>' +
+    '<p class="lede">Bars are this plant\'s injury rate each year; the number on each bar is how many injuries it recorded. The line is the peer group\'s rate.' + (swing ? " At this plant's hours, a single injury adds about <b>" + fmt(swing, 2) + " points</b> to one year's rate, so year-to-year swings say little on their own." : "") + '</p><div class="chart">' + s + '</div><div class="legend"><span><i style="background:var(--base);border-radius:0"></i>This plant</span><span><i style="background:var(--accent);border-radius:0;height:3px"></i>Peer rate</span></div></div>';
+}
+
+// ---- releases
+function tally(list, key, labels) { var c = labels.map(function () { return 0; }); list.forEach(function (r) { r[key].forEach(function (j) { c[j]++; }); }); return c; }
+function barList(labels, counts, total, baseCounts, baseTotal) {
+  var max = Math.max.apply(null, counts.map(function (c) { return total ? c / total : 0; }).concat(baseCounts ? baseCounts.map(function (c) { return baseTotal ? c / baseTotal : 0; }) : [0]), 0.01);
+  var order = labels.map(function (l, i) { return i; }).sort(function (a, b) { return counts[b] - counts[a]; });
+  return '<div class="bars">' + order.filter(function (i) { return counts[i] || (baseCounts && baseCounts[i]); }).map(function (i) {
+    var share = total ? counts[i] / total : 0;
+    var mark = baseCounts && baseTotal ? '<u style="left:calc(' + (100 * (baseCounts[i] / baseTotal) / max) + '% - 1px)" title="Your plant"></u>' : "";
+    return '<div class="bar"><span class="l">' + esc(labels[i]) + '</span><span class="t"><i style="width:' + (100 * share / max) + '%"></i>' + mark + '</span><span class="v">' + fmt(100 * share) + "% <small>(" + counts[i] + ")</small></span></div>";
+  }).join("") + "</div>";
+}
+function blockReleases(ps) {
+  var rp = ps.filter(function (p) { return p.rmp_id; });
+  var rels = [], py = 0, lb = 0, emp = 0;
+  rp.forEach(function (p) { var r = plantReleases(p); rels = rels.concat(r); var n = relYears(p); py += n; lb += (p.inventory_lb || 0) * n; emp += (p.employees || 0) * n; });
+  var yrs = S.f.y0 + "-" + (S.f.y1 === 2024 ? 2025 : S.f.y1);
+  var head = '<div class="block" id="b-rel"><span class="sec-k">Chemical releases · EPA</span><h3>How releases happen at plants like this</h3>';
+  if (!rp.length) return head + '<div class="empty">None of these peers are registered with EPA\'s chemical accident program.</div></div>';
+  var rate = py ? rels.length / py : 0;
+  var norm = S.view.norm, peerVal, unit;
+  // workers and pounds are weighted by the years each plant is covered
+  if (norm === "plant-year") { peerVal = 100 * rate; unit = "releases per 100 plant-years"; }
+  else if (norm === "per-100") { peerVal = emp ? 1000 * rels.length / emp : null; unit = "releases per 1,000 worker-years"; }
+  else { peerVal = lb ? rels.length / (lb / 1e6) * 100 : null; unit = "releases per 100 plant-years for each million lb held"; }
+  var b = S.base, bRel = b ? plantReleases(b) : [], by = b ? relYears(b) : 0, bVal = null;
+  if (b && b.rmp_id && by) {
+    if (norm === "plant-year") bVal = 100 * bRel.length / by;
+    else if (norm === "per-100") bVal = b.employees ? 1000 * bRel.length / (b.employees * by) : null;
+    else bVal = b.inventory_lb ? bRel.length / (b.inventory_lb * by / 1e6) * 100 : null;
+  }
+  var expected = b && by ? rate * by : null;
+  var txt = '<p class="readout">These ' + fmt(rp.length) + " EPA-registered peers reported <b>" + fmt(rels.length) + " releases</b> over " + fmt(py) + " plant-years (" + yrs + "): about <b>" + fmt(100 * rate, 1) + " per 100 plant-years</b>." +
+    (b && b.rmp_id ? " Your plant reported <b>" + fmt(bRel.length) + "</b> in " + fmt(by) + " covered years; a typical peer would have had about " + fmt(expected, 1) + "." + (bRel.length === 0 && expected < 1 ? " With numbers this small, zero is the expected result, so it does not prove much either way." : "") : "") +
+    " A plant's own release history is one of the strongest warning signs in this data: plants with a release in the past five years were " + fmt(D.meta.summary.release_predictors.history_ratio, 1) + " times as likely to have another the next year.</p>";
+  var views = [["cause", "Why"], ["source", "Where from"], ["type", "What happened"], ["fix", "What changed after"]];
+  var keyLab = {cause: "release_cause", source: "release_source", type: "release_type", fix: "release_fix"}[S.view.rel];
+  var labels = D.meta[keyLab];
+  var counts = tally(rels, S.view.rel, labels), bc = bRel.length ? tally(bRel, S.view.rel, labels) : null;
+  var html = head + '<p class="lede">From the accident histories plants file with EPA\'s Risk Management Program. A release is a spill, leak, gas escape, fire or explosion involving a regulated chemical that hurt someone, caused damage, or made people evacuate or shelter.</p>' + txt;
+  html += '<div class="seg" role="group" aria-label="Normalise releases by">' + [["plant-year", "Per plant-year"], ["per-100", "Per worker"], ["per-lb", "Per million lb"]].map(function (v) { return '<button type="button" data-norm="' + v[0] + '" aria-pressed="' + (norm === v[0]) + '">' + v[1] + "</button>"; }).join("") + "</div>";
+  html += '<p class="note" style="margin-top:0">Peers: <b>' + fmt(peerVal, 2) + "</b>" + (bVal != null ? " · Your plant: <b>" + fmt(bVal, 2) + "</b>" : "") + " (" + unit + "). The same count can look good or bad depending on what you divide by.</p>";
+  html += '<div class="seg" role="group" aria-label="Break releases down by">' + views.map(function (v) { return '<button type="button" data-rel="' + v[0] + '" aria-pressed="' + (S.view.rel === v[0]) + '">' + v[1] + "</button>"; }).join("") + "</div>";
+  html += barList(labels, counts, rels.length, bc, bRel.length);
+  html += '<p class="note">Bars are the share of peer releases with each flag (a release can have several). ' + (bc ? "The orange tick is your plant's share. " : "") + "Worker injuries from these releases: " + fmt(rels.reduce(function (a, r) { return a + (r.worker_inj || 0); }, 0)) + ".</p>";
+  var list = (bRel.length ? bRel : []).slice().reverse();
+  if (list.length) {
+    html += '<p class="sub-h" style="margin-top:18px">Your plant\'s releases</p><div class="cards">' + list.map(function (r) {
+      return '<div class="icard"><div class="ih"><b>' + r.date + "</b><span>" + esc(r.chemicals.join(", ")) + "</span></div><p>" + esc(r.type.map(function (j) { return D.meta.release_type[j]; }).join(", ") || "Release") + (r.source.length ? " from " + esc(r.source.map(function (j) { return D.meta.release_source[j].toLowerCase(); }).join(", ")) : "") + ". Cause: " + esc(r.cause.map(function (j) { return D.meta.release_cause[j].toLowerCase(); }).join(", ") || "not given") + ". Afterwards: " + esc(r.fix.map(function (j) { return D.meta.release_fix[j].toLowerCase(); }).join(", ") || "not given") + "." + (r.worker_inj ? " Workers injured: " + r.worker_inj + "." : "") + "</p></div>";
+    }).join("") + "</div>";
+  }
+  return html + "</div>";
+}
+
+// ---- serious injuries
+function blockInjuries(ps) {
+  var fedPeers = ps.filter(function (p) { return !p.statePlan; });
+  var ids = {}; ps.forEach(function (p) { ids[p.id] = 1; });
+  var inj = [];
+  ps.forEach(function (p) { inj = inj.concat(plantInjuries(p)); });
+  var b = S.base, bInj = b ? plantInjuries(b) : [];
+  var head = '<div class="block" id="b-inj"><span class="sec-k">Serious injuries · OSHA</span><h3>What seriously hurts people at plants like this</h3>';
+  var lede = '<p class="lede">Employers must report every amputation, loss of an eye and in-patient hospital stay to OSHA. These are grouped by the kind of energy that caused the harm, because energy is what a plant can find and control before someone is hurt.</p>';
+  if (!inj.length && !bInj.length) return head + lede + '<div class="empty">No serious-injury reports for these peers in these years. Reports only exist for states under federal OSHA (' + fmt(fedPeers.length) + " of these peers).</div></div>";
+  var E = D.meta.energy, c = E.map(function () { return 0; }), bc = E.map(function () { return 0; });
+  inj.forEach(function (x) { c[E.indexOf(x.energy)]++; });
+  bInj.forEach(function (x) { bc[E.indexOf(x.energy)]++; });
+  var amp = inj.filter(function (x) { return x.amp > 0; }).length;
+  var html = head + lede + '<p class="readout">' + fmt(fedPeers.length) + " peer plants are in federal-OSHA states. Together they reported <b>" + fmt(inj.length) + " serious injuries</b>" + (amp ? ", including " + fmt(amp) + (amp === 1 ? " amputation" : " amputations") : "") + ". The most common cause: <b>" + esc(E[c.indexOf(Math.max.apply(null, c))].toLowerCase()) + "</b>." + (b && !b.statePlan ? " Your plant: <b>" + fmt(bInj.length) + "</b>." : "") + "</p>";
+  html += barList(E, c, inj.length, bInj.length ? bc : null, bInj.length);
+  var sel = S.view.inj;
+  var pool = (bInj.length ? bInj.concat(inj) : inj).filter(function (x) { return sel === "all" || x.energy === sel; }).slice().sort(function (a, z) { return z.date < a.date ? -1 : 1; });
+  html += '<p class="sub-h" style="margin-top:18px">What happened, in the reports\' own words</p>';
+  html += '<div class="seg" role="group" aria-label="Show reports for">' + ["all"].concat(E.filter(function (e, i) { return c[i] || bc[i]; })).map(function (e) { return '<button type="button" data-inj="' + esc(e) + '" aria-pressed="' + (sel === e) + '">' + esc(e === "all" ? "All" : e) + "</button>"; }).join("") + "</div>";
+  html += '<div class="cards">' + pool.slice(0, 8).map(function (x) {
+    var mine = b && x.plant === b.id;
+    return '<div class="icard"' + (mine ? ' style="border-color:var(--base)"' : "") + '><div class="ih"><b>' + x.date + "</b><span>" + esc(x.energy) + "</span><span>" + (x.amp ? "Amputation" : x.eye ? "Eye loss" : "Hospitalized") + "</span><span>" + esc(x.employer) + " · " + esc(title(x.city)) + ", " + esc(x.state) + (mine ? " · your plant" : "") + "</span></div><p>" + esc(x.narrative) + "</p></div>";
+  }).join("") + "</div>";
+  if (pool.length > 8) html += '<p class="note">Showing the 8 most recent of ' + fmt(pool.length) + ".</p>";
+  return html + "</div>";
+}
+
+// ---- peer table
+function blockTable(ps) {
+  var rows = ps.map(function (p) {
+    var q = p._pool, rel = plantReleases(p).length, inj = plantInjuries(p).length;
+    var st = q.hours && S.peerRate != null ? (function () { var L = limits(S.peerRate, q.hours, 0.975); return q.rate > L[1] ? "above" : q.rate < L[0] ? "below" : "within"; })() : "";
+    return {p: p, name: p.name, place: title(p.city) + ", " + p.state, emp: p.employees, hours: q.hours, rate: q.rate, st: st, rel: p.rmp_id ? rel : null, inj: p.statePlan ? null : inj, lb: p.inventory_lb};
+  });
+  if (S.base) { var b = S.base, q = b._pool; rows.push({p: b, base: true, name: b.name, place: title(b.city) + ", " + b.state, emp: b.employees, hours: q.hours, rate: q.rate, st: "", rel: b.rmp_id ? plantReleases(b).length : null, inj: b.statePlan ? null : plantInjuries(b).length, lb: b.inventory_lb}); }
+  var k = S.sort.key, dir = S.sort.dir;
+  rows.sort(function (a, z) { var x = a[k], y = z[k]; if (x == null) return 1; if (y == null) return -1; return (x < y ? -1 : x > y ? 1 : 0) * dir; });
+  S.tableRows = rows;
+  var cols = [["name", "Plant"], ["place", "Where"], ["emp", "People"], ["hours", "Hours"], ["rate", "Injury rate"], ["st", "Vs chance"], ["rel", "Releases"], ["inj", "Serious inj."], ["lb", "Chemical held"]];
+  var html = '<div class="block" id="b-table"><span class="sec-k">Peer list</span><h3>Every plant in this peer group</h3><p class="lede">Sorted by hours worked. Click a column to sort, or a name to make that plant your baseline. "Vs chance" says whether the plant\'s injury rate is outside the range chance explains for its size.</p>';
+  html += '<div class="btns"><button type="button" class="btn" id="csv">Download CSV</button></div>';
+  html += '<div class="tbl-scroll" style="max-height:520px"><table><thead><tr>' + cols.map(function (c) { return '<th scope="col" data-sort="' + c[0] + '"' + (k === c[0] ? ' aria-sort="' + (dir > 0 ? "ascending" : "descending") + '"' : "") + ">" + c[1] + "</th>"; }).join("") + "</tr></thead><tbody>";
+  html += rows.slice(0, 400).map(function (r) {
+    return "<tr" + (r.base ? ' class="is-base"' : "") + '><td><button type="button" class="linkish" data-plant="' + r.p.id + '">' + esc(r.name || "(unnamed)") + "</button></td><td>" + esc(r.place) + "</td><td>" + fmt(r.emp) + "</td><td>" + fmt(r.hours) + "</td><td>" + (r.rate != null ? fmt(r.rate, 2) : "–") + "</td><td>" + (r.st ? '<span class="st ' + r.st + '">' + r.st + "</span>" : "") + "</td><td>" + (r.rel == null ? "–" : r.rel) + "</td><td>" + (r.inj == null ? "–" : r.inj) + "</td><td>" + fmtLb(r.lb) + "</td></tr>";
+  }).join("") + "</tbody></table></div>";
+  if (rows.length > 400) html += '<p class="note">Showing 400 of ' + fmt(rows.length) + ". Narrow the filters or download the CSV for all.</p>";
+  return html + "</div>";
+}
+function csv() {
+  var head = ["plant", "company", "city", "state", "epa_id", "employees", "hours", "injuries", "injury_rate", "vs_chance", "releases", "serious_injuries", "chemical_lb", "product_types", "chemical_families"];
+  var lines = [head.join(",")].concat(S.tableRows.map(function (r) {
+    var p = r.p;
+    return [p.name, p.company, p.city, p.state, p.rmp_id || "", r.emp || "", r.hours || "", p._pool ? p._pool.cases : "", r.rate != null ? r.rate.toFixed(3) : "", r.st, r.rel == null ? "" : r.rel, r.inj == null ? "" : r.inj, r.lb || "", p.subsectors.join("; "), p.families.join("; ")].map(function (v) { v = String(v); return /[",\n]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v; }).join(",");
+  }));
+  var a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob([lines.join("\n")], {type: "text/csv"}));
+  a.download = "chemical-plant-peers.csv"; document.body.appendChild(a); a.click(); a.remove();
+}
+function bindResults() {
+  var r = $("#results");
+  r.onclick = function (e) {
+    var t = e.target.closest("button,th"); if (!t) return;
+    if (t.hasAttribute("data-rel")) { S.view.rel = t.getAttribute("data-rel"); rerender("#b-rel", blockReleases(S.peers)); }
+    else if (t.hasAttribute("data-norm")) { S.view.norm = t.getAttribute("data-norm"); rerender("#b-rel", blockReleases(S.peers)); }
+    else if (t.hasAttribute("data-inj")) { S.view.inj = t.getAttribute("data-inj"); rerender("#b-inj", blockInjuries(S.peers)); }
+    else if (t.hasAttribute("data-plant")) { setBase(t.getAttribute("data-plant"), true); }
+    else if (t.hasAttribute("data-sort")) { var k = t.getAttribute("data-sort"); S.sort.dir = S.sort.key === k ? -S.sort.dir : (k === "name" || k === "place" ? 1 : -1); S.sort.key = k; rerender("#b-table", blockTable(S.peers)); }
+    else if (t.id === "csv") csv();
+  };
+}
+function rerender(sel, html) { var old = $(sel); if (!old) return; var tmp = document.createElement("div"); tmp.innerHTML = html; old.replaceWith(tmp.firstChild); }
+
+// ---------------------------------------------------------------- baseline picker
+function setBase(id, scroll) {
+  S.base = id ? byId[id] || null : null;
+  $("#q").value = S.base ? S.base.name : "";
+  render();
+  if (scroll && S.base) $("#plant").scrollIntoView({behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start"});
+}
+function bindPicker() {
+  var q = $("#q"), list = $("#sugg"), active = -1, items = [];
+  var close = function () { list.hidden = true; q.setAttribute("aria-expanded", "false"); active = -1; };
+  var show = function () {
+    var v = q.value.trim().toLowerCase();
+    if (v.length < 2) { close(); return; }
+    var parts = v.split(/\s+/);
+    items = D.plants.filter(function (p) { return parts.every(function (w) { return p.search.indexOf(w) >= 0; }); })
+      .sort(function (a, b) { return (b.employees || 0) - (a.employees || 0); }).slice(0, 12);
+    list.innerHTML = items.length ? items.map(function (p, i) { return '<li role="option" id="opt' + i + '" data-id="' + p.id + '" aria-selected="false">' + esc(p.name || p.company) + "<small>" + esc(title(p.city)) + ", " + esc(p.state) + (p.company && p.company !== p.name ? " · " + esc(p.company) : "") + (p.rmp_id ? " · EPA " + p.rmp_id : "") + (p.employees ? " · " + fmt(p.employees) + " people" : "") + "</small></li>"; }).join("") : '<li aria-disabled="true">No plant matches</li>';
+    list.hidden = false; q.setAttribute("aria-expanded", "true");
+  };
+  var hl = function (i) { var lis = list.querySelectorAll("li[data-id]"); lis.forEach(function (li, j) { li.setAttribute("aria-selected", j === i); }); active = i; if (lis[i]) { q.setAttribute("aria-activedescendant", lis[i].id); lis[i].scrollIntoView({block: "nearest"}); } };
+  q.addEventListener("input", show);
+  q.addEventListener("keydown", function (e) {
+    var n = list.querySelectorAll("li[data-id]").length;
+    if (e.key === "ArrowDown") { e.preventDefault(); if (list.hidden) show(); hl(Math.min(n - 1, active + 1)); }
+    else if (e.key === "ArrowUp") { e.preventDefault(); hl(Math.max(0, active - 1)); }
+    else if (e.key === "Enter") { e.preventDefault(); var li = list.querySelectorAll("li[data-id]")[active < 0 ? 0 : active]; if (li) { close(); setBase(li.getAttribute("data-id"), true); } }
+    else if (e.key === "Escape") close();
+  });
+  list.addEventListener("mousedown", function (e) { var li = e.target.closest("li[data-id]"); if (li) { e.preventDefault(); close(); setBase(li.getAttribute("data-id"), true); } });
+  q.addEventListener("blur", function () { setTimeout(close, 120); });
+  $("#clear-base").addEventListener("click", function () { setBase(null); });
+}
+function examples() {
+  // three large EPA-registered plants from different product types, chosen by the data (not by name)
+  var picks = [], seen = {};
+  ["Resins & plastics", "Other basic organics (incl. formaldehyde)", "Acids & inorganics"].forEach(function (s) {
+    var c = D.plants.filter(function (p) { return p.rmp_id && p.subsectors[0] === s && Object.keys(p.years).length >= 5 && !seen[p.id]; })
+      .sort(function (a, b) { return (b.inventory_lb || 0) - (a.inventory_lb || 0); })[0];
+    if (c) { picks.push(c); seen[c.id] = 1; }
+  });
+  $("#examples").innerHTML = fmt(D.plants.length) + " plants loaded. Try: " + picks.map(function (p) { return '<button type="button" data-id="' + p.id + '">' + esc(shortName(p)) + " (" + esc(p.state) + ")</button>"; }).join(" · ");
+  $("#examples").onclick = function (e) { var b = e.target.closest("button[data-id]"); if (b) setBase(b.getAttribute("data-id"), true); };
+}
+
+// ---------------------------------------------------------------- URL state
+function writeUrl() {
+  var f = S.f, u = new URLSearchParams();
+  if (S.base) u.set("plant", S.base.id);
+  ["sub", "fam", "chem", "size", "inv", "state"].forEach(function (k) { if (f[k].length) u.set(k, f[k].join("|")); });
+  if (f.company) u.set("company", f.company);
+  if (f.src !== "any") u.set("src", f.src);
+  if (f.cov !== "any") u.set("cov", f.cov);
+  if (!f.active) u.set("all", "1");
+  if (f.y0 !== 2016) u.set("y0", f.y0);
+  if (f.y1 !== 2024) u.set("y1", f.y1);
+  var s = u.toString();
+  history.replaceState(null, "", s ? "?" + s : location.pathname);
+}
+function readUrl() {
+  var u = new URLSearchParams(location.search), f = defaults();
+  ["sub", "fam", "chem", "size", "inv", "state"].forEach(function (k) { if (u.get(k)) f[k] = u.get(k).split("|"); });
+  if (u.get("company")) f.company = u.get("company");
+  if (u.get("src")) f.src = u.get("src");
+  if (u.get("cov")) f.cov = u.get("cov");
+  if (u.get("all")) f.active = false;
+  if (u.get("y0")) f.y0 = Math.max(2016, Math.min(2024, +u.get("y0")));
+  if (u.get("y1")) f.y1 = Math.max(2016, Math.min(2024, +u.get("y1")));
+  S.f = f;
+  var id = u.get("plant");
+  if (id && !byId[id]) { var m = D.plants.filter(function (p) { return p.rmp_id === id; })[0]; id = m ? m.id : null; }
+  S.base = id ? byId[id] : null;
+  if (S.base) $("#q").value = S.base.name;
+}
+
+var rs; window.addEventListener("resize", function () { clearTimeout(rs); rs = setTimeout(drawFunnel, 150); });
+document.addEventListener("rs-themechange", function () { drawFunnel(); });
+S.f = defaults();
+load().then(function () {
+  readUrl(); renderFilters(); bindFilters(); bindPicker(); examples(); render();
+}).catch(function (e) {
+  $("#results").innerHTML = '<div class="empty">Could not load the data files (' + esc(e.message) + "). If you opened this file directly, serve the docs folder over http.</div>";
+});
+})();
+</script>
+<script id="rs-header-js">
+(()=>{
+var h=document.getElementById('rs-header');if(!h)return;
+var root=document.documentElement,doc=document;h.classList.add('rs-js');
+var mq=window.matchMedia?matchMedia('(prefers-color-scheme: dark)'):{matches:false};
+var tb=doc.getElementById('rs-theme');
+function cur(){var t=root.getAttribute('data-theme');return t==='dark'||t==='light'?t:(mq.matches?'dark':'light');}
+function sync(){var d=cur()==='dark';tb.setAttribute('aria-pressed',d?'true':'false');tb.setAttribute('aria-label','Dark theme');tb.title=d?'Switch to light theme':'Switch to dark theme';}
+if(tb){tb.addEventListener('click',()=>{var n=cur()==='dark'?'light':'dark';root.setAttribute('data-theme',n);
+try{localStorage.setItem('pc-theme',n);localStorage.setItem('ehs-ai-theme',n);}catch(e){}
+sync();try{doc.dispatchEvent(new CustomEvent('rs-themechange',{detail:{theme:n}}));}catch(e){}});
+sync();if(mq.addEventListener)mq.addEventListener('change',sync);
+if(window.MutationObserver)new MutationObserver(sync).observe(root,{attributes:true,attributeFilter:['data-theme']});}
+var menus=[].slice.call(h.querySelectorAll('.rs-menu'));
+function closeMenus(except){menus.forEach((m)=>{if(m!==except&&m.open)m.open=false;});}
+menus.forEach((m)=>{var s=m.querySelector('summary');s.setAttribute('aria-expanded','false');
+s.addEventListener('keydown',(e)=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();m.open=!m.open;}
+else if(e.key==='ArrowDown'){e.preventDefault();m.open=true;m.querySelector('a').focus();}});
+m.addEventListener('keydown',(e)=>{var a=doc.activeElement,k=e.key,n=k==='ArrowDown'?'nextElementSibling':k==='ArrowUp'?'previousElementSibling':0;
+if(n&&a.parentNode.className==='rs-panel'&&a[n]){e.preventDefault();a[n].focus();}});
+m.addEventListener('focusout',(e)=>{if(!m.contains(e.relatedTarget))m.open=false;});
+m.addEventListener('toggle',()=>{s.setAttribute('aria-expanded',m.open?'true':'false');if(m.open)closeMenus(m);});});
+var sa=h.querySelector('a.rs-story');if(sa&&sa.href.split('#')[0]===location.href.split('#')[0])sa.setAttribute('aria-current','page');
+var mb=doc.getElementById('rs-menu-btn'),sheet=doc.getElementById('rs-sheet');
+function focusables(){return [mb].concat([].slice.call(sheet.querySelectorAll('a[href]')));}
+function setSheet(open){if(!sheet)return;sheet.hidden=!open;mb.setAttribute('aria-expanded',open?'true':'false');
+mb.setAttribute('aria-label',open?'Close menu':'Open menu');root.classList.toggle('rs-lock',open);
+if(open){var f=sheet.querySelector('a[href]');if(f)f.focus();}}
+if(mb&&sheet){mb.addEventListener('click',()=>{setSheet(sheet.hidden);});
+sheet.addEventListener('click',(e)=>{if(e.target.closest('a'))setSheet(false);});
+window.addEventListener('resize',()=>{if(!sheet.hidden&&innerWidth>1099)setSheet(false);});}
+var sb=doc.getElementById('rs-subbtn'),sl=doc.getElementById('rs-sublist'),nav=doc.getElementById('rs-sections');
+function setSub(open){if(!sb)return;sl.hidden=!open;sb.setAttribute('aria-expanded',open?'true':'false');}
+if(sb){sb.addEventListener('click',()=>{setSub(sl.hidden);});sl.addEventListener('click',(e)=>{if(e.target.closest('a'))setSub(false);});}
+doc.addEventListener('click',(e)=>{var t=e.target;if(!t.closest)return;
+if(!t.closest('.rs-menu'))closeMenus();if(sb&&!sl.hidden&&!t.closest('.rs-sub'))setSub(false);});
+doc.addEventListener('keydown',(e)=>{
+if(e.key==='Escape'){var o=menus.filter((m)=>{return m.open;})[0];
+if(o){o.open=false;o.querySelector('summary').focus();return;}
+if(sheet&&!sheet.hidden){setSheet(false);mb.focus();return;}
+if(sb&&!sl.hidden){setSub(false);sb.focus();}return;}
+if(e.key==='Tab'&&sheet&&!sheet.hidden){var f=focusables(),i=f.indexOf(doc.activeElement);
+e.preventDefault();var n=f.length;f[i<0?0:(i+(e.shiftKey?n-1:1))%n].focus();}});
+var links=nav?[].slice.call(nav.querySelectorAll('a.rs-sec')):[],items=[];
+links.forEach((a)=>{var el=doc.getElementById(decodeURIComponent(a.getAttribute('href').slice(1)));if(el)items.push({a:a,el:el,id:el.id});});
+var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches,active=null;
+function off(){return h.offsetHeight;}
+function fades(){if(!nav)return;var m=nav.scrollWidth-nav.clientWidth;nav.classList.toggle('rs-fl',nav.scrollLeft>2);nav.classList.toggle('rs-fr',m>2&&nav.scrollLeft<m-2);}
+function spy(){if(!items.length)return;var y=off()+24,pick=null;
+items.forEach((it)=>{if(it.el.getBoundingClientRect().top<=y)pick=it;});
+if(!pick)pick=items[0];if(innerHeight+scrollY>=doc.documentElement.scrollHeight-2)pick=items[items.length-1];
+if(pick===active)return;active=pick;
+[].slice.call(h.querySelectorAll('a.rs-sec')).forEach((a)=>{var on=a.getAttribute('href')==='#'+pick.id;a.classList.toggle('rs-active',on);if(on)a.setAttribute('aria-current','true');else a.removeAttribute('aria-current');});
+var now=doc.getElementById('rs-now');if(now)now.textContent=pick.a.textContent;
+if(nav.scrollWidth>nav.clientWidth){var l=pick.a.offsetLeft-(nav.clientWidth-pick.a.offsetWidth)/2;
+try{nav.scrollTo({left:l,behavior:reduce?'auto':'smooth'});}catch(e){nav.scrollLeft=l;}}}
+var bar=h.querySelector('.rs-progress'),ticking=false;
+function frame(){ticking=false;var max=doc.documentElement.scrollHeight-innerHeight;
+if(bar)bar.style.transform='scaleX('+(max>0?Math.min(1,Math.max(0,scrollY/max)):0)+')';spy();}
+function onScroll(){if(!ticking){ticking=true;requestAnimationFrame(frame);}}
+function pad(){root.style.setProperty('--rs-header-h',off()+'px');root.style.scrollPaddingTop=(off()+12)+'px';fades();}
+if(items.length&&'IntersectionObserver' in window){var io=new IntersectionObserver(onScroll,{rootMargin:'-'+off()+'px 0px -50% 0px'});items.forEach((it)=>{io.observe(it.el);});}
+if(nav)nav.addEventListener('scroll',fades,{passive:true});
+var lastY=scrollY;function headroom(){var y=scrollY,d=y-lastY;if(Math.abs(d)<6)return;
+var busy=menus.some((m)=>{return m.open;})||(sheet&&!sheet.hidden)||h.contains(doc.activeElement)&&doc.activeElement!==doc.body;
+h.classList.toggle('rs-hide',d>0&&y>160&&!busy);lastY=y;}
+addEventListener('scroll',headroom,{passive:true});h.addEventListener('focusin',()=>{h.classList.remove('rs-hide');});
+addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',()=>{pad();onScroll();});
+pad();frame();
+var fb=doc.getElementById('rs-find');if(!fb)return;
+var L=/^\/[^\/]+\/docs\//.test(location.pathname),G=['Pages','Findings','Papers','Tools','Terms'],RK='rs-search-recent',dl,inp,lst,msg,st,data,all,view=[],sel=0,back,moved,
+U=(r,f,a)=>'/'+r+'/'+(L?'docs/':'')+f+(a?'#'+a:''),
+esc=x=>String(x).replace(/[&<>"]/g,c=>'&#'+c.charCodeAt(0)+';'),
+rec=()=>{try{return JSON.parse(localStorage.getItem(RK))||[]}catch(e){return []}},
+load=()=>{data=data||fetch(U('grounded','search-index.json')).then(r=>{if(!r.ok)throw 0;return r.json()}).then(j=>{
+all=j.p.map(p=>({l:p[2],g:p[3],c:p[4],s:p[5],u:U(p[0],p[1])})).concat(j.i.map(i=>{var p=j.p[i[0]];return{l:i[2],g:i[3],c:p[4],s:i[4],u:U(p[0],p[1],i[1])}}));
+all.forEach(t=>{t.k=t.l.toLowerCase();t.x=(t.c+' '+(t.s||'')).toLowerCase()});dl&&dl.open&&render()},()=>{data=0;dl&&dl.open&&render(1)})},
+hl=(x,ws)=>{var l=x.toLowerCase(),m=[],o='',p=0;ws.forEach(w=>{for(var i=l.indexOf(w);i>-1;i=l.indexOf(w,i+w.length))m.push([i,i+w.length])});
+m.sort((a,b)=>a[0]-b[0]).forEach(r=>{if(r[0]>=p){o+=esc(x.slice(p,r[0]))+'<mark>'+esc(x.slice(r[0],r[1]))+'</mark>';p=r[1]}});return o+esc(x.slice(p))},
+mark=()=>{var os=lst.querySelectorAll('[role=option]'),c=os[sel];os.forEach((o,i)=>o.setAttribute('aria-selected',i==sel));
+c?(inp.setAttribute('aria-activedescendant',c.id),c.scrollIntoView({block:'nearest'})):inp.removeAttribute('aria-activedescendant')},
+render=err=>{var raw=inp.value.trim(),q=raw.toLowerCase(),ws=q.split(/\s+/).filter(Boolean),gs=[],h='',r,b;view=[];
+if(!q){r=rec();r.length&&gs.push(['Recent',r]);all&&gs.push(['All pages',all.filter(t=>t.u.indexOf('#')<0)])}
+else if(all){b=G.map(()=>[]);
+all.forEach(t=>{var s=0;for(var w of ws){var j=t.k.indexOf(w);if(j<0){if(t.x.indexOf(w)<0)return;s++}else s+=j&&/[a-z0-9]/.test(t.k[j-1])?3:6}
+t.sc=s+(t.k.indexOf(q)?0:5)-t.l.length/300;b[t.g].push(t)});
+b.forEach((a,g)=>a.length&&gs.push([G[g],a.sort((x,y)=>y.sc-x.sc).slice(0,g==1?8:5)]));gs.sort((x,y)=>y[1][0].sc-x[1][0].sc)}
+gs.forEach((g,n)=>{h+='<div role="group" aria-labelledby="rs-kg'+n+'"><div class="rs-k-g" id="rs-kg'+n+'">'+g[0]+'</div>';
+g[1].forEach(t=>{h+='<a role="option" tabindex="-1" id="rs-ko'+view.length+'" href="'+esc(t.u)+'"><span class="rs-k-t">'+hl(t.l,ws)+'</span><span class="rs-k-c"><b>'+esc(t.c)+'</b>'+hl(t.s||'',ws)+'</span></a>';view.push(t)});h+='</div>'});
+lst.innerHTML=h;sel=0;mark();inp.setAttribute('aria-expanded',!!view.length);
+msg.innerHTML=err?'Search is unavailable. Use the Projects and Papers menus.':all?q&&!view.length?'No match for “'+esc(raw)+'”. Try TRIR, hours, grounding or payback.':'':'Loading…';
+msg.hidden=!msg.innerHTML;st.textContent=q&&all?view.length+' results':''},
+shut=()=>{moved=0;dl.open&&dl.close()},
+go=(t,tab)=>{if(!t)return;var r=rec().filter(x=>x.u!=t.u),a=doc.createElement('a'),e;r.unshift({l:t.l,c:t.c,s:t.s,u:t.u});
+try{localStorage.setItem(RK,JSON.stringify(r.slice(0,6)))}catch(x){}
+if(tab)return open(t.u,'_blank','noopener');
+a.href=t.u;e=a.hash&&doc.getElementById(decodeURIComponent(a.hash.slice(1)));moved=1;dl.close();
+if(e&&a.pathname.replace(/index\.html$/,'')==location.pathname.replace(/index\.html$/,'')){location.hash==a.hash?e.scrollIntoView():location.hash=a.hash;e.hasAttribute('tabindex')||e.setAttribute('tabindex','-1');e.focus({preventScroll:true})}
+else location.href=t.u},
+build=()=>{dl=doc.createElement('dialog');dl.className='rs-k';dl.setAttribute('aria-label','Search the research');
+dl.innerHTML='<div class="rs-k-top">'+fb.querySelector('svg').outerHTML+'<input type="text" role="combobox" aria-label="Search the research" aria-expanded="false" aria-controls="rs-k-list" aria-autocomplete="list" aria-describedby="rs-k-help" placeholder="Search findings, papers, tools, terms" autocomplete="off" spellcheck="false" enterkeyhint="go"><button type="button" class="rs-k-x">Close</button></div><div id="rs-k-list" role="listbox" aria-label="Results"></div><p class="rs-k-e"></p><p class="rs-k-f" id="rs-k-help"><kbd>↑↓</kbd>move <kbd>Enter</kbd>open <kbd>Esc</kbd>close</p><p class="rs-k-sr" role="status"></p>';
+doc.body.append(dl);[inp,lst,msg,st]=['input','#rs-k-list','.rs-k-e','.rs-k-sr'].map(s=>dl.querySelector(s));
+inp.oninput=()=>render();
+inp.onkeydown=e=>{var k=e.key,n=view.length;
+if(k=='ArrowDown'||k=='ArrowUp'){e.preventDefault();if(n){sel=(sel+(k[5]=='D'?1:n-1))%n;mark()}}
+else if(k=='Enter'){e.preventDefault();go(view[sel],e.metaKey||e.ctrlKey)}
+else if(k=='Escape'){e.preventDefault();inp.value?(inp.value='',render()):shut()}};
+lst.onclick=e=>{var o=e.target.closest('[role=option]');if(o){e.preventDefault();go(view[o.id.slice(5)],e.metaKey||e.ctrlKey||e.shiftKey)}};
+dl.onclick=e=>{if(e.target==dl||e.target.className=='rs-k-x')shut()};
+dl.onclose=()=>{moved||back&&back.focus&&back.focus()}},
+show=()=>{dl||build();if(!dl.open){back=doc.activeElement;moved=0;inp.value='';load();render();dl.showModal();inp.focus()}};
+fb.onclick=show;
+doc.addEventListener('keydown',e=>{var t=e.target||{},k=e.key||'';if(root.classList.contains('st-presenting')||e.altKey)return;
+if(k.toLowerCase()=='k'&&(e.metaKey||e.ctrlKey)){e.preventDefault();dl&&dl.open?shut():show()}
+else if(k=='/'&&!e.metaKey&&!e.ctrlKey&&!/^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName)&&!t.isContentEditable&&!doc.querySelector('dialog[open]')){e.preventDefault();show()}});
+})();
+</script></body>
+</html>
