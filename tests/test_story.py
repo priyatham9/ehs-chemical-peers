@@ -19,7 +19,15 @@ sys.path.insert(0, str(ROOT / "scripts"))
 import build_story  # noqa: E402
 
 
+# The full build inlines the shared story engine and header from the research
+# workspace (tools/ at the Research root, repos/grounded/tools). A clone of this
+# repo alone (CI) has neither, so it checks the committed page instead.
+CAN_BUILD = build_story.INLINER.exists() and (ROOT.parent / "grounded" / "tools" / "banner.py").exists()
+
+
 def build():
+    if not CAN_BUILD:
+        return OUT.read_bytes()
     subprocess.run([sys.executable, str(ROOT / "scripts" / "build_story.py")], check=True,
                    capture_output=True, cwd=ROOT)
     return OUT.read_bytes()
@@ -52,6 +60,7 @@ class StoryBuild(unittest.TestCase):
         cls.page = OUT.read_text(encoding="utf-8")
         cls.sentences = visible_sentences(cls.page)
 
+    @unittest.skipUnless(CAN_BUILD, "shared engine and header tools not present")
     def test_idempotent(self):
         self.assertEqual(self.first, build(), "building twice changed docs/story.html")
 
