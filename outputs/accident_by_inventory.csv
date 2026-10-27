@@ -1,0 +1,5 @@
+group,facilities,facility_years,accidents,rate_per_100fy,rate_lo,rate_hi,facilities_with_accident,pct_with_accident,pct_lo,pct_hi
+Under 100k lb,562,6525,60,0.9195,0.7017,1.1836,47,8.36,6.21,10.97
+100k-1M lb,905,11546,189,1.6369,1.4119,1.8877,112,12.38,10.3,14.7
+1M-5M lb,374,5093,211,4.1429,3.6028,4.7413,98,26.2,21.82,30.97
+5M+ lb,275,3894,408,10.4777,9.4855,11.5454,127,46.18,40.18,52.27

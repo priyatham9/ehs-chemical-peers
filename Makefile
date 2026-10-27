@@ -2,7 +2,7 @@
 
 PYTHON ?= python3
 
-.PHONY: help data build compare stability story pages paper test lint serve ontology
+.PHONY: help data build compare insights stability story pages paper test lint serve ontology
 
 help:
 	@echo "make data   - download the public OSHA and EPA files into data/raw"
@@ -23,6 +23,9 @@ build:
 
 compare:
 	$(PYTHON) scripts/build_compare.py
+
+insights:
+	$(PYTHON) scripts/build_accident_insights.py
 
 stability:
 	$(PYTHON) scripts/build_stability.py

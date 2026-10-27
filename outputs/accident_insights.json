@@ -1,0 +1,870 @@
+{
+ "window": [
+  2010,
+  2024
+ ],
+ "split_year": 2016,
+ "min_facility_years_per_half": 100,
+ "overall": {
+  "group": "All EPA-registered NAICS 325 facilities",
+  "facilities": 2116,
+  "facility_years": 27058,
+  "accidents": 868,
+  "rate_per_100fy": 3.2079,
+  "rate_lo": 2.998,
+  "rate_hi": 3.4286,
+  "facilities_with_accident": 384,
+  "pct_with_accident": 18.15,
+  "pct_lo": 16.53,
+  "pct_hi": 19.86
+ },
+ "subsector": [
+  {
+   "group": "Synthetic rubber",
+   "facilities": 28,
+   "facility_years": 383,
+   "accidents": 36,
+   "rate_per_100fy": 9.3995,
+   "rate_lo": 6.5833,
+   "rate_hi": 13.0128,
+   "facilities_with_accident": 9,
+   "pct_with_accident": 32.14,
+   "pct_lo": 15.88,
+   "pct_hi": 52.35
+  },
+  {
+   "group": "Plastics resins (older code)",
+   "facilities": 14,
+   "facility_years": 175,
+   "accidents": 15,
+   "rate_per_100fy": 8.5714,
+   "rate_lo": 4.7974,
+   "rate_hi": 14.1373,
+   "facilities_with_accident": 5,
+   "pct_with_accident": 35.71,
+   "pct_lo": 12.76,
+   "pct_hi": 64.86
+  },
+  {
+   "group": "Petrochemicals",
+   "facilities": 109,
+   "facility_years": 1542,
+   "accidents": 128,
+   "rate_per_100fy": 8.3009,
+   "rate_lo": 6.9252,
+   "rate_hi": 9.8698,
+   "facilities_with_accident": 45,
+   "pct_with_accident": 41.28,
+   "pct_lo": 31.94,
+   "pct_hi": 51.12
+  },
+  {
+   "group": "Dyes & pigments",
+   "facilities": 18,
+   "facility_years": 210,
+   "accidents": 15,
+   "rate_per_100fy": 7.1429,
+   "rate_lo": 3.9978,
+   "rate_hi": 11.7811,
+   "facilities_with_accident": 6,
+   "pct_with_accident": 33.33,
+   "pct_lo": 13.34,
+   "pct_hi": 59.01
+  },
+  {
+   "group": "Acids & inorganics",
+   "facilities": 301,
+   "facility_years": 4023,
+   "accidents": 283,
+   "rate_per_100fy": 7.0346,
+   "rate_lo": 6.2388,
+   "rate_hi": 7.9037,
+   "facilities_with_accident": 99,
+   "pct_with_accident": 32.89,
+   "pct_lo": 27.61,
+   "pct_hi": 38.51
+  },
+  {
+   "group": "Explosives",
+   "facilities": 9,
+   "facility_years": 133,
+   "accidents": 9,
+   "rate_per_100fy": 6.7669,
+   "rate_lo": 3.0943,
+   "rate_hi": 12.8457,
+   "facilities_with_accident": 2,
+   "pct_with_accident": 22.22,
+   "pct_lo": 2.81,
+   "pct_hi": 60.01
+  },
+  {
+   "group": "Other basic organics (incl. formaldehyde)",
+   "facilities": 401,
+   "facility_years": 5422,
+   "accidents": 309,
+   "rate_per_100fy": 5.699,
+   "rate_lo": 5.0812,
+   "rate_hi": 6.3712,
+   "facilities_with_accident": 108,
+   "pct_with_accident": 26.93,
+   "pct_lo": 22.65,
+   "pct_hi": 31.56
+  },
+  {
+   "group": "Resins & plastics",
+   "facilities": 261,
+   "facility_years": 3572,
+   "accidents": 176,
+   "rate_per_100fy": 4.9272,
+   "rate_lo": 4.2261,
+   "rate_hi": 5.7114,
+   "facilities_with_accident": 66,
+   "pct_with_accident": 25.29,
+   "pct_lo": 20.13,
+   "pct_hi": 31.02
+  },
+  {
+   "group": "Compounding & specialty",
+   "facilities": 221,
+   "facility_years": 2810,
+   "accidents": 81,
+   "rate_per_100fy": 2.8826,
+   "rate_lo": 2.2892,
+   "rate_hi": 3.5828,
+   "facilities_with_accident": 36,
+   "pct_with_accident": 16.29,
+   "pct_lo": 11.68,
+   "pct_hi": 21.83
+  },
+  {
+   "group": "Fertilizer & ag chemicals",
+   "facilities": 415,
+   "facility_years": 5221,
+   "accidents": 145,
+   "rate_per_100fy": 2.7772,
+   "rate_lo": 2.3436,
+   "rate_hi": 3.2679,
+   "facilities_with_accident": 64,
+   "pct_with_accident": 15.42,
+   "pct_lo": 12.08,
+   "pct_hi": 19.26
+  },
+  {
+   "group": "Industrial gases",
+   "facilities": 276,
+   "facility_years": 3094,
+   "accidents": 56,
+   "rate_per_100fy": 1.81,
+   "rate_lo": 1.3672,
+   "rate_hi": 2.3504,
+   "facilities_with_accident": 34,
+   "pct_with_accident": 12.32,
+   "pct_lo": 8.68,
+   "pct_hi": 16.79
+  },
+  {
+   "group": "Adhesives",
+   "facilities": 42,
+   "facility_years": 513,
+   "accidents": 8,
+   "rate_per_100fy": 1.5595,
+   "rate_lo": 0.6733,
+   "rate_hi": 3.0727,
+   "facilities_with_accident": 5,
+   "pct_with_accident": 11.9,
+   "pct_lo": 3.98,
+   "pct_hi": 25.63
+  },
+  {
+   "group": "Pharmaceuticals",
+   "facilities": 41,
+   "facility_years": 529,
+   "accidents": 8,
+   "rate_per_100fy": 1.5123,
+   "rate_lo": 0.6529,
+   "rate_hi": 2.9798,
+   "facilities_with_accident": 6,
+   "pct_with_accident": 14.63,
+   "pct_lo": 5.57,
+   "pct_hi": 29.17
+  },
+  {
+   "group": "Fibers",
+   "facilities": 9,
+   "facility_years": 119,
+   "accidents": 1,
+   "rate_per_100fy": 0.8403,
+   "rate_lo": 0.0213,
+   "rate_hi": 4.6821,
+   "facilities_with_accident": 1,
+   "pct_with_accident": 11.11,
+   "pct_lo": 0.28,
+   "pct_hi": 48.25
+  },
+  {
+   "group": "Soaps, cleaners & personal care",
+   "facilities": 95,
+   "facility_years": 1243,
+   "accidents": 9,
+   "rate_per_100fy": 0.7241,
+   "rate_lo": 0.3311,
+   "rate_hi": 1.3745,
+   "facilities_with_accident": 8,
+   "pct_with_accident": 8.42,
+   "pct_lo": 3.71,
+   "pct_hi": 15.92
+  },
+  {
+   "group": "Ethanol & biofuels",
+   "facilities": 199,
+   "facility_years": 2598,
+   "accidents": 15,
+   "rate_per_100fy": 0.5774,
+   "rate_lo": 0.3231,
+   "rate_hi": 0.9523,
+   "facilities_with_accident": 12,
+   "pct_with_accident": 6.03,
+   "pct_lo": 3.15,
+   "pct_hi": 10.3
+  },
+  {
+   "group": "Paints & coatings",
+   "facilities": 61,
+   "facility_years": 722,
+   "accidents": 3,
+   "rate_per_100fy": 0.4155,
+   "rate_lo": 0.0857,
+   "rate_hi": 1.2143,
+   "facilities_with_accident": 3,
+   "pct_with_accident": 4.92,
+   "pct_lo": 1.03,
+   "pct_hi": 13.71
+  }
+ ],
+ "family": [
+  {
+   "group": "Epoxy chain",
+   "facilities": 50,
+   "facility_years": 699,
+   "accidents": 68,
+   "rate_per_100fy": 9.7282,
+   "rate_lo": 7.5543,
+   "rate_hi": 12.3328,
+   "facilities_with_accident": 20,
+   "pct_with_accident": 40.0,
+   "pct_lo": 26.41,
+   "pct_hi": 54.82
+  },
+  {
+   "group": "Strong acids",
+   "facilities": 202,
+   "facility_years": 2718,
+   "accidents": 262,
+   "rate_per_100fy": 9.6394,
+   "rate_lo": 8.5075,
+   "rate_hi": 10.8801,
+   "facilities_with_accident": 72,
+   "pct_with_accident": 35.64,
+   "pct_lo": 29.05,
+   "pct_hi": 42.67
+  },
+  {
+   "group": "Sulfur compounds",
+   "facilities": 117,
+   "facility_years": 1596,
+   "accidents": 148,
+   "rate_per_100fy": 9.2732,
+   "rate_lo": 7.8394,
+   "rate_hi": 10.8933,
+   "facilities_with_accident": 53,
+   "pct_with_accident": 45.3,
+   "pct_lo": 36.08,
+   "pct_hi": 54.77
+  },
+  {
+   "group": "Chlorine & chlor-alkali",
+   "facilities": 379,
+   "facility_years": 5106,
+   "accidents": 391,
+   "rate_per_100fy": 7.6577,
+   "rate_lo": 6.9174,
+   "rate_hi": 8.4556,
+   "facilities_with_accident": 135,
+   "pct_with_accident": 35.62,
+   "pct_lo": 30.8,
+   "pct_hi": 40.67
+  },
+  {
+   "group": "Reactive oxides",
+   "facilities": 102,
+   "facility_years": 1439,
+   "accidents": 105,
+   "rate_per_100fy": 7.2967,
+   "rate_lo": 5.968,
+   "rate_hi": 8.8331,
+   "facilities_with_accident": 32,
+   "pct_with_accident": 31.37,
+   "pct_lo": 22.55,
+   "pct_hi": 41.31
+  },
+  {
+   "group": "Silanes",
+   "facilities": 32,
+   "facility_years": 438,
+   "accidents": 26,
+   "rate_per_100fy": 5.9361,
+   "rate_lo": 3.8776,
+   "rate_hi": 8.6977,
+   "facilities_with_accident": 8,
+   "pct_with_accident": 25.0,
+   "pct_lo": 11.46,
+   "pct_hi": 43.4
+  },
+  {
+   "group": "Monomers",
+   "facilities": 211,
+   "facility_years": 2914,
+   "accidents": 162,
+   "rate_per_100fy": 5.5594,
+   "rate_lo": 4.7362,
+   "rate_hi": 6.4844,
+   "facilities_with_accident": 66,
+   "pct_with_accident": 31.28,
+   "pct_lo": 25.09,
+   "pct_hi": 38.0
+  },
+  {
+   "group": "Amines",
+   "facilities": 146,
+   "facility_years": 2011,
+   "accidents": 104,
+   "rate_per_100fy": 5.1716,
+   "rate_lo": 4.2255,
+   "rate_hi": 6.2662,
+   "facilities_with_accident": 49,
+   "pct_with_accident": 33.56,
+   "pct_lo": 25.97,
+   "pct_hi": 41.84
+  },
+  {
+   "group": "Formaldehyde",
+   "facilities": 155,
+   "facility_years": 2053,
+   "accidents": 94,
+   "rate_per_100fy": 4.5787,
+   "rate_lo": 3.7,
+   "rate_hi": 5.6031,
+   "facilities_with_accident": 42,
+   "pct_with_accident": 27.1,
+   "pct_lo": 20.28,
+   "pct_hi": 34.81
+  },
+  {
+   "group": "Ammonia",
+   "facilities": 782,
+   "facility_years": 10257,
+   "accidents": 417,
+   "rate_per_100fy": 4.0655,
+   "rate_lo": 3.6846,
+   "rate_hi": 4.4751,
+   "facilities_with_accident": 164,
+   "pct_with_accident": 20.97,
+   "pct_lo": 18.17,
+   "pct_hi": 24.0
+  },
+  {
+   "group": "Flammable gases & liquids",
+   "facilities": 888,
+   "facility_years": 11279,
+   "accidents": 414,
+   "rate_per_100fy": 3.6705,
+   "rate_lo": 3.3254,
+   "rate_hi": 4.0417,
+   "facilities_with_accident": 166,
+   "pct_with_accident": 18.69,
+   "pct_lo": 16.18,
+   "pct_hi": 21.42
+  },
+  {
+   "group": "Isocyanates",
+   "facilities": 55,
+   "facility_years": 731,
+   "accidents": 11,
+   "rate_per_100fy": 1.5048,
+   "rate_lo": 0.7512,
+   "rate_hi": 2.6925,
+   "facilities_with_accident": 5,
+   "pct_with_accident": 9.09,
+   "pct_lo": 3.02,
+   "pct_hi": 19.95
+  }
+ ],
+ "inventory": [
+  {
+   "group": "Under 100k lb",
+   "facilities": 562,
+   "facility_years": 6525,
+   "accidents": 60,
+   "rate_per_100fy": 0.9195,
+   "rate_lo": 0.7017,
+   "rate_hi": 1.1836,
+   "facilities_with_accident": 47,
+   "pct_with_accident": 8.36,
+   "pct_lo": 6.21,
+   "pct_hi": 10.97
+  },
+  {
+   "group": "100k-1M lb",
+   "facilities": 905,
+   "facility_years": 11546,
+   "accidents": 189,
+   "rate_per_100fy": 1.6369,
+   "rate_lo": 1.4119,
+   "rate_hi": 1.8877,
+   "facilities_with_accident": 112,
+   "pct_with_accident": 12.38,
+   "pct_lo": 10.3,
+   "pct_hi": 14.7
+  },
+  {
+   "group": "1M-5M lb",
+   "facilities": 374,
+   "facility_years": 5093,
+   "accidents": 211,
+   "rate_per_100fy": 4.1429,
+   "rate_lo": 3.6028,
+   "rate_hi": 4.7413,
+   "facilities_with_accident": 98,
+   "pct_with_accident": 26.2,
+   "pct_lo": 21.82,
+   "pct_hi": 30.97
+  },
+  {
+   "group": "5M+ lb",
+   "facilities": 275,
+   "facility_years": 3894,
+   "accidents": 408,
+   "rate_per_100fy": 10.4777,
+   "rate_lo": 9.4855,
+   "rate_hi": 11.5454,
+   "facilities_with_accident": 127,
+   "pct_with_accident": 46.18,
+   "pct_lo": 40.18,
+   "pct_hi": 52.27
+  }
+ ],
+ "split_subsector": {
+  "rows": [
+   {
+    "group": "Resins & plastics",
+    "fy_early": 1721,
+    "acc_early": 103,
+    "rate_early": 5.985,
+    "fy_late": 1851,
+    "acc_late": 73,
+    "rate_late": 3.944
+   },
+   {
+    "group": "Synthetic rubber",
+    "fy_early": 183,
+    "acc_early": 20,
+    "rate_early": 10.929,
+    "fy_late": 200,
+    "acc_late": 16,
+    "rate_late": 8.0
+   },
+   {
+    "group": "Petrochemicals",
+    "fy_early": 706,
+    "acc_early": 79,
+    "rate_early": 11.19,
+    "fy_late": 836,
+    "acc_late": 49,
+    "rate_late": 5.861
+   },
+   {
+    "group": "Industrial gases",
+    "fy_early": 1291,
+    "acc_early": 36,
+    "rate_early": 2.789,
+    "fy_late": 1803,
+    "acc_late": 20,
+    "rate_late": 1.109
+   },
+   {
+    "group": "Acids & inorganics",
+    "fy_early": 1969,
+    "acc_early": 156,
+    "rate_early": 7.923,
+    "fy_late": 2054,
+    "acc_late": 127,
+    "rate_late": 6.183
+   },
+   {
+    "group": "Ethanol & biofuels",
+    "fy_early": 1323,
+    "acc_early": 10,
+    "rate_early": 0.756,
+    "fy_late": 1275,
+    "acc_late": 5,
+    "rate_late": 0.392
+   },
+   {
+    "group": "Other basic organics (incl. formaldehyde)",
+    "fy_early": 2538,
+    "acc_early": 176,
+    "rate_early": 6.935,
+    "fy_late": 2884,
+    "acc_late": 133,
+    "rate_late": 4.612
+   },
+   {
+    "group": "Fertilizer & ag chemicals",
+    "fy_early": 2581,
+    "acc_early": 93,
+    "rate_early": 3.603,
+    "fy_late": 2640,
+    "acc_late": 52,
+    "rate_late": 1.97
+   },
+   {
+    "group": "Pharmaceuticals",
+    "fy_early": 249,
+    "acc_early": 4,
+    "rate_early": 1.606,
+    "fy_late": 280,
+    "acc_late": 4,
+    "rate_late": 1.429
+   },
+   {
+    "group": "Paints & coatings",
+    "fy_early": 377,
+    "acc_early": 1,
+    "rate_early": 0.265,
+    "fy_late": 345,
+    "acc_late": 2,
+    "rate_late": 0.58
+   },
+   {
+    "group": "Adhesives",
+    "fy_early": 237,
+    "acc_early": 2,
+    "rate_early": 0.844,
+    "fy_late": 276,
+    "acc_late": 6,
+    "rate_late": 2.174
+   },
+   {
+    "group": "Soaps, cleaners & personal care",
+    "fy_early": 598,
+    "acc_early": 5,
+    "rate_early": 0.836,
+    "fy_late": 645,
+    "acc_late": 4,
+    "rate_late": 0.62
+   },
+   {
+    "group": "Compounding & specialty",
+    "fy_early": 1319,
+    "acc_early": 52,
+    "rate_early": 3.942,
+    "fy_late": 1491,
+    "acc_late": 29,
+    "rate_late": 1.945
+   }
+  ],
+  "spearman": 0.912,
+  "groups": 13,
+  "groups_lower_late": 11
+ },
+ "split_family": {
+  "rows": [
+   {
+    "group": "Formaldehyde",
+    "fy_early": 972,
+    "acc_early": 59,
+    "rate_early": 6.07,
+    "fy_late": 1081,
+    "acc_late": 35,
+    "rate_late": 3.238
+   },
+   {
+    "group": "Epoxy chain",
+    "fy_early": 341,
+    "acc_early": 43,
+    "rate_early": 12.61,
+    "fy_late": 358,
+    "acc_late": 25,
+    "rate_late": 6.983
+   },
+   {
+    "group": "Ammonia",
+    "fy_early": 4983,
+    "acc_early": 271,
+    "rate_early": 5.438,
+    "fy_late": 5274,
+    "acc_late": 146,
+    "rate_late": 2.768
+   },
+   {
+    "group": "Chlorine & chlor-alkali",
+    "fy_early": 2473,
+    "acc_early": 222,
+    "rate_early": 8.977,
+    "fy_late": 2633,
+    "acc_late": 169,
+    "rate_late": 6.419
+   },
+   {
+    "group": "Strong acids",
+    "fy_early": 1269,
+    "acc_early": 157,
+    "rate_early": 12.372,
+    "fy_late": 1449,
+    "acc_late": 105,
+    "rate_late": 7.246
+   },
+   {
+    "group": "Isocyanates",
+    "fy_early": 343,
+    "acc_early": 7,
+    "rate_early": 2.041,
+    "fy_late": 388,
+    "acc_late": 4,
+    "rate_late": 1.031
+   },
+   {
+    "group": "Reactive oxides",
+    "fy_early": 658,
+    "acc_early": 71,
+    "rate_early": 10.79,
+    "fy_late": 781,
+    "acc_late": 34,
+    "rate_late": 4.353
+   },
+   {
+    "group": "Monomers",
+    "fy_early": 1405,
+    "acc_early": 97,
+    "rate_early": 6.904,
+    "fy_late": 1509,
+    "acc_late": 65,
+    "rate_late": 4.307
+   },
+   {
+    "group": "Amines",
+    "fy_early": 942,
+    "acc_early": 66,
+    "rate_early": 7.006,
+    "fy_late": 1069,
+    "acc_late": 38,
+    "rate_late": 3.555
+   },
+   {
+    "group": "Silanes",
+    "fy_early": 203,
+    "acc_early": 21,
+    "rate_early": 10.345,
+    "fy_late": 235,
+    "acc_late": 5,
+    "rate_late": 2.128
+   },
+   {
+    "group": "Sulfur compounds",
+    "fy_early": 772,
+    "acc_early": 83,
+    "rate_early": 10.751,
+    "fy_late": 824,
+    "acc_late": 65,
+    "rate_late": 7.888
+   },
+   {
+    "group": "Flammable gases & liquids",
+    "fy_early": 5196,
+    "acc_early": 244,
+    "rate_early": 4.696,
+    "fy_late": 6083,
+    "acc_late": 170,
+    "rate_late": 2.795
+   }
+  ],
+  "spearman": 0.769,
+  "groups": 12,
+  "groups_lower_late": 12
+ },
+ "subsector_inventory_rank": {
+  "groups": 17,
+  "spearman": 0.468,
+  "rows": [
+   {
+    "group": "Synthetic rubber",
+    "median_inventory_lb": 1744250.0,
+    "rate_per_100fy": 9.3995
+   },
+   {
+    "group": "Plastics resins (older code)",
+    "median_inventory_lb": 489162.5,
+    "rate_per_100fy": 8.5714
+   },
+   {
+    "group": "Petrochemicals",
+    "median_inventory_lb": 17143180,
+    "rate_per_100fy": 8.3009
+   },
+   {
+    "group": "Dyes & pigments",
+    "median_inventory_lb": 298100.0,
+    "rate_per_100fy": 7.1429
+   },
+   {
+    "group": "Acids & inorganics",
+    "median_inventory_lb": 625141,
+    "rate_per_100fy": 7.0346
+   },
+   {
+    "group": "Explosives",
+    "median_inventory_lb": 360571,
+    "rate_per_100fy": 6.7669
+   },
+   {
+    "group": "Other basic organics (incl. formaldehyde)",
+    "median_inventory_lb": 683396,
+    "rate_per_100fy": 5.699
+   },
+   {
+    "group": "Resins & plastics",
+    "median_inventory_lb": 800000,
+    "rate_per_100fy": 4.9272
+   },
+   {
+    "group": "Compounding & specialty",
+    "median_inventory_lb": 261000,
+    "rate_per_100fy": 2.8826
+   },
+   {
+    "group": "Fertilizer & ag chemicals",
+    "median_inventory_lb": 320000,
+    "rate_per_100fy": 2.7772
+   },
+   {
+    "group": "Industrial gases",
+    "median_inventory_lb": 52000.0,
+    "rate_per_100fy": 1.81
+   },
+   {
+    "group": "Adhesives",
+    "median_inventory_lb": 126000.0,
+    "rate_per_100fy": 1.5595
+   },
+   {
+    "group": "Pharmaceuticals",
+    "median_inventory_lb": 129000,
+    "rate_per_100fy": 1.5123
+   },
+   {
+    "group": "Fibers",
+    "median_inventory_lb": 675540,
+    "rate_per_100fy": 0.8403
+   },
+   {
+    "group": "Soaps, cleaners & personal care",
+    "median_inventory_lb": 299500,
+    "rate_per_100fy": 0.7241
+   },
+   {
+    "group": "Ethanol & biofuels",
+    "median_inventory_lb": 700000,
+    "rate_per_100fy": 0.5774
+   },
+   {
+    "group": "Paints & coatings",
+    "median_inventory_lb": 117958,
+    "rate_per_100fy": 0.4155
+   }
+  ]
+ },
+ "concentration": [
+  {
+   "top_share_of_facilities_pct": 1,
+   "facilities": 22,
+   "accidents": 248,
+   "pct_of_accidents": 28.57
+  },
+  {
+   "top_share_of_facilities_pct": 5,
+   "facilities": 106,
+   "accidents": 537,
+   "pct_of_accidents": 61.87
+  },
+  {
+   "top_share_of_facilities_pct": 10,
+   "facilities": 212,
+   "accidents": 696,
+   "pct_of_accidents": 80.18
+  },
+  {
+   "top_share_of_facilities_pct": 25,
+   "facilities": 529,
+   "accidents": 868,
+   "pct_of_accidents": 100.0
+  }
+ ],
+ "accident_count_distribution": {
+  "3+": 90,
+  "2": 69,
+  "1": 225,
+  "0": 1732
+ },
+ "chemicals": [
+  {
+   "chemical": "Chlorine",
+   "accident_records": 175,
+   "facilities_with_accident": 78
+  },
+  {
+   "chemical": "Ammonia (anhydrous)",
+   "accident_records": 159,
+   "facilities_with_accident": 90
+  },
+  {
+   "chemical": "Hydrogen fluoride/Hydrofluoric acid (conc 50% or greater) [Hydrofluoric acid]",
+   "accident_records": 45,
+   "facilities_with_accident": 13
+  },
+  {
+   "chemical": "Ethylene [Ethene]",
+   "accident_records": 36,
+   "facilities_with_accident": 24
+  },
+  {
+   "chemical": "Flammable Mixture",
+   "accident_records": 36,
+   "facilities_with_accident": 25
+  },
+  {
+   "chemical": "Formaldehyde (solution)",
+   "accident_records": 32,
+   "facilities_with_accident": 18
+  },
+  {
+   "chemical": "1,3-Butadiene",
+   "accident_records": 29,
+   "facilities_with_accident": 15
+  },
+  {
+   "chemical": "Sulfur dioxide (anhydrous)",
+   "accident_records": 28,
+   "facilities_with_accident": 15
+  },
+  {
+   "chemical": "Hydrogen chloride (anhydrous) [Hydrochloric acid]",
+   "accident_records": 23,
+   "facilities_with_accident": 13
+  },
+  {
+   "chemical": "Ammonia (conc 20% or greater)",
+   "accident_records": 22,
+   "facilities_with_accident": 17
+  }
+ ]
+}

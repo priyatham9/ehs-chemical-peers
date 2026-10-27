@@ -53,6 +53,10 @@ These are correlations in reported data, not causes.
 
 [docs/stability.md](docs/stability.md) asks how often a plant keeps the same nearest peers when the similarity attributes are resampled or their weights perturbed (seeded, deterministic; `make stability`). Per-plant scores are in `outputs/peer_stability.csv` and `outputs/peer_stability.json`, and [compare.html](https://priyatham9.github.io/ehs-chemical-peers/compare.html) shows the median score for each group it compares. The finding: the exact list of ten nearest peers is mostly arbitrary, because hundreds of plants tie at the same distance, so a peer group defined by attributes is the honest object. Method and limits are in the doc.
 
+## Accident histories by peer group
+
+[docs/insights.md](docs/insights.md) uses the committed RMP accident-history records to compare accident rates across product-type, chemical-family and inventory peer groups, with exact Poisson intervals, concentration across facilities, and a split-half check on group rank. Tables are in `outputs/accident_*.csv` (`make insights`); `tests/test_insights.py` checks the document against them. Association in reported data only.
+
 ## Sources
 
 | Source | Years | Rows kept (NAICS 325) |
