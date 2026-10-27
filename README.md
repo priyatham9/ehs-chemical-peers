@@ -68,6 +68,10 @@ Full detail: [method.html](https://priyatham9.github.io/ehs-chemical-peers/metho
 
 Working paper: [docs/paper.md](docs/paper.md) sets out the data, method, results and limitations, with every table generated from `outputs/summary.json`.
 
+## Ontology
+
+`src/chempeers/ontology/` puts a Foundry-style ontology on the linked dataset. It splits each plant back into its sources as separate object types (EPA registration, process, chemical holding, accident, OSHA establishment, injury-log year, serious-injury report) and models the EPA-to-OSHA join as a link backed by a match object that carries the join method and a confidence level. Actions flag a match as wrong, confirm it, or hold a plant out of peer comparisons, with validation and an audit log, and the functions reuse `analysis.py` and `stats.py` (they reproduce `outputs/summary.json`). It exports to SQLite and JSON with `make ontology`. Design, Foundry concept mapping and limits: [docs/ontology.md](docs/ontology.md). It is an independent design on public data, not affiliated with Palantir.
+
 ## Run it
 
 ```bash
@@ -75,6 +79,7 @@ make data    # download the public files into data/raw (about 300 MB)
 make build   # link, analyse, write outputs/summary.json and docs/data/*.json
 make test    # unit tests on a synthetic fixture, plus real-data checks when data/raw is present
 make serve   # open http://localhost:8000
+make ontology  # build the ontology from the committed data, export to build/ontology
 ```
 
 ## Layout
@@ -83,6 +88,7 @@ make serve   # open http://localhost:8000
 src/chempeers/   load.py (readers) · link.py (address joins) · build.py (assembly)
                  taxonomy.py (product types, chemical families) · events.py (plain-language coding)
                  stats.py (rates, exact Poisson limits) · analysis.py (findings) · export.py (site data)
+                 ontology/ (Foundry-style object model over the join, docs/ontology.md)
 scripts/         download_data.py · build_data.py · build_story.py · apply_header.py
 docs/            index.html (explorer) · story.html · method.html · data/*.json
 tests/           synthetic fixture and tests

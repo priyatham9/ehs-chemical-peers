@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- `src/chempeers/ontology/`: Foundry-style ontology over the linked dataset (JSON spec of 12 object types, 15 link types, 4 actions and 6 functions; the RMP-to-OSHA join is a link backed by a match object carrying method, confidence and review; validating runtime with link traversal, actions and an action log; SQLite/JSON export; `make ontology`). Built from the committed `docs/data` and `outputs/summary.json`; its functions reuse `analysis.py` and `stats.py` and `tests/test_ontology.py` checks they reproduce the summary. Documented in `docs/ontology.md`; independent design on public data, not affiliated with Palantir.
 - Working paper `docs/paper.md`: data, method, results, limitations and verified references. Tables are generated from `outputs/summary.json` by `scripts/paper_tables.py` (`make paper`), and `tests/test_paper_consistency.py` checks the tables and every number quoted in the prose.
 
 ## 0.1.0 - 2026-09-27
