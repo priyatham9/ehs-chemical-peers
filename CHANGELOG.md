@@ -3,6 +3,7 @@
 ## Unreleased
 
 - `src/chempeers/ontology/`: Foundry-style ontology over the linked dataset (JSON spec of 12 object types, 15 link types, 4 actions and 6 functions; the RMP-to-OSHA join is a link backed by a match object carrying method, confidence and review; validating runtime with link traversal, actions and an action log; SQLite/JSON export; `make ontology`). Built from the committed `docs/data` and `outputs/summary.json`; its functions reuse `analysis.py` and `stats.py` and `tests/test_ontology.py` checks they reproduce the summary. Documented in `docs/ontology.md`; independent design on public data, not affiliated with Palantir.
+- Comparison page `docs/compare.html`: pick any two groups (size band, product type, chemical family, inventory, release history) and see release or injury rates side by side with exact intervals (Clopper-Pearson and Wilson; Garwood Poisson) and an exact test of whether the gap is distinguishable from noise. Stdlib build step `scripts/build_compare.py` (`make compare`) writes `docs/data/compare.json` from `outputs/summary.json` and `docs/data/plants.json`; `tests/test_compare.py` checks the statistics against brute-force sums and every group against the committed outputs.
 - Working paper `docs/paper.md`: data, method, results, limitations and verified references. Tables are generated from `outputs/summary.json` by `scripts/paper_tables.py` (`make paper`), and `tests/test_paper_consistency.py` checks the tables and every number quoted in the prose.
 
 ## 0.1.0 - 2026-09-27

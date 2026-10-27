@@ -47,6 +47,7 @@ These are correlations in reported data, not causes.
 * **Releases.** Peer release rate per plant-year, per worker or per million lb; why, where from, what happened and what changed afterwards, with the baseline's own releases listed.
 * **Serious injuries.** Peer serious injuries grouped by the kind of energy involved, with the reports' own narratives.
 * **Peer list.** Sortable, with a CSV download.
+* **Compare two groups.** [`compare.html`](https://priyatham9.github.io/ehs-chemical-peers/compare.html) puts any two size bands, product types, chemical families, inventory bands or release-history groups side by side: release rate per plant-year (exact binomial and Wilson 95% intervals, Fisher's exact test) or recordable cases per 200,000 hours (exact Poisson interval, exact conditional binomial test), with a plain statement of whether the gap is distinguishable from noise. It is a portable, plain-code take on a Quiver-style comparative analysis view, built only on the public data here; it is independent of and not affiliated with Palantir. Page data is `docs/data/compare.json`, built by `scripts/build_compare.py` (`make compare`); `tests/test_compare.py` checks it against `outputs/summary.json` and `docs/data/plants.json`.
 
 ## Sources
 
@@ -87,9 +88,10 @@ make ontology  # build the ontology from the committed data, export to build/ont
 ```
 src/chempeers/   load.py (readers) · link.py (address joins) · build.py (assembly)
                  taxonomy.py (product types, chemical families) · events.py (plain-language coding)
+                 compare.py (exact intervals and two-group tests for compare.html)
                  stats.py (rates, exact Poisson limits) · analysis.py (findings) · export.py (site data)
                  ontology/ (Foundry-style object model over the join, docs/ontology.md)
-scripts/         download_data.py · build_data.py · build_story.py · apply_header.py
+scripts/         download_data.py · build_data.py · build_compare.py · build_story.py · apply_header.py
 docs/            index.html (explorer) · story.html · method.html · data/*.json
 tests/           synthetic fixture and tests
 ```
