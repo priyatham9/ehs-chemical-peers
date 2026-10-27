@@ -1,0 +1,340 @@
+{
+  "ontology": {
+    "api_name": "chempeers_chemical_plants",
+    "display_name": "US chemical plant ontology (EPA RMP + OSHA)",
+    "version": "1.0.0",
+    "description": "Foundry-style ontology that joins three public sources for US chemical manufacturing (NAICS 325) into one object model: EPA Risk Management Program registrations and accident histories, OSHA Form 300A injury logs, and OSHA Severe Injury Reports. Independent design on public data; not affiliated with Palantir and uses no employer data. By default every object comes from the committed linked dataset (docs/data/*.json) and the committed findings (outputs/summary.json); the synthetic test fixture can be used instead."
+  },
+  "object_types": [
+    {
+      "api_name": "Plant",
+      "display_name": "Chemical plant",
+      "plural_display_name": "Chemical plants",
+      "description": "One physical chemical plant after the join: an EPA RMP facility (id R<EPA ID>) or an OSHA injury-log establishment that joined to none (id I<OSHA ID>). The unit a peer comparison is about.",
+      "backing_dataset": "docs/data/plants.json (chempeers.build.assemble -> chempeers.export.plant_row)",
+      "primary_key": "plant_id",
+      "title_property": "name",
+      "properties": [
+        {"api_name": "plant_id", "type": "string", "nullable": false, "description": "R<EPA facility ID> or I<OSHA establishment ID>."},
+        {"api_name": "name", "type": "string", "nullable": true, "description": "Name from the identity source (EPA when registered, else OSHA)."},
+        {"api_name": "company", "type": "string", "nullable": true, "description": "Parent company as filed."},
+        {"api_name": "city", "type": "string", "nullable": true, "description": "City."},
+        {"api_name": "state", "type": "string", "nullable": true, "description": "Two-letter state; decides federal versus state-plan OSHA."},
+        {"api_name": "zip", "type": "string", "nullable": true, "description": "5-digit ZIP; half of the address join key."},
+        {"api_name": "lat", "type": "double", "nullable": true, "description": "Latitude (EPA plants only)."},
+        {"api_name": "lng", "type": "double", "nullable": true, "description": "Longitude (EPA plants only)."},
+        {"api_name": "naics", "type": "string", "nullable": true, "description": "Primary NAICS code."},
+        {"api_name": "subsector", "type": "string", "nullable": false, "description": "Primary product type (chempeers.taxonomy.subsector)."},
+        {"api_name": "employees", "type": "double", "nullable": true, "description": "Average employees on the latest injury log, else EPA full-time equivalents."},
+        {"api_name": "size_band", "type": "string", "nullable": true, "description": "Workforce band (chempeers.taxonomy.SIZE_BANDS); foreign key to SizeBand."},
+        {"api_name": "peer_group_key", "type": "string", "nullable": true, "description": "subsector|size_band; foreign key to PeerGroup."},
+        {"api_name": "match_method", "type": "string", "nullable": false, "description": "How the pipeline joined the plant: address, address+name, zip+name, epa only, osha only."},
+        {"api_name": "federal_osha", "type": "boolean", "nullable": false, "description": "False in state-plan states, whose serious-injury reports are not in the federal file."},
+        {"api_name": "review_status", "type": "string", "nullable": false, "editable": true, "default": "none", "description": "Writeback: none or under_review."},
+        {"api_name": "review_reason", "type": "string", "nullable": true, "editable": true, "description": "Writeback: coded reason for review."},
+        {"api_name": "review_note", "type": "string", "nullable": true, "editable": true, "description": "Writeback: free-text justification."},
+        {"api_name": "source", "type": "string", "nullable": false, "description": "Provenance label (committed_site_data or synthetic_fixture)."}
+      ]
+    },
+    {
+      "api_name": "RmpRegistration",
+      "display_name": "EPA RMP registration",
+      "plural_display_name": "EPA RMP registrations",
+      "description": "A facility's EPA Risk Management Program registration: what it holds above threshold, when it filed, and whether it is still registered.",
+      "backing_dataset": "docs/data/plants.json, rows with an rmp_id (chempeers.load.read_rmp)",
+      "primary_key": "epa_facility_id",
+      "title_property": "epa_facility_id",
+      "properties": [
+        {"api_name": "epa_facility_id", "type": "string", "nullable": false, "description": "EPA facility ID."},
+        {"api_name": "plant_id", "type": "string", "nullable": false, "description": "Foreign key to Plant (one-to-one)."},
+        {"api_name": "rmp_first", "type": "integer", "nullable": true, "description": "Year of the first submission."},
+        {"api_name": "rmp_last", "type": "integer", "nullable": true, "description": "Year of the latest submission."},
+        {"api_name": "active", "type": "boolean", "nullable": false, "description": "False once deregistered."},
+        {"api_name": "inventory_lb", "type": "double", "nullable": true, "description": "Pounds held above threshold, all chemicals in the latest submission."},
+        {"api_name": "inventory_band", "type": "string", "nullable": true, "description": "chempeers.taxonomy.INVENTORY_BANDS label."},
+        {"api_name": "families", "type": "string_array", "nullable": false, "description": "Chemical families held (chempeers.taxonomy.families)."},
+        {"api_name": "source", "type": "string", "nullable": false, "description": "Provenance label."}
+      ]
+    },
+    {
+      "api_name": "Process",
+      "display_name": "RMP process (product type)",
+      "plural_display_name": "RMP processes",
+      "description": "One product type a registration declares through the NAICS codes of its covered processes. The committed extract keeps codes per facility, not per process, so this is the product-type level of a process, without its own chemicals.",
+      "backing_dataset": "subsectors of each RMP plant in docs/data/plants.json",
+      "primary_key": "process_key",
+      "title_property": "product_type",
+      "properties": [
+        {"api_name": "process_key", "type": "string", "nullable": false, "description": "epa_facility_id|product_type."},
+        {"api_name": "epa_facility_id", "type": "string", "nullable": false, "description": "Foreign key to RmpRegistration."},
+        {"api_name": "product_type", "type": "string", "nullable": false, "description": "chempeers.taxonomy subsector label."},
+        {"api_name": "is_primary", "type": "boolean", "nullable": false, "description": "True for the plant's primary product type."},
+        {"api_name": "source", "type": "string", "nullable": false, "description": "Provenance label."}
+      ]
+    },
+    {
+      "api_name": "Chemical",
+      "display_name": "Regulated chemical",
+      "plural_display_name": "Regulated chemicals",
+      "description": "An RMP-listed substance, named as EPA lists it, with its plain-language family.",
+      "backing_dataset": "distinct chemical names in plant holdings and accident records",
+      "primary_key": "chemical_name",
+      "title_property": "chemical_name",
+      "properties": [
+        {"api_name": "chemical_name", "type": "string", "nullable": false, "description": "Name as listed in RMP."},
+        {"api_name": "families", "type": "string_array", "nullable": false, "description": "chempeers.taxonomy.families of the name (may be empty)."},
+        {"api_name": "source", "type": "string", "nullable": false, "description": "Provenance label."}
+      ]
+    },
+    {
+      "api_name": "ChemicalHolding",
+      "display_name": "Chemical holding",
+      "plural_display_name": "Chemical holdings",
+      "description": "Pounds of one chemical held by one registration: the join object between RmpRegistration and Chemical, carrying the quantity.",
+      "backing_dataset": "chemicals column of docs/data/plants.json (top ten per plant by pounds)",
+      "primary_key": "holding_key",
+      "title_property": "holding_key",
+      "properties": [
+        {"api_name": "holding_key", "type": "string", "nullable": false, "description": "epa_facility_id|chemical_name."},
+        {"api_name": "epa_facility_id", "type": "string", "nullable": false, "description": "Foreign key to RmpRegistration."},
+        {"api_name": "chemical_name", "type": "string", "nullable": false, "description": "Foreign key to Chemical."},
+        {"api_name": "quantity_lb", "type": "double", "nullable": true, "description": "Pounds held in the latest submission."},
+        {"api_name": "rank", "type": "integer", "nullable": false, "description": "1 = largest holding at the plant."},
+        {"api_name": "source", "type": "string", "nullable": false, "description": "Provenance label."}
+      ]
+    },
+    {
+      "api_name": "Accident",
+      "display_name": "RMP accident (5-year history)",
+      "plural_display_name": "RMP accidents",
+      "description": "One release in a registration's five-year accident history, coded for what happened, where, why and what changed.",
+      "backing_dataset": "docs/data/releases.json (chempeers.build.assemble step 3)",
+      "primary_key": "accident_key",
+      "title_property": "accident_key",
+      "properties": [
+        {"api_name": "accident_key", "type": "string", "nullable": false, "description": "A<position in releases.json>."},
+        {"api_name": "epa_facility_id", "type": "string", "nullable": false, "description": "Foreign key to RmpRegistration."},
+        {"api_name": "date", "type": "string", "nullable": false, "description": "Accident date (YYYY-MM-DD)."},
+        {"api_name": "year", "type": "integer", "nullable": false, "description": "Accident year."},
+        {"api_name": "chemicals", "type": "string_array", "nullable": false, "description": "Chemicals released; joins to Chemical."},
+        {"api_name": "release_type", "type": "string_array", "nullable": false, "description": "chempeers.events.RELEASE_TYPE labels."},
+        {"api_name": "release_source", "type": "string_array", "nullable": false, "description": "chempeers.events.RELEASE_SOURCE labels."},
+        {"api_name": "cause", "type": "string_array", "nullable": false, "description": "chempeers.events.RELEASE_CAUSE labels."},
+        {"api_name": "fix", "type": "string_array", "nullable": false, "description": "chempeers.events.RELEASE_FIX labels."},
+        {"api_name": "worker_injuries", "type": "integer", "nullable": false, "description": "Workers injured."},
+        {"api_name": "deaths", "type": "integer", "nullable": false, "description": "Deaths (workers, responders, public)."},
+        {"api_name": "evacuated", "type": "integer", "nullable": false, "description": "People evacuated."},
+        {"api_name": "source", "type": "string", "nullable": false, "description": "Provenance label."}
+      ]
+    },
+    {
+      "api_name": "OshaEstablishment",
+      "display_name": "OSHA injury-log establishment",
+      "plural_display_name": "OSHA injury-log establishments",
+      "description": "The OSHA Form 300A side of a plant: the injury logs the pipeline attributed to one plant. The committed export does not publish OSHA establishment IDs, so the key is derived from the plant.",
+      "backing_dataset": "years column of docs/data/plants.json",
+      "primary_key": "osha_key",
+      "title_property": "osha_key",
+      "properties": [
+        {"api_name": "osha_key", "type": "string", "nullable": false, "description": "O:<plant_id>."},
+        {"api_name": "plant_id", "type": "string", "nullable": false, "description": "Foreign key to the Plant the pipeline attributed the logs to."},
+        {"api_name": "establishment_ids", "type": "string_array", "nullable": false, "description": "OSHA establishment IDs (empty in the committed export, which omits them)."},
+        {"api_name": "n_log_years", "type": "integer", "nullable": false, "description": "Injury-log years on file."},
+        {"api_name": "first_year", "type": "integer", "nullable": false, "description": "First log year."},
+        {"api_name": "last_year", "type": "integer", "nullable": false, "description": "Latest log year."},
+        {"api_name": "source", "type": "string", "nullable": false, "description": "Provenance label."}
+      ]
+    },
+    {
+      "api_name": "InjuryLogYear",
+      "display_name": "Form 300A plant-year",
+      "plural_display_name": "Form 300A plant-years",
+      "description": "One plant-year of OSHA Form 300A totals, with the 120-4,500 hours-per-employee screen verdict that decides whether it enters a rate.",
+      "backing_dataset": "years column of docs/data/plants.json",
+      "primary_key": "log_key",
+      "title_property": "log_key",
+      "properties": [
+        {"api_name": "log_key", "type": "string", "nullable": false, "description": "plant_id|year."},
+        {"api_name": "osha_key", "type": "string", "nullable": false, "description": "Foreign key to OshaEstablishment."},
+        {"api_name": "year", "type": "integer", "nullable": false, "description": "Calendar year covered."},
+        {"api_name": "hours", "type": "double", "nullable": false, "description": "Total hours worked."},
+        {"api_name": "employees", "type": "double", "nullable": false, "description": "Annual average employees."},
+        {"api_name": "dafw", "type": "double", "nullable": false, "description": "Days-away cases."},
+        {"api_name": "djtr", "type": "double", "nullable": false, "description": "Job transfer or restriction cases."},
+        {"api_name": "other", "type": "double", "nullable": false, "description": "Other recordable cases."},
+        {"api_name": "illness", "type": "double", "nullable": false, "description": "Respiratory, poisoning and skin illnesses."},
+        {"api_name": "dafw_days", "type": "double", "nullable": false, "description": "Days away from work."},
+        {"api_name": "plausible", "type": "boolean", "nullable": false, "description": "Passed the hours-per-employee screen; only these enter rates."},
+        {"api_name": "source", "type": "string", "nullable": false, "description": "Provenance label."}
+      ]
+    },
+    {
+      "api_name": "PlantMatch",
+      "display_name": "RMP to OSHA match",
+      "plural_display_name": "RMP to OSHA matches",
+      "description": "One address join between an EPA registration and an OSHA establishment. Backs the rmp_osha_match link and carries its properties: how it was made, how much to trust it, and the analyst review.",
+      "backing_dataset": "match column of docs/data/plants.json for RMP plants with injury logs (chempeers.link.AddressIndex.find)",
+      "primary_key": "match_key",
+      "title_property": "match_key",
+      "properties": [
+        {"api_name": "match_key", "type": "string", "nullable": false, "description": "epa_facility_id|osha_key."},
+        {"api_name": "epa_facility_id", "type": "string", "nullable": false, "description": "Foreign key to RmpRegistration."},
+        {"api_name": "osha_key", "type": "string", "nullable": false, "description": "Foreign key to OshaEstablishment."},
+        {"api_name": "match_method", "type": "string", "nullable": false, "description": "address (unique ZIP + street number), address+name (several plants at the address, picked by name), zip+name (same ZIP, name-token Jaccard >= 0.34)."},
+        {"api_name": "confidence", "type": "string", "nullable": false, "description": "high, medium or low; this ontology's rubric over match_method (see docs/ontology.md), not a pipeline output."},
+        {"api_name": "review_status", "type": "string", "nullable": false, "editable": true, "default": "unreviewed", "description": "Writeback: unreviewed, confirmed or rejected. A rejected match is hidden from the link and its logs leave the plant."},
+        {"api_name": "review_reason", "type": "string", "nullable": true, "editable": true, "description": "Writeback: coded reason."},
+        {"api_name": "review_note", "type": "string", "nullable": true, "editable": true, "description": "Writeback: free-text justification."},
+        {"api_name": "source", "type": "string", "nullable": false, "description": "Provenance label."}
+      ]
+    },
+    {
+      "api_name": "SeriousInjury",
+      "display_name": "OSHA serious-injury report",
+      "plural_display_name": "OSHA serious-injury reports",
+      "description": "One OSHA Severe Injury Report (amputation, eye loss or in-patient hospitalisation) with a NAICS 325 code, joined to a plant by address when possible.",
+      "backing_dataset": "docs/data/injuries.json (chempeers.build.assemble step 4)",
+      "primary_key": "injury_key",
+      "title_property": "injury_key",
+      "properties": [
+        {"api_name": "injury_key", "type": "string", "nullable": false, "description": "S<position in injuries.json>."},
+        {"api_name": "plant_id", "type": "string", "nullable": true, "description": "Foreign key to Plant; null when the address join failed."},
+        {"api_name": "date", "type": "string", "nullable": false, "description": "Event date."},
+        {"api_name": "employer", "type": "string", "nullable": true, "description": "Employer as reported."},
+        {"api_name": "state", "type": "string", "nullable": true, "description": "State."},
+        {"api_name": "naics", "type": "string", "nullable": true, "description": "Primary NAICS as reported."},
+        {"api_name": "energy", "type": "string", "nullable": false, "description": "chempeers.events.energy group."},
+        {"api_name": "hospitalized", "type": "double", "nullable": false, "description": "People hospitalised."},
+        {"api_name": "amputation", "type": "double", "nullable": false, "description": "Amputations."},
+        {"api_name": "eye_loss", "type": "double", "nullable": false, "description": "Eye losses."},
+        {"api_name": "nature", "type": "string", "nullable": true, "description": "Nature of injury."},
+        {"api_name": "narrative", "type": "string", "nullable": true, "description": "Report narrative (cut to 420 characters in the export)."},
+        {"api_name": "source", "type": "string", "nullable": false, "description": "Provenance label."}
+      ]
+    },
+    {
+      "api_name": "SizeBand",
+      "display_name": "Workforce size band",
+      "plural_display_name": "Workforce size bands",
+      "description": "A workforce band with the committed findings on how noisy injury rates are at that size.",
+      "backing_dataset": "outputs/summary.json size_noise joined to stability",
+      "primary_key": "band",
+      "title_property": "band",
+      "properties": [
+        {"api_name": "band", "type": "string", "nullable": false, "description": "Band label."},
+        {"api_name": "plant_years", "type": "integer", "nullable": false, "description": "Screened plant-years in the band."},
+        {"api_name": "median_hours", "type": "double", "nullable": true, "description": "Median hours per plant-year."},
+        {"api_name": "one_case_swing", "type": "double", "nullable": true, "description": "TRIR points one recordable moves at the median hours."},
+        {"api_name": "zero_share_pct", "type": "double", "nullable": true, "description": "Percent of plant-years with no recordables."},
+        {"api_name": "pooled_trir", "type": "double", "nullable": true, "description": "Pooled TRIR of the band."},
+        {"api_name": "stability_rho", "type": "double", "nullable": true, "description": "Year-to-next-year rank correlation of plant TRIR."},
+        {"api_name": "source", "type": "string", "nullable": false, "description": "Provenance label."}
+      ]
+    },
+    {
+      "api_name": "PeerGroup",
+      "display_name": "Peer group",
+      "plural_display_name": "Peer groups",
+      "description": "Product type x workforce band: the explorer's default 'match my plant' comparison set.",
+      "backing_dataset": "distinct subsector|size_band over Plant",
+      "primary_key": "peer_group_key",
+      "title_property": "peer_group_key",
+      "properties": [
+        {"api_name": "peer_group_key", "type": "string", "nullable": false, "description": "subsector|size_band."},
+        {"api_name": "subsector", "type": "string", "nullable": false, "description": "Product type."},
+        {"api_name": "size_band", "type": "string", "nullable": false, "description": "Foreign key to SizeBand."},
+        {"api_name": "n_plants", "type": "integer", "nullable": false, "description": "Plants in the cell."},
+        {"api_name": "source", "type": "string", "nullable": false, "description": "Provenance label."}
+      ]
+    }
+  ],
+  "link_types": [
+    {"api_name": "registration_plant", "source": "RmpRegistration", "target": "Plant", "cardinality": "one_to_one", "foreign_key": "plant_id", "source_link_name": "plant", "target_link_name": "rmp_registration", "description": "The plant an EPA registration describes."},
+    {"api_name": "establishment_plant", "source": "OshaEstablishment", "target": "Plant", "cardinality": "one_to_one", "foreign_key": "plant_id", "source_link_name": "plant", "target_link_name": "osha_establishment", "description": "The plant the pipeline attributed an OSHA establishment's logs to."},
+    {"api_name": "log_establishment", "source": "InjuryLogYear", "target": "OshaEstablishment", "cardinality": "many_to_one", "foreign_key": "osha_key", "source_link_name": "establishment", "target_link_name": "log_years", "description": "An establishment's Form 300A years."},
+    {"api_name": "process_registration", "source": "Process", "target": "RmpRegistration", "cardinality": "many_to_one", "foreign_key": "epa_facility_id", "source_link_name": "registration", "target_link_name": "processes", "description": "Product types a registration declares."},
+    {"api_name": "holding_registration", "source": "ChemicalHolding", "target": "RmpRegistration", "cardinality": "many_to_one", "foreign_key": "epa_facility_id", "source_link_name": "registration", "target_link_name": "holdings", "description": "What a registration holds."},
+    {"api_name": "holding_chemical", "source": "ChemicalHolding", "target": "Chemical", "cardinality": "many_to_one", "foreign_key": "chemical_name", "source_link_name": "chemical", "target_link_name": "holdings", "description": "Who holds a chemical."},
+    {"api_name": "accident_registration", "source": "Accident", "target": "RmpRegistration", "cardinality": "many_to_one", "foreign_key": "epa_facility_id", "source_link_name": "registration", "target_link_name": "accidents", "description": "A registration's five-year accident history."},
+    {"api_name": "accident_chemicals", "source": "Accident", "target": "Chemical", "cardinality": "many_to_many", "join_rule": "source_array_contains_target_key", "array_property": "chemicals", "source_link_name": "chemicals_released", "target_link_name": "accidents", "description": "Chemicals released in an accident."},
+    {"api_name": "serious_injury_plant", "source": "SeriousInjury", "target": "Plant", "cardinality": "many_to_one", "foreign_key": "plant_id", "source_link_name": "plant", "target_link_name": "serious_injuries", "description": "Serious-injury reports joined to a plant by address."},
+    {"api_name": "match_registration", "source": "PlantMatch", "target": "RmpRegistration", "cardinality": "many_to_one", "foreign_key": "epa_facility_id", "source_link_name": "registration", "target_link_name": "matches", "description": "EPA side of a match."},
+    {"api_name": "match_establishment", "source": "PlantMatch", "target": "OshaEstablishment", "cardinality": "many_to_one", "foreign_key": "osha_key", "source_link_name": "establishment", "target_link_name": "matches", "description": "OSHA side of a match."},
+    {"api_name": "rmp_osha_match", "source": "RmpRegistration", "target": "OshaEstablishment", "cardinality": "many_to_many", "join_rule": "through_object", "through": "PlantMatch", "through_source_key": "epa_facility_id", "through_target_key": "osha_key", "link_properties": ["match_method", "confidence", "review_status"], "hide_when": {"property": "review_status", "equals": "rejected"}, "source_link_name": "osha_establishments", "target_link_name": "rmp_registrations", "description": "The cross-agency join. Backed by PlantMatch objects, whose method, confidence and review travel as link properties; rejected matches are not traversed."},
+    {"api_name": "plant_peer_group", "source": "Plant", "target": "PeerGroup", "cardinality": "many_to_one", "foreign_key": "peer_group_key", "source_link_name": "peer_group", "target_link_name": "plants", "description": "The plant's default comparison set."},
+    {"api_name": "plant_size_band", "source": "Plant", "target": "SizeBand", "cardinality": "many_to_one", "foreign_key": "size_band", "source_link_name": "size_band_info", "target_link_name": "plants", "description": "How noisy a rate is at this plant's size."},
+    {"api_name": "peer_group_size_band", "source": "PeerGroup", "target": "SizeBand", "cardinality": "many_to_one", "foreign_key": "size_band", "source_link_name": "size_band_info", "target_link_name": "peer_groups", "description": "Band of a peer cell."}
+  ],
+  "action_types": [
+    {
+      "api_name": "reject_match",
+      "display_name": "Flag RMP-OSHA match as wrong",
+      "description": "Record that an EPA registration and an OSHA establishment are not the same plant. The link is hidden and the logs leave the plant in every function.",
+      "parameters": [
+        {"api_name": "match", "type": "object_reference", "object_type": "PlantMatch", "required": true},
+        {"api_name": "reason", "type": "string", "required": true, "allowed_values": ["different_operator_at_shared_address", "name_match_wrong", "address_reused_after_closure", "other"]},
+        {"api_name": "note", "type": "string", "required": false, "max_length": 500, "required_when": {"parameter": "reason", "equals": "other"}}
+      ],
+      "submission_criteria": [
+        {"parameter": "match", "property": "review_status", "operator": "not_equals", "value": "rejected", "failure_message": "Match is already rejected."}
+      ],
+      "edits": [
+        {"object_parameter": "match", "set": {"review_status": "rejected", "review_reason": "$reason", "review_note": "$note"}}
+      ]
+    },
+    {
+      "api_name": "confirm_match",
+      "display_name": "Confirm RMP-OSHA match",
+      "description": "Record that a reviewer checked the match against a third source and it holds.",
+      "parameters": [
+        {"api_name": "match", "type": "object_reference", "object_type": "PlantMatch", "required": true},
+        {"api_name": "note", "type": "string", "required": true, "min_length": 10, "max_length": 500}
+      ],
+      "submission_criteria": [
+        {"parameter": "match", "property": "review_status", "operator": "equals", "value": "unreviewed", "failure_message": "Only an unreviewed match can be confirmed."}
+      ],
+      "edits": [
+        {"object_parameter": "match", "set": {"review_status": "confirmed", "review_reason": null, "review_note": "$note"}}
+      ]
+    },
+    {
+      "api_name": "mark_plant_for_review",
+      "display_name": "Mark plant for review",
+      "description": "Hold a plant out of peer benchmarks while its records are checked. It stays in population counts.",
+      "parameters": [
+        {"api_name": "plant", "type": "object_reference", "object_type": "Plant", "required": true},
+        {"api_name": "reason", "type": "string", "required": true, "allowed_values": ["identity_unclear", "hours_suspect", "not_comparable_to_peers", "other"]},
+        {"api_name": "note", "type": "string", "required": false, "max_length": 500, "required_when": {"parameter": "reason", "equals": "other"}}
+      ],
+      "submission_criteria": [
+        {"parameter": "plant", "property": "review_status", "operator": "equals", "value": "none", "failure_message": "Plant is already under review."}
+      ],
+      "edits": [
+        {"object_parameter": "plant", "set": {"review_status": "under_review", "review_reason": "$reason", "review_note": "$note"}}
+      ]
+    },
+    {
+      "api_name": "clear_plant_review",
+      "display_name": "Clear plant review",
+      "description": "Return a reviewed plant to peer benchmarks. A justification is mandatory.",
+      "parameters": [
+        {"api_name": "plant", "type": "object_reference", "object_type": "Plant", "required": true},
+        {"api_name": "note", "type": "string", "required": true, "min_length": 10, "max_length": 500}
+      ],
+      "submission_criteria": [
+        {"parameter": "plant", "property": "review_status", "operator": "equals", "value": "under_review", "failure_message": "Plant is not under review."}
+      ],
+      "edits": [
+        {"object_parameter": "plant", "set": {"review_status": "none", "review_reason": null, "review_note": "$note"}}
+      ]
+    }
+  ],
+  "functions": [
+    {"api_name": "coverage", "input": "ObjectStore", "output": "struct (summary.json coverage)", "reuses": "chempeers.analysis.coverage", "description": "Plants, linked plants and serious-injury join rate, after match reviews."},
+    {"api_name": "size_noise", "input": "ObjectStore", "output": "list (summary.json size_noise)", "reuses": "chempeers.analysis.size_noise", "description": "One-case swing and zero-injury share by workforce band."},
+    {"api_name": "release_predictors", "input": "ObjectStore", "output": "struct (summary.json release_predictors)", "reuses": "chempeers.analysis.release_predictors", "description": "Next-year release rate by release history, inventory, family and chemical count."},
+    {"api_name": "green_dashboard", "input": "ObjectStore", "output": "struct (summary.json green_dashboard)", "reuses": "chempeers.analysis.green_dashboard", "description": "Serious injuries at plants that logged zero recordables the year before."},
+    {"api_name": "plant_rates", "input": "Plant", "output": "struct<hours, cases, trir, one_case_swing>", "reuses": "chempeers.stats.rate", "description": "Pooled screened TRIR of one plant across its log years."},
+    {"api_name": "funnel_position", "input": "Plant, optional ObjectSet<Plant>", "output": "struct<status, peer_rate, low, high>", "reuses": "chempeers.stats.classify", "description": "Above, below or within the exact-Poisson 95% band of its peers (default: its PeerGroup minus itself and plants under review)."}
+  ]
+}

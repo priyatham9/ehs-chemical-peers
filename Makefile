@@ -2,7 +2,7 @@
 
 PYTHON ?= python3
 
-.PHONY: help data build story pages paper test lint serve
+.PHONY: help data build story pages paper test lint serve ontology
 
 help:
 	@echo "make data   - download the public OSHA and EPA files into data/raw"
@@ -11,6 +11,7 @@ help:
 	@echo "make paper  - regenerate the tables in docs/paper.md from outputs/summary.json"
 	@echo "make test   - run the tests (real-data tests skip if data/raw is empty)"
 	@echo "make serve  - serve docs/ on http://localhost:8000"
+	@echo "make ontology - build the ontology from the committed data, export to build/ontology"
 
 data:
 	$(PYTHON) scripts/download_data.py
@@ -33,3 +34,6 @@ lint:
 
 serve:
 	cd docs && $(PYTHON) -m http.server 8000
+
+ontology:
+	PYTHONPATH=src $(PYTHON) -m chempeers.ontology --out build/ontology
