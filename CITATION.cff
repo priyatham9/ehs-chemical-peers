@@ -11,6 +11,14 @@ url: "https://priyatham9.github.io/ehs-chemical-peers/"
 license: MIT
 date-released: "2026-09-27"
 version: 0.1.0
+keywords:
+  - chemical manufacturing
+  - peer benchmarking
+  - OSHA
+  - EPA RMP
+  - process safety
+  - EHS
+  - public records
 references:
   - type: report
     title: "Benchmarking US Chemical Plants Against Their Peers from Public Records: A Linked EPA RMP and OSHA Dataset"

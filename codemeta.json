@@ -1,0 +1,31 @@
+{
+  "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
+  "@type": "SoftwareSourceCode",
+  "name": "ehs-chemical-peers: a public-records peer explorer for US chemical manufacturing plants",
+  "description": "A peer explorer for US chemical manufacturing plants (NAICS 325), built only from public records. It joins three government sources by address: OSHA injury logs, EPA chemical-release histories, and OSHA serious-injury reports. It does not audit any plant, it does not say why a plant's numbers are what they are, and it cannot see anything a plant did not report to the government.",
+  "author": [
+    {
+      "@type": "Person",
+      "givenName": "Priyatham",
+      "familyName": "Chimmani"
+    }
+  ],
+  "license": "https://spdx.org/licenses/MIT",
+  "codeRepository": "https://github.com/priyatham9/ehs-chemical-peers",
+  "url": "https://priyatham9.github.io/ehs-chemical-peers/",
+  "version": "0.1.0",
+  "programmingLanguage": [
+    "Python",
+    "JavaScript"
+  ],
+  "keywords": [
+    "chemical manufacturing",
+    "peer benchmarking",
+    "OSHA",
+    "EPA RMP",
+    "process safety",
+    "EHS",
+    "public records"
+  ],
+  "isPartOf": "https://priyatham9.github.io/grounded/"
+}
