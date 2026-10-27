@@ -1,0 +1,4077 @@
+{
+ "alpha": 0.05,
+ "disclaimer": "Independent analysis of public records. Not affiliated with, endorsed by or sponsored by Palantir Technologies. Quiver is a Palantir product name; this page only borrows the idea of a side-by-side analysis view.",
+ "built_from": [
+  "outputs/summary.json",
+  "docs/data/plants.json"
+ ],
+ "groups": [
+  {
+   "id": "rel-size-Under 100",
+   "metric": "release",
+   "dimension": "size",
+   "label": "Under 100",
+   "n": 3649,
+   "events": 60,
+   "rate_pct": 1.6443,
+   "wilson_pct": [
+    1.2796,
+    2.1107
+   ],
+   "exact_pct": [
+    1.257,
+    2.1115
+   ]
+  },
+  {
+   "id": "rel-size-100-249",
+   "metric": "release",
+   "dimension": "size",
+   "label": "100-249",
+   "n": 1611,
+   "events": 55,
+   "rate_pct": 3.414,
+   "wilson_pct": [
+    2.6323,
+    4.4174
+   ],
+   "exact_pct": [
+    2.5821,
+    4.4208
+   ]
+  },
+  {
+   "id": "rel-size-250+",
+   "metric": "release",
+   "dimension": "size",
+   "label": "250+",
+   "n": 1059,
+   "events": 53,
+   "rate_pct": 5.0047,
+   "wilson_pct": [
+    3.8464,
+    6.4883
+   ],
+   "exact_pct": [
+    3.771,
+    6.4955
+   ]
+  },
+  {
+   "id": "rel-hist-release_in_past_5y",
+   "metric": "release",
+   "dimension": "history",
+   "label": "Release in past 5 years",
+   "n": 2952,
+   "events": 356,
+   "rate_pct": 12.0596,
+   "wilson_pct": [
+    10.9339,
+    13.284
+   ],
+   "exact_pct": [
+    10.906,
+    13.2891
+   ]
+  },
+  {
+   "id": "rel-hist-no_release_in_past_5y",
+   "metric": "release",
+   "dimension": "history",
+   "label": "No release in past 5 years",
+   "n": 24106,
+   "events": 354,
+   "rate_pct": 1.4685,
+   "wilson_pct": [
+    1.3242,
+    1.6283
+   ],
+   "exact_pct": [
+    1.3205,
+    1.6284
+   ]
+  },
+  {
+   "id": "rel-inv-Under 100k lb",
+   "metric": "release",
+   "dimension": "inventory",
+   "label": "Under 100k lb",
+   "n": 6525,
+   "events": 59,
+   "rate_pct": 0.9042,
+   "wilson_pct": [
+    0.7017,
+    1.1645
+   ],
+   "exact_pct": [
+    0.689,
+    1.1648
+   ]
+  },
+  {
+   "id": "rel-inv-100k-1M lb",
+   "metric": "release",
+   "dimension": "inventory",
+   "label": "100k-1M lb",
+   "n": 11546,
+   "events": 159,
+   "rate_pct": 1.3771,
+   "wilson_pct": [
+    1.1801,
+    1.6064
+   ],
+   "exact_pct": [
+    1.1725,
+    1.6067
+   ]
+  },
+  {
+   "id": "rel-inv-1M-5M lb",
+   "metric": "release",
+   "dimension": "inventory",
+   "label": "1M-5M lb",
+   "n": 5093,
+   "events": 176,
+   "rate_pct": 3.4557,
+   "wilson_pct": [
+    2.9881,
+    3.9935
+   ],
+   "exact_pct": [
+    2.9711,
+    3.9946
+   ]
+  },
+  {
+   "id": "rel-inv-5M+ lb",
+   "metric": "release",
+   "dimension": "inventory",
+   "label": "5M+ lb",
+   "n": 3894,
+   "events": 316,
+   "rate_pct": 8.115,
+   "wilson_pct": [
+    7.2981,
+    9.0146
+   ],
+   "exact_pct": [
+    7.2762,
+    9.0173
+   ]
+  },
+  {
+   "id": "rel-nchem-1 chemical",
+   "metric": "release",
+   "dimension": "chemicals",
+   "label": "1 chemical",
+   "n": 15891,
+   "events": 200,
+   "rate_pct": 1.2586,
+   "wilson_pct": [
+    1.0966,
+    1.4441
+   ],
+   "exact_pct": [
+    1.0911,
+    1.4443
+   ]
+  },
+  {
+   "id": "rel-nchem-2",
+   "metric": "release",
+   "dimension": "chemicals",
+   "label": "2",
+   "n": 5296,
+   "events": 146,
+   "rate_pct": 2.7568,
+   "wilson_pct": [
+    2.3489,
+    3.2332
+   ],
+   "exact_pct": [
+    2.3326,
+    3.2341
+   ]
+  },
+  {
+   "id": "rel-nchem-3-4",
+   "metric": "release",
+   "dimension": "chemicals",
+   "label": "3-4",
+   "n": 3365,
+   "events": 152,
+   "rate_pct": 4.5171,
+   "wilson_pct": [
+    3.8657,
+    5.2722
+   ],
+   "exact_pct": [
+    3.8403,
+    5.2742
+   ]
+  },
+  {
+   "id": "rel-nchem-5+",
+   "metric": "release",
+   "dimension": "chemicals",
+   "label": "5+",
+   "n": 2438,
+   "events": 207,
+   "rate_pct": 8.4906,
+   "wilson_pct": [
+    7.4484,
+    9.6634
+   ],
+   "exact_pct": [
+    7.414,
+    9.6681
+   ]
+  },
+  {
+   "id": "rel-fam-Formaldehyde",
+   "metric": "release",
+   "dimension": "family",
+   "label": "Formaldehyde",
+   "n": 2053,
+   "events": 77,
+   "rate_pct": 3.7506,
+   "wilson_pct": [
+    3.0114,
+    4.6626
+   ],
+   "exact_pct": [
+    2.971,
+    4.6655
+   ]
+  },
+  {
+   "id": "rel-fam-Epoxy chain",
+   "metric": "release",
+   "dimension": "family",
+   "label": "Epoxy chain",
+   "n": 699,
+   "events": 50,
+   "rate_pct": 7.1531,
+   "wilson_pct": [
+    5.4677,
+    9.3068
+   ],
+   "exact_pct": [
+    5.3554,
+    9.322
+   ]
+  },
+  {
+   "id": "rel-fam-Ammonia",
+   "metric": "release",
+   "dimension": "family",
+   "label": "Ammonia",
+   "n": 10257,
+   "events": 318,
+   "rate_pct": 3.1003,
+   "wilson_pct": [
+    2.7821,
+    3.4537
+   ],
+   "exact_pct": [
+    2.7734,
+    3.4542
+   ]
+  },
+  {
+   "id": "rel-fam-Chlorine & chlor-alkali",
+   "metric": "release",
+   "dimension": "family",
+   "label": "Chlorine & chlor-alkali",
+   "n": 5106,
+   "events": 310,
+   "rate_pct": 6.0713,
+   "wilson_pct": [
+    5.4487,
+    6.7599
+   ],
+   "exact_pct": [
+    5.4317,
+    6.7616
+   ]
+  },
+  {
+   "id": "rel-fam-Strong acids",
+   "metric": "release",
+   "dimension": "family",
+   "label": "Strong acids",
+   "n": 2718,
+   "events": 190,
+   "rate_pct": 6.9904,
+   "wilson_pct": [
+    6.0913,
+    8.011
+   ],
+   "exact_pct": [
+    6.0602,
+    8.0146
+   ]
+  },
+  {
+   "id": "rel-fam-Isocyanates",
+   "metric": "release",
+   "dimension": "family",
+   "label": "Isocyanates",
+   "n": 731,
+   "events": 10,
+   "rate_pct": 1.368,
+   "wilson_pct": [
+    0.7447,
+    2.4997
+   ],
+   "exact_pct": [
+    0.6579,
+    2.5014
+   ]
+  },
+  {
+   "id": "rel-fam-Reactive oxides",
+   "metric": "release",
+   "dimension": "family",
+   "label": "Reactive oxides",
+   "n": 1439,
+   "events": 80,
+   "rate_pct": 5.5594,
+   "wilson_pct": [
+    4.4895,
+    6.866
+   ],
+   "exact_pct": [
+    4.4326,
+    6.8717
+   ]
+  },
+  {
+   "id": "rel-fam-Monomers",
+   "metric": "release",
+   "dimension": "family",
+   "label": "Monomers",
+   "n": 2914,
+   "events": 138,
+   "rate_pct": 4.7358,
+   "wilson_pct": [
+    4.0224,
+    5.5683
+   ],
+   "exact_pct": [
+    3.9932,
+    5.5708
+   ]
+  },
+  {
+   "id": "rel-fam-Amines",
+   "metric": "release",
+   "dimension": "family",
+   "label": "Amines",
+   "n": 2011,
+   "events": 91,
+   "rate_pct": 4.5251,
+   "wilson_pct": [
+    3.7001,
+    5.5235
+   ],
+   "exact_pct": [
+    3.6587,
+    5.527
+   ]
+  },
+  {
+   "id": "rel-fam-Silanes",
+   "metric": "release",
+   "dimension": "family",
+   "label": "Silanes",
+   "n": 438,
+   "events": 19,
+   "rate_pct": 4.3379,
+   "wilson_pct": [
+    2.7944,
+    6.6754
+   ],
+   "exact_pct": [
+    2.6316,
+    6.6915
+   ]
+  },
+  {
+   "id": "rel-fam-Sulfur compounds",
+   "metric": "release",
+   "dimension": "family",
+   "label": "Sulfur compounds",
+   "n": 1596,
+   "events": 117,
+   "rate_pct": 7.3308,
+   "wilson_pct": [
+    6.152,
+    8.7146
+   ],
+   "exact_pct": [
+    6.1002,
+    8.721
+   ]
+  },
+  {
+   "id": "rel-fam-Flammable gases & liquids",
+   "metric": "release",
+   "dimension": "family",
+   "label": "Flammable gases & liquids",
+   "n": 11279,
+   "events": 349,
+   "rate_pct": 3.0942,
+   "wilson_pct": [
+    2.7903,
+    3.4301
+   ],
+   "exact_pct": [
+    2.7824,
+    3.4306
+   ]
+  },
+  {
+   "id": "inj-size-Under 50",
+   "metric": "injury",
+   "dimension": "size",
+   "label": "Under 50",
+   "plant_years": 16467,
+   "hours": 943914996,
+   "events": 14207,
+   "rate": 3.0102,
+   "exact": [
+    2.9609,
+    3.0601
+   ]
+  },
+  {
+   "id": "inj-size-50-99",
+   "metric": "injury",
+   "dimension": "size",
+   "label": "50-99",
+   "plant_years": 9693,
+   "hours": 1379597044,
+   "events": 18488,
+   "rate": 2.6802,
+   "exact": [
+    2.6417,
+    2.7191
+   ]
+  },
+  {
+   "id": "inj-size-100-249",
+   "metric": "injury",
+   "dimension": "size",
+   "label": "100-249",
+   "plant_years": 8357,
+   "hours": 2602843255,
+   "events": 27736,
+   "rate": 2.1312,
+   "exact": [
+    2.1062,
+    2.1564
+   ]
+  },
+  {
+   "id": "inj-size-250-999",
+   "metric": "injury",
+   "dimension": "size",
+   "label": "250-999",
+   "plant_years": 4791,
+   "hours": 4348020854,
+   "events": 31602,
+   "rate": 1.4536,
+   "exact": [
+    1.4376,
+    1.4697
+   ]
+  },
+  {
+   "id": "inj-size-1,000+",
+   "metric": "injury",
+   "dimension": "size",
+   "label": "1,000+",
+   "plant_years": 705,
+   "hours": 3343992223,
+   "events": 13156,
+   "rate": 0.7868,
+   "exact": [
+    0.7735,
+    0.8004
+   ]
+  },
+  {
+   "id": "inj-prod-Acids & inorganics",
+   "metric": "injury",
+   "dimension": "product",
+   "label": "Acids & inorganics",
+   "plant_years": 2721,
+   "hours": 580674053,
+   "events": 4359,
+   "rate": 1.5014,
+   "exact": [
+    1.4571,
+    1.5466
+   ]
+  },
+  {
+   "id": "inj-prod-Adhesives",
+   "metric": "injury",
+   "dimension": "product",
+   "label": "Adhesives",
+   "plant_years": 1784,
+   "hours": 327740647,
+   "events": 4533,
+   "rate": 2.7662,
+   "exact": [
+    2.6863,
+    2.8479
+   ]
+  },
+  {
+   "id": "inj-prod-Compounding & specialty",
+   "metric": "injury",
+   "dimension": "product",
+   "label": "Compounding & specialty",
+   "plant_years": 5636,
+   "hours": 1085427029,
+   "events": 12658,
+   "rate": 2.3324,
+   "exact": [
+    2.2919,
+    2.3733
+   ]
+  },
+  {
+   "id": "inj-prod-Dyes & pigments",
+   "metric": "injury",
+   "dimension": "product",
+   "label": "Dyes & pigments",
+   "plant_years": 333,
+   "hours": 72079426,
+   "events": 743,
+   "rate": 2.0616,
+   "exact": [
+    1.916,
+    2.2153
+   ]
+  },
+  {
+   "id": "inj-prod-Ethanol & biofuels",
+   "metric": "injury",
+   "dimension": "product",
+   "label": "Ethanol & biofuels",
+   "plant_years": 1367,
+   "hours": 150830184,
+   "events": 2443,
+   "rate": 3.2394,
+   "exact": [
+    3.1122,
+    3.3705
+   ]
+  },
+  {
+   "id": "inj-prod-Explosives",
+   "metric": "injury",
+   "dimension": "product",
+   "label": "Explosives",
+   "plant_years": 426,
+   "hours": 94083589,
+   "events": 1120,
+   "rate": 2.3809,
+   "exact": [
+    2.2435,
+    2.5245
+   ]
+  },
+  {
+   "id": "inj-prod-Fertilizer & ag chemicals",
+   "metric": "injury",
+   "dimension": "product",
+   "label": "Fertilizer & ag chemicals",
+   "plant_years": 2555,
+   "hours": 444807896,
+   "events": 5535,
+   "rate": 2.4887,
+   "exact": [
+    2.4236,
+    2.5552
+   ]
+  },
+  {
+   "id": "inj-prod-Fibers",
+   "metric": "injury",
+   "dimension": "product",
+   "label": "Fibers",
+   "plant_years": 319,
+   "hours": 268157209,
+   "events": 2197,
+   "rate": 1.6386,
+   "exact": [
+    1.5708,
+    1.7086
+   ]
+  },
+  {
+   "id": "inj-prod-Industrial gases",
+   "metric": "injury",
+   "dimension": "product",
+   "label": "Industrial gases",
+   "plant_years": 2537,
+   "hours": 262768637,
+   "events": 2185,
+   "rate": 1.6631,
+   "exact": [
+    1.5941,
+    1.7343
+   ]
+  },
+  {
+   "id": "inj-prod-Other basic organics (incl. formaldehyde)",
+   "metric": "injury",
+   "dimension": "product",
+   "label": "Other basic organics (incl. formaldehyde)",
+   "plant_years": 3594,
+   "hours": 955580105,
+   "events": 5902,
+   "rate": 1.2353,
+   "exact": [
+    1.204,
+    1.2672
+   ]
+  },
+  {
+   "id": "inj-prod-Other chemical",
+   "metric": "injury",
+   "dimension": "product",
+   "label": "Other chemical",
+   "plant_years": 2,
+   "hours": 433405,
+   "events": 15,
+   "rate": 6.9219,
+   "exact": [
+    3.8742,
+    11.4167
+   ]
+  },
+  {
+   "id": "inj-prod-Paints & coatings",
+   "metric": "injury",
+   "dimension": "product",
+   "label": "Paints & coatings",
+   "plant_years": 3003,
+   "hours": 510036567,
+   "events": 6794,
+   "rate": 2.6641,
+   "exact": [
+    2.6011,
+    2.7282
+   ]
+  },
+  {
+   "id": "inj-prod-Petrochemicals",
+   "metric": "injury",
+   "dimension": "product",
+   "label": "Petrochemicals",
+   "plant_years": 501,
+   "hours": 465652834,
+   "events": 818,
+   "rate": 0.3513,
+   "exact": [
+    0.3277,
+    0.3763
+   ]
+  },
+  {
+   "id": "inj-prod-Pharmaceuticals",
+   "metric": "injury",
+   "dimension": "product",
+   "label": "Pharmaceuticals",
+   "plant_years": 7730,
+   "hours": 5208584767,
+   "events": 33122,
+   "rate": 1.2718,
+   "exact": [
+    1.2582,
+    1.2856
+   ]
+  },
+  {
+   "id": "inj-prod-Plastics resins (older code)",
+   "metric": "injury",
+   "dimension": "product",
+   "label": "Plastics resins (older code)",
+   "plant_years": 81,
+   "hours": 20378012,
+   "events": 228,
+   "rate": 2.2377,
+   "exact": [
+    1.9567,
+    2.5478
+   ]
+  },
+  {
+   "id": "inj-prod-Resins & plastics",
+   "metric": "injury",
+   "dimension": "product",
+   "label": "Resins & plastics",
+   "plant_years": 3413,
+   "hours": 789263658,
+   "events": 7587,
+   "rate": 1.9226,
+   "exact": [
+    1.8795,
+    1.9663
+   ]
+  },
+  {
+   "id": "inj-prod-Soaps, cleaners & personal care",
+   "metric": "injury",
+   "dimension": "product",
+   "label": "Soaps, cleaners & personal care",
+   "plant_years": 3590,
+   "hours": 1260455865,
+   "events": 13395,
+   "rate": 2.1254,
+   "exact": [
+    2.0896,
+    2.1617
+   ]
+  },
+  {
+   "id": "inj-prod-Synthetic rubber",
+   "metric": "injury",
+   "dimension": "product",
+   "label": "Synthetic rubber",
+   "plant_years": 421,
+   "hours": 121414489,
+   "events": 1555,
+   "rate": 2.5615,
+   "exact": [
+    2.4357,
+    2.692
+   ]
+  }
+ ],
+ "pairs": [
+  {
+   "a": "rel-size-Under 100",
+   "b": "rel-size-100-249",
+   "test": "Fisher exact",
+   "p": 9.1e-05,
+   "diff_pct": -1.7697,
+   "diff_ci_pct": [
+    -2.8374,
+    -0.8594
+   ],
+   "distinguishable": true
+  },
+  {
+   "a": "rel-size-Under 100",
+   "b": "rel-size-250+",
+   "test": "Fisher exact",
+   "p": 0.0,
+   "diff_pct": -3.3604,
+   "diff_ci_pct": [
+    -4.8881,
+    -2.1118
+   ],
+   "distinguishable": true
+  },
+  {
+   "a": "rel-size-100-249",
+   "b": "rel-size-Under 100",
+   "test": "Fisher exact",
+   "p": 9.1e-05,
+   "diff_pct": 1.7697,
+   "diff_ci_pct": [
+    0.8594,
+    2.8374
+   ],
+   "distinguishable": true
+  },
+  {
+   "a": "rel-size-100-249",
+   "b": "rel-size-250+",
+   "test": "Fisher exact",
+   "p": 0.044718,
+   "diff_pct": -1.5907,
+   "diff_ci_pct": [
+    -3.2676,
+    -0.0582
+   ],
+   "distinguishable": true
+  },
+  {
+   "a": "rel-size-250+",
+   "b": "rel-size-Under 100",
+   "test": "Fisher exact",
+   "p": 0.0,
+   "diff_pct": 3.3604,
+   "diff_ci_pct": [
+    2.1118,
+    4.8881
+   ],
+   "distinguishable": true
+  },
+  {
+   "a": "rel-size-250+",
+   "b": "rel-size-100-249",
+   "test": "Fisher exact",
+   "p": 0.044718,
+   "diff_pct": 1.5907,
+   "diff_ci_pct": [
+    0.0582,
+    3.2676
+   ],
+   "distinguishable": true
+  },
+  {
+   "a": "rel-hist-release_in_past_5y",
+   "b": "rel-hist-no_release_in_past_5y",
+   "test": "Fisher exact",
+   "p": 0.0,
+   "diff_pct": 10.5911,
+   "diff_ci_pct": [
+    9.4541,
+    11.8239
+   ],
+   "distinguishable": true
+  },
+  {
+   "a": "rel-hist-no_release_in_past_5y",
+   "b": "rel-hist-release_in_past_5y",
+   "test": "Fisher exact",
+   "p": 0.0,
+   "diff_pct": -10.5911,
+   "diff_ci_pct": [
+    -11.8239,
+    -9.4541
+   ],
+   "distinguishable": true
+  },
+  {
+   "a": "rel-inv-Under 100k lb",
+   "b": "rel-inv-100k-1M lb",
+   "test": "Fisher exact",
+   "p": 0.005536,
+   "diff_pct": -0.4729,
+   "diff_ci_pct": [
+    -0.7788,
+    -0.1464
+   ],
+   "distinguishable": true
+  },
+  {
+   "a": "rel-inv-Under 100k lb",
+   "b": "rel-inv-1M-5M lb",
+   "test": "Fisher exact",
+   "p": 0.0,
+   "diff_pct": -2.5515,
+   "diff_ci_pct": [
+    -3.1261,
+    -2.0163
+   ],
+   "distinguishable": true
+  },
+  {
+   "a": "rel-inv-Under 100k lb",
+   "b": "rel-inv-5M+ lb",
+   "test": "Fisher exact",
+   "p": 0.0,
+   "diff_pct": -7.2108,
+   "diff_ci_pct": [
+    -8.1329,
+    -6.3534
+   ],
+   "distinguishable": true
+  },
+  {
+   "a": "rel-inv-100k-1M lb",
+   "b": "rel-inv-Under 100k lb",
+   "test": "Fisher exact",
+   "p": 0.005536,
+   "diff_pct": 0.4729,
+   "diff_ci_pct": [
+    0.1464,
+    0.7788
+   ],
+   "distinguishable": true
+  },
+  {
+   "a": "rel-inv-100k-1M lb",
+   "b": "rel-inv-1M-5M lb",
+   "test": "Fisher exact",
+   "p": 0.0,
+   "diff_pct": -2.0786,
+   "diff_ci_pct": [
+    -2.6513,
+    -1.5578
+   ],
+   "distinguishable": true
+  },
+  {
+   "a": "rel-inv-100k-1M lb",
+   "b": "rel-inv-5M+ lb",
+   "test": "Fisher exact",
+   "p": 0.0,
+   "diff_pct": -6.7379,
+   "diff_ci_pct": [
+    -7.6588,
+    -5.8894
+   ],
+   "distinguishable": true
+  },
+  {
+   "a": "rel-inv-1M-5M lb",
+   "b": "rel-inv-Under 100k lb",
+   "test": "Fisher exact",
+   "p": 0.0,
+   "diff_pct": 2.5515,
+   "diff_ci_pct": [
+    2.0163,
+    3.1261
+   ],
+   "distinguishable": true
+  },
+  {
+   "a": "rel-inv-1M-5M lb",
+   "b": "rel-inv-100k-1M lb",
+   "test": "Fisher exact",
+   "p": 0.0,
+   "diff_pct": 2.0786,
+   "diff_ci_pct": [
+    1.5578,
+    2.6513
+   ],
+   "distinguishable": true
+  },
+  {
+   "a": "rel-inv-1M-5M lb",
+   "b": "rel-inv-5M+ lb",
+   "test": "Fisher exact",
+   "p": 0.0,
+   "diff_pct": -4.6593,
+   "diff_ci_pct": [
+    -5.6731,
+    -3.6813
+   ],
+   "distinguishable": true
+  },
+  {
+   "a": "rel-inv-5M+ lb",
+   "b": "rel-inv-Under 100k lb",
+   "test": "Fisher exact",
+   "p": 0.0,
+   "diff_pct": 7.2108,
+   "diff_ci_pct": [
+    6.3534,
+    8.1329
+   ],
+   "distinguishable": true
+  },
+  {
+   "a": "rel-inv-5M+ lb",
+   "b": "rel-inv-100k-1M lb",
+   "test": "Fisher exact",
+   "p": 0.0,
+   "diff_pct": 6.7379,
+   "diff_ci_pct": [
+    5.8894,
+    7.6588
+   ],
+   "distinguishable": true
+  },
+  {
+   "a": "rel-inv-5M+ lb",
+   "b": "rel-inv-1M-5M lb",
+   "test": "Fisher exact",
+   "p": 0.0,
+   "diff_pct": 4.6593,
+   "diff_ci_pct": [
+    3.6813,
+    5.6731
+   ],
+   "distinguishable": true
+  },
+  {
+   "a": "rel-nchem-1 chemical",
+   "b": "rel-nchem-2",
+   "test": "Fisher exact",
+   "p": 0.0,
+   "diff_pct": -1.4982,
+   "diff_ci_pct": [
+    -2.0014,
+    -1.0501
+   ],
+   "distinguishable": true
+  },
+  {
+   "a": "rel-nchem-1 chemical",
+   "b": "rel-nchem-3-4",
+   "test": "Fisher exact",
+   "p": 0.0,
+   "diff_pct": -3.2585,
+   "diff_ci_pct": [
+    -4.0308,
+    -2.5813
+   ],
+   "distinguishable": true
+  },
+  {
+   "a": "rel-nchem-1 chemical",
+   "b": "rel-nchem-5+",
+   "test": "Fisher exact",
+   "p": 0.0,
+   "diff_pct": -7.232,
+   "diff_ci_pct": [
+    -8.4159,
+    -6.1734
+   ],
+   "distinguishable": true
+  },
+  {
+   "a": "rel-nchem-2",
+   "b": "rel-nchem-1 chemical",
+   "test": "Fisher exact",
+   "p": 0.0,
+   "diff_pct": 1.4982,
+   "diff_ci_pct": [
+    1.0501,
+    2.0014
+   ],
+   "distinguishable": true
+  },
+  {
+   "a": "rel-nchem-2",
+   "b": "rel-nchem-3-4",
+   "test": "Fisher exact",
+   "p": 1.6e-05,
+   "diff_pct": -1.7603,
+   "diff_ci_pct": [
+    -2.6185,
+    -0.9533
+   ],
+   "distinguishable": true
+  },
+  {
+   "a": "rel-nchem-2",
+   "b": "rel-nchem-5+",
+   "test": "Fisher exact",
+   "p": 0.0,
+   "diff_pct": -5.7338,
+   "diff_ci_pct": [
+    -6.9755,
+    -4.5878
+   ],
+   "distinguishable": true
+  },
+  {
+   "a": "rel-nchem-3-4",
+   "b": "rel-nchem-1 chemical",
+   "test": "Fisher exact",
+   "p": 0.0,
+   "diff_pct": 3.2585,
+   "diff_ci_pct": [
+    2.5813,
+    4.0308
+   ],
+   "distinguishable": true
+  },
+  {
+   "a": "rel-nchem-3-4",
+   "b": "rel-nchem-2",
+   "test": "Fisher exact",
+   "p": 1.6e-05,
+   "diff_pct": 1.7603,
+   "diff_ci_pct": [
+    0.9533,
+    2.6185
+   ],
+   "distinguishable": true
+  },
+  {
+   "a": "rel-nchem-3-4",
+   "b": "rel-nchem-5+",
+   "test": "Fisher exact",
+   "p": 0.0,
+   "diff_pct": -3.9735,
+   "diff_ci_pct": [
+    -5.315,
+    -2.6865
+   ],
+   "distinguishable": true
+  },
+  {
+   "a": "rel-nchem-5+",
+   "b": "rel-nchem-1 chemical",
+   "test": "Fisher exact",
+   "p": 0.0,
+   "diff_pct": 7.232,
+   "diff_ci_pct": [
+    6.1734,
+    8.4159
+   ],
+   "distinguishable": true
+  },
+  {
+   "a": "rel-nchem-5+",
+   "b": "rel-nchem-2",
+   "test": "Fisher exact",
+   "p": 0.0,
+   "diff_pct": 5.7338,
+   "diff_ci_pct": [
+    4.5878,
+    6.9755
+   ],
+   "distinguishable": true
+  },
+  {
+   "a": "rel-nchem-5+",
+   "b": "rel-nchem-3-4",
+   "test": "Fisher exact",
+   "p": 0.0,
+   "diff_pct": 3.9735,
+   "diff_ci_pct": [
+    2.6865,
+    5.315
+   ],
+   "distinguishable": true
+  },
+  {
+   "a": "inj-size-Under 50",
+   "b": "inj-size-50-99",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 0.33,
+   "ratio": 1.1231,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-size-Under 50",
+   "b": "inj-size-100-249",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 0.879,
+   "ratio": 1.4125,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-size-Under 50",
+   "b": "inj-size-250-999",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 1.5566,
+   "ratio": 2.0708,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-size-Under 50",
+   "b": "inj-size-1,000+",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 2.2234,
+   "ratio": 3.8257,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-size-50-99",
+   "b": "inj-size-Under 50",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -0.33,
+   "ratio": 0.8904,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-size-50-99",
+   "b": "inj-size-100-249",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 0.549,
+   "ratio": 1.2576,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-size-50-99",
+   "b": "inj-size-250-999",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 1.2266,
+   "ratio": 1.8438,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-size-50-99",
+   "b": "inj-size-1,000+",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 1.8934,
+   "ratio": 3.4063,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-size-100-249",
+   "b": "inj-size-Under 50",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -0.879,
+   "ratio": 0.708,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-size-100-249",
+   "b": "inj-size-50-99",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -0.549,
+   "ratio": 0.7952,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-size-100-249",
+   "b": "inj-size-250-999",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 0.6776,
+   "ratio": 1.4661,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-size-100-249",
+   "b": "inj-size-1,000+",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 1.3444,
+   "ratio": 2.7086,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-size-250-999",
+   "b": "inj-size-Under 50",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -1.5566,
+   "ratio": 0.4829,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-size-250-999",
+   "b": "inj-size-50-99",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -1.2266,
+   "ratio": 0.5424,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-size-250-999",
+   "b": "inj-size-100-249",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -0.6776,
+   "ratio": 0.6821,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-size-250-999",
+   "b": "inj-size-1,000+",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 0.6668,
+   "ratio": 1.8474,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-size-1,000+",
+   "b": "inj-size-Under 50",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -2.2234,
+   "ratio": 0.2614,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-size-1,000+",
+   "b": "inj-size-50-99",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -1.8934,
+   "ratio": 0.2936,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-size-1,000+",
+   "b": "inj-size-100-249",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -1.3444,
+   "ratio": 0.3692,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-size-1,000+",
+   "b": "inj-size-250-999",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -0.6668,
+   "ratio": 0.5413,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Acids & inorganics",
+   "b": "inj-prod-Adhesives",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -1.2649,
+   "ratio": 0.5427,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Acids & inorganics",
+   "b": "inj-prod-Compounding & specialty",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -0.831,
+   "ratio": 0.6437,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Acids & inorganics",
+   "b": "inj-prod-Dyes & pigments",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -0.5603,
+   "ratio": 0.7282,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Acids & inorganics",
+   "b": "inj-prod-Ethanol & biofuels",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -1.738,
+   "ratio": 0.4635,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Acids & inorganics",
+   "b": "inj-prod-Explosives",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -0.8795,
+   "ratio": 0.6306,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Acids & inorganics",
+   "b": "inj-prod-Fertilizer & ag chemicals",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -0.9874,
+   "ratio": 0.6033,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Acids & inorganics",
+   "b": "inj-prod-Fibers",
+   "test": "Exact conditional binomial",
+   "p": 0.000896,
+   "diff": -0.1372,
+   "ratio": 0.9162,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Acids & inorganics",
+   "b": "inj-prod-Industrial gases",
+   "test": "Exact conditional binomial",
+   "p": 0.000103,
+   "diff": -0.1617,
+   "ratio": 0.9028,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Acids & inorganics",
+   "b": "inj-prod-Other basic organics (incl. formaldehyde)",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 0.2661,
+   "ratio": 1.2154,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Acids & inorganics",
+   "b": "inj-prod-Other chemical",
+   "test": "Exact conditional binomial",
+   "p": 2e-06,
+   "diff": -5.4206,
+   "ratio": 0.2169,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Acids & inorganics",
+   "b": "inj-prod-Paints & coatings",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -1.1628,
+   "ratio": 0.5635,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Acids & inorganics",
+   "b": "inj-prod-Petrochemicals",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 1.15,
+   "ratio": 4.2733,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Acids & inorganics",
+   "b": "inj-prod-Pharmaceuticals",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 0.2295,
+   "ratio": 1.1805,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Acids & inorganics",
+   "b": "inj-prod-Plastics resins (older code)",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -0.7363,
+   "ratio": 0.6709,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Acids & inorganics",
+   "b": "inj-prod-Resins & plastics",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -0.4212,
+   "ratio": 0.7809,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Acids & inorganics",
+   "b": "inj-prod-Soaps, cleaners & personal care",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -0.6241,
+   "ratio": 0.7064,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Acids & inorganics",
+   "b": "inj-prod-Synthetic rubber",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -1.0601,
+   "ratio": 0.5861,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Adhesives",
+   "b": "inj-prod-Acids & inorganics",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 1.2649,
+   "ratio": 1.8425,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Adhesives",
+   "b": "inj-prod-Compounding & specialty",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 0.4339,
+   "ratio": 1.186,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Adhesives",
+   "b": "inj-prod-Dyes & pigments",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 0.7046,
+   "ratio": 1.3418,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Adhesives",
+   "b": "inj-prod-Ethanol & biofuels",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -0.4732,
+   "ratio": 0.8539,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Adhesives",
+   "b": "inj-prod-Explosives",
+   "test": "Exact conditional binomial",
+   "p": 6e-06,
+   "diff": 0.3854,
+   "ratio": 1.1619,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Adhesives",
+   "b": "inj-prod-Fertilizer & ag chemicals",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 0.2775,
+   "ratio": 1.1115,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Adhesives",
+   "b": "inj-prod-Fibers",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 1.1276,
+   "ratio": 1.6882,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Adhesives",
+   "b": "inj-prod-Industrial gases",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 1.1032,
+   "ratio": 1.6633,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Adhesives",
+   "b": "inj-prod-Other basic organics (incl. formaldehyde)",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 1.5309,
+   "ratio": 2.2394,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Adhesives",
+   "b": "inj-prod-Other chemical",
+   "test": "Exact conditional binomial",
+   "p": 0.001403,
+   "diff": -4.1557,
+   "ratio": 0.3996,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Adhesives",
+   "b": "inj-prod-Paints & coatings",
+   "test": "Exact conditional binomial",
+   "p": 0.050672,
+   "diff": 0.1021,
+   "ratio": 1.0383,
+   "distinguishable": false
+  },
+  {
+   "a": "inj-prod-Adhesives",
+   "b": "inj-prod-Petrochemicals",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 2.4149,
+   "ratio": 7.8734,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Adhesives",
+   "b": "inj-prod-Pharmaceuticals",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 1.4944,
+   "ratio": 2.175,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Adhesives",
+   "b": "inj-prod-Plastics resins (older code)",
+   "test": "Exact conditional binomial",
+   "p": 0.001465,
+   "diff": 0.5285,
+   "ratio": 1.2362,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Adhesives",
+   "b": "inj-prod-Resins & plastics",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 0.8437,
+   "ratio": 1.4388,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Adhesives",
+   "b": "inj-prod-Soaps, cleaners & personal care",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 0.6408,
+   "ratio": 1.3015,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Adhesives",
+   "b": "inj-prod-Synthetic rubber",
+   "test": "Exact conditional binomial",
+   "p": 0.009004,
+   "diff": 0.2047,
+   "ratio": 1.0799,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Compounding & specialty",
+   "b": "inj-prod-Acids & inorganics",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 0.831,
+   "ratio": 1.5535,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Compounding & specialty",
+   "b": "inj-prod-Adhesives",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -0.4339,
+   "ratio": 0.8432,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Compounding & specialty",
+   "b": "inj-prod-Dyes & pigments",
+   "test": "Exact conditional binomial",
+   "p": 0.000942,
+   "diff": 0.2707,
+   "ratio": 1.1313,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Compounding & specialty",
+   "b": "inj-prod-Ethanol & biofuels",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -0.9071,
+   "ratio": 0.72,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Compounding & specialty",
+   "b": "inj-prod-Explosives",
+   "test": "Exact conditional binomial",
+   "p": 0.509012,
+   "diff": -0.0485,
+   "ratio": 0.9796,
+   "distinguishable": false
+  },
+  {
+   "a": "inj-prod-Compounding & specialty",
+   "b": "inj-prod-Fertilizer & ag chemicals",
+   "test": "Exact conditional binomial",
+   "p": 6.1e-05,
+   "diff": -0.1564,
+   "ratio": 0.9372,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Compounding & specialty",
+   "b": "inj-prod-Fibers",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 0.6938,
+   "ratio": 1.4234,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Compounding & specialty",
+   "b": "inj-prod-Industrial gases",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 0.6693,
+   "ratio": 1.4024,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Compounding & specialty",
+   "b": "inj-prod-Other basic organics (incl. formaldehyde)",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 1.0971,
+   "ratio": 1.8881,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Compounding & specialty",
+   "b": "inj-prod-Other chemical",
+   "test": "Exact conditional binomial",
+   "p": 0.000254,
+   "diff": -4.5896,
+   "ratio": 0.337,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Compounding & specialty",
+   "b": "inj-prod-Paints & coatings",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -0.3318,
+   "ratio": 0.8755,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Compounding & specialty",
+   "b": "inj-prod-Petrochemicals",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 1.981,
+   "ratio": 6.6386,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Compounding & specialty",
+   "b": "inj-prod-Pharmaceuticals",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 1.0605,
+   "ratio": 1.8339,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Compounding & specialty",
+   "b": "inj-prod-Plastics resins (older code)",
+   "test": "Exact conditional binomial",
+   "p": 0.555571,
+   "diff": 0.0946,
+   "ratio": 1.0423,
+   "distinguishable": false
+  },
+  {
+   "a": "inj-prod-Compounding & specialty",
+   "b": "inj-prod-Resins & plastics",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 0.4098,
+   "ratio": 1.2132,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Compounding & specialty",
+   "b": "inj-prod-Soaps, cleaners & personal care",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 0.2069,
+   "ratio": 1.0974,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Compounding & specialty",
+   "b": "inj-prod-Synthetic rubber",
+   "test": "Exact conditional binomial",
+   "p": 0.000572,
+   "diff": -0.2291,
+   "ratio": 0.9106,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Dyes & pigments",
+   "b": "inj-prod-Acids & inorganics",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 0.5603,
+   "ratio": 1.3732,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Dyes & pigments",
+   "b": "inj-prod-Adhesives",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -0.7046,
+   "ratio": 0.7453,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Dyes & pigments",
+   "b": "inj-prod-Compounding & specialty",
+   "test": "Exact conditional binomial",
+   "p": 0.000942,
+   "diff": -0.2707,
+   "ratio": 0.8839,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Dyes & pigments",
+   "b": "inj-prod-Ethanol & biofuels",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -1.1778,
+   "ratio": 0.6364,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Dyes & pigments",
+   "b": "inj-prod-Explosives",
+   "test": "Exact conditional binomial",
+   "p": 0.002369,
+   "diff": -0.3192,
+   "ratio": 0.8659,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Dyes & pigments",
+   "b": "inj-prod-Fertilizer & ag chemicals",
+   "test": "Exact conditional binomial",
+   "p": 1e-06,
+   "diff": -0.4271,
+   "ratio": 0.8284,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Dyes & pigments",
+   "b": "inj-prod-Fibers",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 0.423,
+   "ratio": 1.2582,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Dyes & pigments",
+   "b": "inj-prod-Industrial gases",
+   "test": "Exact conditional binomial",
+   "p": 1e-06,
+   "diff": 0.3986,
+   "ratio": 1.2397,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Dyes & pigments",
+   "b": "inj-prod-Other basic organics (incl. formaldehyde)",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 0.8263,
+   "ratio": 1.669,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Dyes & pigments",
+   "b": "inj-prod-Other chemical",
+   "test": "Exact conditional binomial",
+   "p": 7.4e-05,
+   "diff": -4.8603,
+   "ratio": 0.2978,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Dyes & pigments",
+   "b": "inj-prod-Paints & coatings",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -0.6025,
+   "ratio": 0.7738,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Dyes & pigments",
+   "b": "inj-prod-Petrochemicals",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 1.7103,
+   "ratio": 5.868,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Dyes & pigments",
+   "b": "inj-prod-Pharmaceuticals",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 0.7898,
+   "ratio": 1.621,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Dyes & pigments",
+   "b": "inj-prod-Plastics resins (older code)",
+   "test": "Exact conditional binomial",
+   "p": 0.278498,
+   "diff": -0.1761,
+   "ratio": 0.9213,
+   "distinguishable": false
+  },
+  {
+   "a": "inj-prod-Dyes & pigments",
+   "b": "inj-prod-Resins & plastics",
+   "test": "Exact conditional binomial",
+   "p": 0.071768,
+   "diff": 0.1391,
+   "ratio": 1.0723,
+   "distinguishable": false
+  },
+  {
+   "a": "inj-prod-Dyes & pigments",
+   "b": "inj-prod-Soaps, cleaners & personal care",
+   "test": "Exact conditional binomial",
+   "p": 0.434884,
+   "diff": -0.0638,
+   "ratio": 0.97,
+   "distinguishable": false
+  },
+  {
+   "a": "inj-prod-Dyes & pigments",
+   "b": "inj-prod-Synthetic rubber",
+   "test": "Exact conditional binomial",
+   "p": 1e-06,
+   "diff": -0.4999,
+   "ratio": 0.8049,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Ethanol & biofuels",
+   "b": "inj-prod-Acids & inorganics",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 1.738,
+   "ratio": 2.1576,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Ethanol & biofuels",
+   "b": "inj-prod-Adhesives",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 0.4732,
+   "ratio": 1.1711,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Ethanol & biofuels",
+   "b": "inj-prod-Compounding & specialty",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 0.9071,
+   "ratio": 1.3889,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Ethanol & biofuels",
+   "b": "inj-prod-Dyes & pigments",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 1.1778,
+   "ratio": 1.5713,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Ethanol & biofuels",
+   "b": "inj-prod-Explosives",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 0.8585,
+   "ratio": 1.3606,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Ethanol & biofuels",
+   "b": "inj-prod-Fertilizer & ag chemicals",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 0.7507,
+   "ratio": 1.3016,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Ethanol & biofuels",
+   "b": "inj-prod-Fibers",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 1.6008,
+   "ratio": 1.9769,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Ethanol & biofuels",
+   "b": "inj-prod-Industrial gases",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 1.5763,
+   "ratio": 1.9479,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Ethanol & biofuels",
+   "b": "inj-prod-Other basic organics (incl. formaldehyde)",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 2.0041,
+   "ratio": 2.6224,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Ethanol & biofuels",
+   "b": "inj-prod-Other chemical",
+   "test": "Exact conditional binomial",
+   "p": 0.006818,
+   "diff": -3.6825,
+   "ratio": 0.468,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Ethanol & biofuels",
+   "b": "inj-prod-Paints & coatings",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 0.5753,
+   "ratio": 1.2159,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Ethanol & biofuels",
+   "b": "inj-prod-Petrochemicals",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 2.8881,
+   "ratio": 9.2203,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Ethanol & biofuels",
+   "b": "inj-prod-Pharmaceuticals",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 1.9676,
+   "ratio": 2.5471,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Ethanol & biofuels",
+   "b": "inj-prod-Plastics resins (older code)",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 1.0017,
+   "ratio": 1.4476,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Ethanol & biofuels",
+   "b": "inj-prod-Resins & plastics",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 1.3169,
+   "ratio": 1.685,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Ethanol & biofuels",
+   "b": "inj-prod-Soaps, cleaners & personal care",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 1.114,
+   "ratio": 1.5241,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Ethanol & biofuels",
+   "b": "inj-prod-Synthetic rubber",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 0.6779,
+   "ratio": 1.2647,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Explosives",
+   "b": "inj-prod-Acids & inorganics",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 0.8795,
+   "ratio": 1.5858,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Explosives",
+   "b": "inj-prod-Adhesives",
+   "test": "Exact conditional binomial",
+   "p": 6e-06,
+   "diff": -0.3854,
+   "ratio": 0.8607,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Explosives",
+   "b": "inj-prod-Compounding & specialty",
+   "test": "Exact conditional binomial",
+   "p": 0.509012,
+   "diff": 0.0485,
+   "ratio": 1.0208,
+   "distinguishable": false
+  },
+  {
+   "a": "inj-prod-Explosives",
+   "b": "inj-prod-Dyes & pigments",
+   "test": "Exact conditional binomial",
+   "p": 0.002369,
+   "diff": 0.3192,
+   "ratio": 1.1549,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Explosives",
+   "b": "inj-prod-Ethanol & biofuels",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -0.8585,
+   "ratio": 0.735,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Explosives",
+   "b": "inj-prod-Fertilizer & ag chemicals",
+   "test": "Exact conditional binomial",
+   "p": 0.180207,
+   "diff": -0.1079,
+   "ratio": 0.9567,
+   "distinguishable": false
+  },
+  {
+   "a": "inj-prod-Explosives",
+   "b": "inj-prod-Fibers",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 0.7423,
+   "ratio": 1.453,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Explosives",
+   "b": "inj-prod-Industrial gases",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 0.7178,
+   "ratio": 1.4316,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Explosives",
+   "b": "inj-prod-Other basic organics (incl. formaldehyde)",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 1.1456,
+   "ratio": 1.9274,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Explosives",
+   "b": "inj-prod-Other chemical",
+   "test": "Exact conditional binomial",
+   "p": 0.000329,
+   "diff": -4.5411,
+   "ratio": 0.344,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Explosives",
+   "b": "inj-prod-Paints & coatings",
+   "test": "Exact conditional binomial",
+   "p": 0.000433,
+   "diff": -0.2833,
+   "ratio": 0.8937,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Explosives",
+   "b": "inj-prod-Petrochemicals",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 2.0295,
+   "ratio": 6.7766,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Explosives",
+   "b": "inj-prod-Pharmaceuticals",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 1.109,
+   "ratio": 1.872,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Explosives",
+   "b": "inj-prod-Plastics resins (older code)",
+   "test": "Exact conditional binomial",
+   "p": 0.412903,
+   "diff": 0.1432,
+   "ratio": 1.064,
+   "distinguishable": false
+  },
+  {
+   "a": "inj-prod-Explosives",
+   "b": "inj-prod-Resins & plastics",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 0.4583,
+   "ratio": 1.2384,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Explosives",
+   "b": "inj-prod-Soaps, cleaners & personal care",
+   "test": "Exact conditional binomial",
+   "p": 0.000328,
+   "diff": 0.2554,
+   "ratio": 1.1202,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Explosives",
+   "b": "inj-prod-Synthetic rubber",
+   "test": "Exact conditional binomial",
+   "p": 0.064043,
+   "diff": -0.1806,
+   "ratio": 0.9295,
+   "distinguishable": false
+  },
+  {
+   "a": "inj-prod-Fertilizer & ag chemicals",
+   "b": "inj-prod-Acids & inorganics",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 0.9874,
+   "ratio": 1.6576,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Fertilizer & ag chemicals",
+   "b": "inj-prod-Adhesives",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -0.2775,
+   "ratio": 0.8997,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Fertilizer & ag chemicals",
+   "b": "inj-prod-Compounding & specialty",
+   "test": "Exact conditional binomial",
+   "p": 6.1e-05,
+   "diff": 0.1564,
+   "ratio": 1.067,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Fertilizer & ag chemicals",
+   "b": "inj-prod-Dyes & pigments",
+   "test": "Exact conditional binomial",
+   "p": 1e-06,
+   "diff": 0.4271,
+   "ratio": 1.2072,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Fertilizer & ag chemicals",
+   "b": "inj-prod-Ethanol & biofuels",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -0.7507,
+   "ratio": 0.7683,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Fertilizer & ag chemicals",
+   "b": "inj-prod-Explosives",
+   "test": "Exact conditional binomial",
+   "p": 0.180207,
+   "diff": 0.1079,
+   "ratio": 1.0453,
+   "distinguishable": false
+  },
+  {
+   "a": "inj-prod-Fertilizer & ag chemicals",
+   "b": "inj-prod-Fibers",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 0.8501,
+   "ratio": 1.5188,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Fertilizer & ag chemicals",
+   "b": "inj-prod-Industrial gases",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 0.8257,
+   "ratio": 1.4965,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Fertilizer & ag chemicals",
+   "b": "inj-prod-Other basic organics (incl. formaldehyde)",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 1.2534,
+   "ratio": 2.0147,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Fertilizer & ag chemicals",
+   "b": "inj-prod-Other chemical",
+   "test": "Exact conditional binomial",
+   "p": 0.000496,
+   "diff": -4.4332,
+   "ratio": 0.3595,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Fertilizer & ag chemicals",
+   "b": "inj-prod-Paints & coatings",
+   "test": "Exact conditional binomial",
+   "p": 0.000167,
+   "diff": -0.1754,
+   "ratio": 0.9342,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Fertilizer & ag chemicals",
+   "b": "inj-prod-Petrochemicals",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 2.1374,
+   "ratio": 7.0836,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Fertilizer & ag chemicals",
+   "b": "inj-prod-Pharmaceuticals",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 1.2169,
+   "ratio": 1.9568,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Fertilizer & ag chemicals",
+   "b": "inj-prod-Plastics resins (older code)",
+   "test": "Exact conditional binomial",
+   "p": 0.122274,
+   "diff": 0.251,
+   "ratio": 1.1122,
+   "distinguishable": false
+  },
+  {
+   "a": "inj-prod-Fertilizer & ag chemicals",
+   "b": "inj-prod-Resins & plastics",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 0.5662,
+   "ratio": 1.2945,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Fertilizer & ag chemicals",
+   "b": "inj-prod-Soaps, cleaners & personal care",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 0.3633,
+   "ratio": 1.1709,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Fertilizer & ag chemicals",
+   "b": "inj-prod-Synthetic rubber",
+   "test": "Exact conditional binomial",
+   "p": 0.318123,
+   "diff": -0.0728,
+   "ratio": 0.9716,
+   "distinguishable": false
+  },
+  {
+   "a": "inj-prod-Fibers",
+   "b": "inj-prod-Acids & inorganics",
+   "test": "Exact conditional binomial",
+   "p": 0.000896,
+   "diff": 0.1372,
+   "ratio": 1.0914,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Fibers",
+   "b": "inj-prod-Adhesives",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -1.1276,
+   "ratio": 0.5924,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Fibers",
+   "b": "inj-prod-Compounding & specialty",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -0.6938,
+   "ratio": 0.7025,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Fibers",
+   "b": "inj-prod-Dyes & pigments",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -0.423,
+   "ratio": 0.7948,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Fibers",
+   "b": "inj-prod-Ethanol & biofuels",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -1.6008,
+   "ratio": 0.5058,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Fibers",
+   "b": "inj-prod-Explosives",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -0.7423,
+   "ratio": 0.6882,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Fibers",
+   "b": "inj-prod-Fertilizer & ag chemicals",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -0.8501,
+   "ratio": 0.6584,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Fibers",
+   "b": "inj-prod-Industrial gases",
+   "test": "Exact conditional binomial",
+   "p": 0.628804,
+   "diff": -0.0245,
+   "ratio": 0.9853,
+   "distinguishable": false
+  },
+  {
+   "a": "inj-prod-Fibers",
+   "b": "inj-prod-Other basic organics (incl. formaldehyde)",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 0.4033,
+   "ratio": 1.3265,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Fibers",
+   "b": "inj-prod-Other chemical",
+   "test": "Exact conditional binomial",
+   "p": 5e-06,
+   "diff": -5.2833,
+   "ratio": 0.2367,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Fibers",
+   "b": "inj-prod-Paints & coatings",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -1.0255,
+   "ratio": 0.6151,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Fibers",
+   "b": "inj-prod-Petrochemicals",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 1.2873,
+   "ratio": 4.6639,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Fibers",
+   "b": "inj-prod-Pharmaceuticals",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 0.3668,
+   "ratio": 1.2884,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Fibers",
+   "b": "inj-prod-Plastics resins (older code)",
+   "test": "Exact conditional binomial",
+   "p": 1.8e-05,
+   "diff": -0.5991,
+   "ratio": 0.7323,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Fibers",
+   "b": "inj-prod-Resins & plastics",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -0.284,
+   "ratio": 0.8523,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Fibers",
+   "b": "inj-prod-Soaps, cleaners & personal care",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -0.4868,
+   "ratio": 0.7709,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Fibers",
+   "b": "inj-prod-Synthetic rubber",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -0.9229,
+   "ratio": 0.6397,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Industrial gases",
+   "b": "inj-prod-Acids & inorganics",
+   "test": "Exact conditional binomial",
+   "p": 0.000103,
+   "diff": 0.1617,
+   "ratio": 1.1077,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Industrial gases",
+   "b": "inj-prod-Adhesives",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -1.1032,
+   "ratio": 0.6012,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Industrial gases",
+   "b": "inj-prod-Compounding & specialty",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -0.6693,
+   "ratio": 0.713,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Industrial gases",
+   "b": "inj-prod-Dyes & pigments",
+   "test": "Exact conditional binomial",
+   "p": 1e-06,
+   "diff": -0.3986,
+   "ratio": 0.8067,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Industrial gases",
+   "b": "inj-prod-Ethanol & biofuels",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -1.5763,
+   "ratio": 0.5134,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Industrial gases",
+   "b": "inj-prod-Explosives",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -0.7178,
+   "ratio": 0.6985,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Industrial gases",
+   "b": "inj-prod-Fertilizer & ag chemicals",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -0.8257,
+   "ratio": 0.6682,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Industrial gases",
+   "b": "inj-prod-Fibers",
+   "test": "Exact conditional binomial",
+   "p": 0.628804,
+   "diff": 0.0245,
+   "ratio": 1.0149,
+   "distinguishable": false
+  },
+  {
+   "a": "inj-prod-Industrial gases",
+   "b": "inj-prod-Other basic organics (incl. formaldehyde)",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 0.4278,
+   "ratio": 1.3463,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Industrial gases",
+   "b": "inj-prod-Other chemical",
+   "test": "Exact conditional binomial",
+   "p": 6e-06,
+   "diff": -5.2589,
+   "ratio": 0.2403,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Industrial gases",
+   "b": "inj-prod-Paints & coatings",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -1.0011,
+   "ratio": 0.6242,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Industrial gases",
+   "b": "inj-prod-Petrochemicals",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 1.3117,
+   "ratio": 4.7335,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Industrial gases",
+   "b": "inj-prod-Pharmaceuticals",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 0.3912,
+   "ratio": 1.3076,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Industrial gases",
+   "b": "inj-prod-Plastics resins (older code)",
+   "test": "Exact conditional binomial",
+   "p": 4.1e-05,
+   "diff": -0.5746,
+   "ratio": 0.7432,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Industrial gases",
+   "b": "inj-prod-Resins & plastics",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -0.2595,
+   "ratio": 0.865,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Industrial gases",
+   "b": "inj-prod-Soaps, cleaners & personal care",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -0.4624,
+   "ratio": 0.7825,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Industrial gases",
+   "b": "inj-prod-Synthetic rubber",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -0.8984,
+   "ratio": 0.6493,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Other basic organics (incl. formaldehyde)",
+   "b": "inj-prod-Acids & inorganics",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -0.2661,
+   "ratio": 0.8228,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Other basic organics (incl. formaldehyde)",
+   "b": "inj-prod-Adhesives",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -1.5309,
+   "ratio": 0.4466,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Other basic organics (incl. formaldehyde)",
+   "b": "inj-prod-Compounding & specialty",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -1.0971,
+   "ratio": 0.5296,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Other basic organics (incl. formaldehyde)",
+   "b": "inj-prod-Dyes & pigments",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -0.8263,
+   "ratio": 0.5992,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Other basic organics (incl. formaldehyde)",
+   "b": "inj-prod-Ethanol & biofuels",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -2.0041,
+   "ratio": 0.3813,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Other basic organics (incl. formaldehyde)",
+   "b": "inj-prod-Explosives",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -1.1456,
+   "ratio": 0.5188,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Other basic organics (incl. formaldehyde)",
+   "b": "inj-prod-Fertilizer & ag chemicals",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -1.2534,
+   "ratio": 0.4963,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Other basic organics (incl. formaldehyde)",
+   "b": "inj-prod-Fibers",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -0.4033,
+   "ratio": 0.7539,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Other basic organics (incl. formaldehyde)",
+   "b": "inj-prod-Industrial gases",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -0.4278,
+   "ratio": 0.7428,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Other basic organics (incl. formaldehyde)",
+   "b": "inj-prod-Other chemical",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -5.6867,
+   "ratio": 0.1785,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Other basic organics (incl. formaldehyde)",
+   "b": "inj-prod-Paints & coatings",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -1.4289,
+   "ratio": 0.4637,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Other basic organics (incl. formaldehyde)",
+   "b": "inj-prod-Petrochemicals",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 0.8839,
+   "ratio": 3.5159,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Other basic organics (incl. formaldehyde)",
+   "b": "inj-prod-Pharmaceuticals",
+   "test": "Exact conditional binomial",
+   "p": 0.039107,
+   "diff": -0.0366,
+   "ratio": 0.9713,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Other basic organics (incl. formaldehyde)",
+   "b": "inj-prod-Plastics resins (older code)",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -1.0024,
+   "ratio": 0.552,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Other basic organics (incl. formaldehyde)",
+   "b": "inj-prod-Resins & plastics",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -0.6873,
+   "ratio": 0.6425,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Other basic organics (incl. formaldehyde)",
+   "b": "inj-prod-Soaps, cleaners & personal care",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -0.8902,
+   "ratio": 0.5812,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Other basic organics (incl. formaldehyde)",
+   "b": "inj-prod-Synthetic rubber",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -1.3262,
+   "ratio": 0.4822,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Other chemical",
+   "b": "inj-prod-Acids & inorganics",
+   "test": "Exact conditional binomial",
+   "p": 2e-06,
+   "diff": 5.4206,
+   "ratio": 4.6104,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Other chemical",
+   "b": "inj-prod-Adhesives",
+   "test": "Exact conditional binomial",
+   "p": 0.001403,
+   "diff": 4.1557,
+   "ratio": 2.5023,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Other chemical",
+   "b": "inj-prod-Compounding & specialty",
+   "test": "Exact conditional binomial",
+   "p": 0.000254,
+   "diff": 4.5896,
+   "ratio": 2.9678,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Other chemical",
+   "b": "inj-prod-Dyes & pigments",
+   "test": "Exact conditional binomial",
+   "p": 7.4e-05,
+   "diff": 4.8603,
+   "ratio": 3.3575,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Other chemical",
+   "b": "inj-prod-Ethanol & biofuels",
+   "test": "Exact conditional binomial",
+   "p": 0.006818,
+   "diff": 3.6825,
+   "ratio": 2.1368,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Other chemical",
+   "b": "inj-prod-Explosives",
+   "test": "Exact conditional binomial",
+   "p": 0.000329,
+   "diff": 4.5411,
+   "ratio": 2.9073,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Other chemical",
+   "b": "inj-prod-Fertilizer & ag chemicals",
+   "test": "Exact conditional binomial",
+   "p": 0.000496,
+   "diff": 4.4332,
+   "ratio": 2.7813,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Other chemical",
+   "b": "inj-prod-Fibers",
+   "test": "Exact conditional binomial",
+   "p": 5e-06,
+   "diff": 5.2833,
+   "ratio": 4.2243,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Other chemical",
+   "b": "inj-prod-Industrial gases",
+   "test": "Exact conditional binomial",
+   "p": 6e-06,
+   "diff": 5.2589,
+   "ratio": 4.1622,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Other chemical",
+   "b": "inj-prod-Other basic organics (incl. formaldehyde)",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 5.6867,
+   "ratio": 5.6036,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Other chemical",
+   "b": "inj-prod-Paints & coatings",
+   "test": "Exact conditional binomial",
+   "p": 0.000973,
+   "diff": 4.2578,
+   "ratio": 2.5982,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Other chemical",
+   "b": "inj-prod-Petrochemicals",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 6.5706,
+   "ratio": 19.7018,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Other chemical",
+   "b": "inj-prod-Pharmaceuticals",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 5.6501,
+   "ratio": 5.4425,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Other chemical",
+   "b": "inj-prod-Plastics resins (older code)",
+   "test": "Exact conditional binomial",
+   "p": 0.000211,
+   "diff": 4.6842,
+   "ratio": 3.0933,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Other chemical",
+   "b": "inj-prod-Resins & plastics",
+   "test": "Exact conditional binomial",
+   "p": 3.2e-05,
+   "diff": 4.9994,
+   "ratio": 3.6004,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Other chemical",
+   "b": "inj-prod-Soaps, cleaners & personal care",
+   "test": "Exact conditional binomial",
+   "p": 9.5e-05,
+   "diff": 4.7965,
+   "ratio": 3.2567,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Other chemical",
+   "b": "inj-prod-Synthetic rubber",
+   "test": "Exact conditional binomial",
+   "p": 0.000678,
+   "diff": 4.3605,
+   "ratio": 2.7023,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Paints & coatings",
+   "b": "inj-prod-Acids & inorganics",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 1.1628,
+   "ratio": 1.7745,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Paints & coatings",
+   "b": "inj-prod-Adhesives",
+   "test": "Exact conditional binomial",
+   "p": 0.050672,
+   "diff": -0.1021,
+   "ratio": 0.9631,
+   "distinguishable": false
+  },
+  {
+   "a": "inj-prod-Paints & coatings",
+   "b": "inj-prod-Compounding & specialty",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 0.3318,
+   "ratio": 1.1422,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Paints & coatings",
+   "b": "inj-prod-Dyes & pigments",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 0.6025,
+   "ratio": 1.2923,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Paints & coatings",
+   "b": "inj-prod-Ethanol & biofuels",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -0.5753,
+   "ratio": 0.8224,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Paints & coatings",
+   "b": "inj-prod-Explosives",
+   "test": "Exact conditional binomial",
+   "p": 0.000433,
+   "diff": 0.2833,
+   "ratio": 1.119,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Paints & coatings",
+   "b": "inj-prod-Fertilizer & ag chemicals",
+   "test": "Exact conditional binomial",
+   "p": 0.000167,
+   "diff": 0.1754,
+   "ratio": 1.0705,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Paints & coatings",
+   "b": "inj-prod-Fibers",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 1.0255,
+   "ratio": 1.6259,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Paints & coatings",
+   "b": "inj-prod-Industrial gases",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 1.0011,
+   "ratio": 1.6019,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Paints & coatings",
+   "b": "inj-prod-Other basic organics (incl. formaldehyde)",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 1.4289,
+   "ratio": 2.1567,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Paints & coatings",
+   "b": "inj-prod-Other chemical",
+   "test": "Exact conditional binomial",
+   "p": 0.000973,
+   "diff": -4.2578,
+   "ratio": 0.3849,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Paints & coatings",
+   "b": "inj-prod-Petrochemicals",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 2.3128,
+   "ratio": 7.5829,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Paints & coatings",
+   "b": "inj-prod-Pharmaceuticals",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 1.3923,
+   "ratio": 2.0947,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Paints & coatings",
+   "b": "inj-prod-Plastics resins (older code)",
+   "test": "Exact conditional binomial",
+   "p": 0.009073,
+   "diff": 0.4264,
+   "ratio": 1.1906,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Paints & coatings",
+   "b": "inj-prod-Resins & plastics",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 0.7416,
+   "ratio": 1.3857,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Paints & coatings",
+   "b": "inj-prod-Soaps, cleaners & personal care",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 0.5387,
+   "ratio": 1.2535,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Paints & coatings",
+   "b": "inj-prod-Synthetic rubber",
+   "test": "Exact conditional binomial",
+   "p": 0.164969,
+   "diff": 0.1026,
+   "ratio": 1.0401,
+   "distinguishable": false
+  },
+  {
+   "a": "inj-prod-Petrochemicals",
+   "b": "inj-prod-Acids & inorganics",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -1.15,
+   "ratio": 0.234,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Petrochemicals",
+   "b": "inj-prod-Adhesives",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -2.4149,
+   "ratio": 0.127,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Petrochemicals",
+   "b": "inj-prod-Compounding & specialty",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -1.981,
+   "ratio": 0.1506,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Petrochemicals",
+   "b": "inj-prod-Dyes & pigments",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -1.7103,
+   "ratio": 0.1704,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Petrochemicals",
+   "b": "inj-prod-Ethanol & biofuels",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -2.8881,
+   "ratio": 0.1085,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Petrochemicals",
+   "b": "inj-prod-Explosives",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -2.0295,
+   "ratio": 0.1476,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Petrochemicals",
+   "b": "inj-prod-Fertilizer & ag chemicals",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -2.1374,
+   "ratio": 0.1412,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Petrochemicals",
+   "b": "inj-prod-Fibers",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -1.2873,
+   "ratio": 0.2144,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Petrochemicals",
+   "b": "inj-prod-Industrial gases",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -1.3117,
+   "ratio": 0.2113,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Petrochemicals",
+   "b": "inj-prod-Other basic organics (incl. formaldehyde)",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -0.8839,
+   "ratio": 0.2844,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Petrochemicals",
+   "b": "inj-prod-Other chemical",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -6.5706,
+   "ratio": 0.0508,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Petrochemicals",
+   "b": "inj-prod-Paints & coatings",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -2.3128,
+   "ratio": 0.1319,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Petrochemicals",
+   "b": "inj-prod-Pharmaceuticals",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -0.9205,
+   "ratio": 0.2762,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Petrochemicals",
+   "b": "inj-prod-Plastics resins (older code)",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -1.8864,
+   "ratio": 0.157,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Petrochemicals",
+   "b": "inj-prod-Resins & plastics",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -1.5712,
+   "ratio": 0.1827,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Petrochemicals",
+   "b": "inj-prod-Soaps, cleaners & personal care",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -1.7741,
+   "ratio": 0.1653,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Petrochemicals",
+   "b": "inj-prod-Synthetic rubber",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -2.2101,
+   "ratio": 0.1372,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Pharmaceuticals",
+   "b": "inj-prod-Acids & inorganics",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -0.2295,
+   "ratio": 0.8471,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Pharmaceuticals",
+   "b": "inj-prod-Adhesives",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -1.4944,
+   "ratio": 0.4598,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Pharmaceuticals",
+   "b": "inj-prod-Compounding & specialty",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -1.0605,
+   "ratio": 0.5453,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Pharmaceuticals",
+   "b": "inj-prod-Dyes & pigments",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -0.7898,
+   "ratio": 0.6169,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Pharmaceuticals",
+   "b": "inj-prod-Ethanol & biofuels",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -1.9676,
+   "ratio": 0.3926,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Pharmaceuticals",
+   "b": "inj-prod-Explosives",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -1.109,
+   "ratio": 0.5342,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Pharmaceuticals",
+   "b": "inj-prod-Fertilizer & ag chemicals",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -1.2169,
+   "ratio": 0.511,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Pharmaceuticals",
+   "b": "inj-prod-Fibers",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -0.3668,
+   "ratio": 0.7762,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Pharmaceuticals",
+   "b": "inj-prod-Industrial gases",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -0.3912,
+   "ratio": 0.7647,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Pharmaceuticals",
+   "b": "inj-prod-Other basic organics (incl. formaldehyde)",
+   "test": "Exact conditional binomial",
+   "p": 0.039107,
+   "diff": 0.0366,
+   "ratio": 1.0296,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Pharmaceuticals",
+   "b": "inj-prod-Other chemical",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -5.6501,
+   "ratio": 0.1837,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Pharmaceuticals",
+   "b": "inj-prod-Paints & coatings",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -1.3923,
+   "ratio": 0.4774,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Pharmaceuticals",
+   "b": "inj-prod-Petrochemicals",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 0.9205,
+   "ratio": 3.62,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Pharmaceuticals",
+   "b": "inj-prod-Plastics resins (older code)",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -0.9659,
+   "ratio": 0.5684,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Pharmaceuticals",
+   "b": "inj-prod-Resins & plastics",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -0.6507,
+   "ratio": 0.6615,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Pharmaceuticals",
+   "b": "inj-prod-Soaps, cleaners & personal care",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -0.8536,
+   "ratio": 0.5984,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Pharmaceuticals",
+   "b": "inj-prod-Synthetic rubber",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -1.2897,
+   "ratio": 0.4965,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Plastics resins (older code)",
+   "b": "inj-prod-Acids & inorganics",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 0.7363,
+   "ratio": 1.4905,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Plastics resins (older code)",
+   "b": "inj-prod-Adhesives",
+   "test": "Exact conditional binomial",
+   "p": 0.001465,
+   "diff": -0.5285,
+   "ratio": 0.8089,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Plastics resins (older code)",
+   "b": "inj-prod-Compounding & specialty",
+   "test": "Exact conditional binomial",
+   "p": 0.555571,
+   "diff": -0.0946,
+   "ratio": 0.9594,
+   "distinguishable": false
+  },
+  {
+   "a": "inj-prod-Plastics resins (older code)",
+   "b": "inj-prod-Dyes & pigments",
+   "test": "Exact conditional binomial",
+   "p": 0.278498,
+   "diff": 0.1761,
+   "ratio": 1.0854,
+   "distinguishable": false
+  },
+  {
+   "a": "inj-prod-Plastics resins (older code)",
+   "b": "inj-prod-Ethanol & biofuels",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -1.0017,
+   "ratio": 0.6908,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Plastics resins (older code)",
+   "b": "inj-prod-Explosives",
+   "test": "Exact conditional binomial",
+   "p": 0.412903,
+   "diff": -0.1432,
+   "ratio": 0.9399,
+   "distinguishable": false
+  },
+  {
+   "a": "inj-prod-Plastics resins (older code)",
+   "b": "inj-prod-Fertilizer & ag chemicals",
+   "test": "Exact conditional binomial",
+   "p": 0.122274,
+   "diff": -0.251,
+   "ratio": 0.8991,
+   "distinguishable": false
+  },
+  {
+   "a": "inj-prod-Plastics resins (older code)",
+   "b": "inj-prod-Fibers",
+   "test": "Exact conditional binomial",
+   "p": 1.8e-05,
+   "diff": 0.5991,
+   "ratio": 1.3656,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Plastics resins (older code)",
+   "b": "inj-prod-Industrial gases",
+   "test": "Exact conditional binomial",
+   "p": 4.1e-05,
+   "diff": 0.5746,
+   "ratio": 1.3455,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Plastics resins (older code)",
+   "b": "inj-prod-Other basic organics (incl. formaldehyde)",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 1.0024,
+   "ratio": 1.8115,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Plastics resins (older code)",
+   "b": "inj-prod-Other chemical",
+   "test": "Exact conditional binomial",
+   "p": 0.000211,
+   "diff": -4.6842,
+   "ratio": 0.3233,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Plastics resins (older code)",
+   "b": "inj-prod-Paints & coatings",
+   "test": "Exact conditional binomial",
+   "p": 0.009073,
+   "diff": -0.4264,
+   "ratio": 0.8399,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Plastics resins (older code)",
+   "b": "inj-prod-Petrochemicals",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 1.8864,
+   "ratio": 6.3692,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Plastics resins (older code)",
+   "b": "inj-prod-Pharmaceuticals",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 0.9659,
+   "ratio": 1.7594,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Plastics resins (older code)",
+   "b": "inj-prod-Resins & plastics",
+   "test": "Exact conditional binomial",
+   "p": 0.027506,
+   "diff": 0.3152,
+   "ratio": 1.1639,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Plastics resins (older code)",
+   "b": "inj-prod-Soaps, cleaners & personal care",
+   "test": "Exact conditional binomial",
+   "p": 0.430985,
+   "diff": 0.1123,
+   "ratio": 1.0528,
+   "distinguishable": false
+  },
+  {
+   "a": "inj-prod-Plastics resins (older code)",
+   "b": "inj-prod-Synthetic rubber",
+   "test": "Exact conditional binomial",
+   "p": 0.058636,
+   "diff": -0.3238,
+   "ratio": 0.8736,
+   "distinguishable": false
+  },
+  {
+   "a": "inj-prod-Resins & plastics",
+   "b": "inj-prod-Acids & inorganics",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 0.4212,
+   "ratio": 1.2805,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Resins & plastics",
+   "b": "inj-prod-Adhesives",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -0.8437,
+   "ratio": 0.695,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Resins & plastics",
+   "b": "inj-prod-Compounding & specialty",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -0.4098,
+   "ratio": 0.8243,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Resins & plastics",
+   "b": "inj-prod-Dyes & pigments",
+   "test": "Exact conditional binomial",
+   "p": 0.071768,
+   "diff": -0.1391,
+   "ratio": 0.9325,
+   "distinguishable": false
+  },
+  {
+   "a": "inj-prod-Resins & plastics",
+   "b": "inj-prod-Ethanol & biofuels",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -1.3169,
+   "ratio": 0.5935,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Resins & plastics",
+   "b": "inj-prod-Explosives",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -0.4583,
+   "ratio": 0.8075,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Resins & plastics",
+   "b": "inj-prod-Fertilizer & ag chemicals",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -0.5662,
+   "ratio": 0.7725,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Resins & plastics",
+   "b": "inj-prod-Fibers",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 0.284,
+   "ratio": 1.1733,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Resins & plastics",
+   "b": "inj-prod-Industrial gases",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 0.2595,
+   "ratio": 1.156,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Resins & plastics",
+   "b": "inj-prod-Other basic organics (incl. formaldehyde)",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 0.6873,
+   "ratio": 1.5564,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Resins & plastics",
+   "b": "inj-prod-Other chemical",
+   "test": "Exact conditional binomial",
+   "p": 3.2e-05,
+   "diff": -4.9994,
+   "ratio": 0.2777,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Resins & plastics",
+   "b": "inj-prod-Paints & coatings",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -0.7416,
+   "ratio": 0.7216,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Resins & plastics",
+   "b": "inj-prod-Petrochemicals",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 1.5712,
+   "ratio": 5.4721,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Resins & plastics",
+   "b": "inj-prod-Pharmaceuticals",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 0.6507,
+   "ratio": 1.5116,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Resins & plastics",
+   "b": "inj-prod-Plastics resins (older code)",
+   "test": "Exact conditional binomial",
+   "p": 0.027506,
+   "diff": -0.3152,
+   "ratio": 0.8592,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Resins & plastics",
+   "b": "inj-prod-Soaps, cleaners & personal care",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -0.2029,
+   "ratio": 0.9046,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Resins & plastics",
+   "b": "inj-prod-Synthetic rubber",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -0.6389,
+   "ratio": 0.7506,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Soaps, cleaners & personal care",
+   "b": "inj-prod-Acids & inorganics",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 0.6241,
+   "ratio": 1.4157,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Soaps, cleaners & personal care",
+   "b": "inj-prod-Adhesives",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -0.6408,
+   "ratio": 0.7684,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Soaps, cleaners & personal care",
+   "b": "inj-prod-Compounding & specialty",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -0.2069,
+   "ratio": 0.9113,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Soaps, cleaners & personal care",
+   "b": "inj-prod-Dyes & pigments",
+   "test": "Exact conditional binomial",
+   "p": 0.434884,
+   "diff": 0.0638,
+   "ratio": 1.0309,
+   "distinguishable": false
+  },
+  {
+   "a": "inj-prod-Soaps, cleaners & personal care",
+   "b": "inj-prod-Ethanol & biofuels",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -1.114,
+   "ratio": 0.6561,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Soaps, cleaners & personal care",
+   "b": "inj-prod-Explosives",
+   "test": "Exact conditional binomial",
+   "p": 0.000328,
+   "diff": -0.2554,
+   "ratio": 0.8927,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Soaps, cleaners & personal care",
+   "b": "inj-prod-Fertilizer & ag chemicals",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -0.3633,
+   "ratio": 0.854,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Soaps, cleaners & personal care",
+   "b": "inj-prod-Fibers",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 0.4868,
+   "ratio": 1.2971,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Soaps, cleaners & personal care",
+   "b": "inj-prod-Industrial gases",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 0.4624,
+   "ratio": 1.278,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Soaps, cleaners & personal care",
+   "b": "inj-prod-Other basic organics (incl. formaldehyde)",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 0.8902,
+   "ratio": 1.7206,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Soaps, cleaners & personal care",
+   "b": "inj-prod-Other chemical",
+   "test": "Exact conditional binomial",
+   "p": 9.5e-05,
+   "diff": -4.7965,
+   "ratio": 0.3071,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Soaps, cleaners & personal care",
+   "b": "inj-prod-Paints & coatings",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -0.5387,
+   "ratio": 0.7978,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Soaps, cleaners & personal care",
+   "b": "inj-prod-Petrochemicals",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 1.7741,
+   "ratio": 6.0496,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Soaps, cleaners & personal care",
+   "b": "inj-prod-Pharmaceuticals",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 0.8536,
+   "ratio": 1.6712,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Soaps, cleaners & personal care",
+   "b": "inj-prod-Plastics resins (older code)",
+   "test": "Exact conditional binomial",
+   "p": 0.430985,
+   "diff": -0.1123,
+   "ratio": 0.9498,
+   "distinguishable": false
+  },
+  {
+   "a": "inj-prod-Soaps, cleaners & personal care",
+   "b": "inj-prod-Resins & plastics",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 0.2029,
+   "ratio": 1.1055,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Soaps, cleaners & personal care",
+   "b": "inj-prod-Synthetic rubber",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -0.4361,
+   "ratio": 0.8298,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Synthetic rubber",
+   "b": "inj-prod-Acids & inorganics",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 1.0601,
+   "ratio": 1.7061,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Synthetic rubber",
+   "b": "inj-prod-Adhesives",
+   "test": "Exact conditional binomial",
+   "p": 0.009004,
+   "diff": -0.2047,
+   "ratio": 0.926,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Synthetic rubber",
+   "b": "inj-prod-Compounding & specialty",
+   "test": "Exact conditional binomial",
+   "p": 0.000572,
+   "diff": 0.2291,
+   "ratio": 1.0982,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Synthetic rubber",
+   "b": "inj-prod-Dyes & pigments",
+   "test": "Exact conditional binomial",
+   "p": 1e-06,
+   "diff": 0.4999,
+   "ratio": 1.2425,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Synthetic rubber",
+   "b": "inj-prod-Ethanol & biofuels",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": -0.6779,
+   "ratio": 0.7907,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Synthetic rubber",
+   "b": "inj-prod-Explosives",
+   "test": "Exact conditional binomial",
+   "p": 0.064043,
+   "diff": 0.1806,
+   "ratio": 1.0759,
+   "distinguishable": false
+  },
+  {
+   "a": "inj-prod-Synthetic rubber",
+   "b": "inj-prod-Fertilizer & ag chemicals",
+   "test": "Exact conditional binomial",
+   "p": 0.318123,
+   "diff": 0.0728,
+   "ratio": 1.0292,
+   "distinguishable": false
+  },
+  {
+   "a": "inj-prod-Synthetic rubber",
+   "b": "inj-prod-Fibers",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 0.9229,
+   "ratio": 1.5632,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Synthetic rubber",
+   "b": "inj-prod-Industrial gases",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 0.8984,
+   "ratio": 1.5402,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Synthetic rubber",
+   "b": "inj-prod-Other basic organics (incl. formaldehyde)",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 1.3262,
+   "ratio": 2.0736,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Synthetic rubber",
+   "b": "inj-prod-Other chemical",
+   "test": "Exact conditional binomial",
+   "p": 0.000678,
+   "diff": -4.3605,
+   "ratio": 0.3701,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Synthetic rubber",
+   "b": "inj-prod-Paints & coatings",
+   "test": "Exact conditional binomial",
+   "p": 0.164969,
+   "diff": -0.1026,
+   "ratio": 0.9615,
+   "distinguishable": false
+  },
+  {
+   "a": "inj-prod-Synthetic rubber",
+   "b": "inj-prod-Petrochemicals",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 2.2101,
+   "ratio": 7.2907,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Synthetic rubber",
+   "b": "inj-prod-Pharmaceuticals",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 1.2897,
+   "ratio": 2.014,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Synthetic rubber",
+   "b": "inj-prod-Plastics resins (older code)",
+   "test": "Exact conditional binomial",
+   "p": 0.058636,
+   "diff": 0.3238,
+   "ratio": 1.1447,
+   "distinguishable": false
+  },
+  {
+   "a": "inj-prod-Synthetic rubber",
+   "b": "inj-prod-Resins & plastics",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 0.6389,
+   "ratio": 1.3323,
+   "distinguishable": true
+  },
+  {
+   "a": "inj-prod-Synthetic rubber",
+   "b": "inj-prod-Soaps, cleaners & personal care",
+   "test": "Exact conditional binomial",
+   "p": 0.0,
+   "diff": 0.4361,
+   "ratio": 1.2052,
+   "distinguishable": true
+  }
+ ]
+}

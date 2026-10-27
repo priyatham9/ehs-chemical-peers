@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Compare peer groups - ehs-chemical-peers</title>
+<meta name="description" content="Pick any two peer groups or size bands of US chemical plants and see release and injury rates side by side, with exact intervals and a plain statement of whether the difference is distinguishable from noise." />
+<link rel="canonical" href="https://priyatham9.github.io/ehs-chemical-peers/compare.html" />
+<style>
+:root{color-scheme:light dark;--paper:#F7F7F3;--surface:#FFFFFF;--ink:#101311;--muted:#5B625D;--rule:#D6D7CE;--accent:#1E40AF;--a:#1E40AF;--b:#8A5A00;--wash:#E2E8FB;--warn:#FBF0DC}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#0A0C10;--surface:#12151C;--ink:#EAECF2;--muted:#9AA1B0;--rule:#2C3240;--accent:#7C9EFF;--a:#7C9EFF;--b:#E0B25A;--wash:#1B2342;--warn:#2A2112}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.5 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+main{max-width:980px;margin:0 auto;padding:24px 16px 64px}
+nav.top{font-size:14px;margin-bottom:16px}
+nav.top a,a{color:var(--accent)}
+h1{font-size:28px;line-height:1.2;margin:0 0 8px}
+h2{font-size:18px;margin:32px 0 8px}
+p.lede{color:var(--muted);margin:0 0 16px;max-width:70ch}
+.notice{background:var(--warn);border:1px solid var(--rule);padding:10px 12px;font-size:14px;margin:16px 0}
+.controls{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0}
+.controls .full{grid-column:1/-1}
+label{display:block;font-size:13px;color:var(--muted);margin-bottom:4px}
+select{width:100%;min-height:44px;padding:8px;font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--ink)}
+.seg{display:flex;gap:0}
+.seg button{flex:1;min-height:44px;font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--ink);cursor:pointer}
+.seg button+button{border-left:0}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.card{background:var(--surface);border:1px solid var(--rule);border-top:4px solid var(--a);padding:12px}
+.card.b{border-top-color:var(--b)}
+.card h3{margin:0 0 4px;font-size:16px}
+.big{font-size:30px;font-weight:700;line-height:1.1}
+.card dl{margin:8px 0 0;font-size:14px;display:grid;grid-template-columns:auto 1fr;gap:2px 10px}
+.card dt{color:var(--muted)}.card dd{margin:0}
+.verdict{border:2px solid var(--ink);background:var(--surface);padding:12px 14px;margin:16px 0;font-size:17px}
+.verdict.yes{border-color:var(--accent)}
+svg{width:100%;height:auto;display:block;background:var(--surface);border:1px solid var(--rule)}
+svg text{fill:var(--ink);font:12px ui-sans-serif,system-ui,sans-serif}
+ul.caveats{padding-left:20px;font-size:14px;color:var(--muted)}
+footer{margin-top:40px;font-size:13px;color:var(--muted)}
+@media (max-width:640px){.controls,.cards{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<main id="main">
+<nav class="top"><a href="index.html">Plant explorer</a> · <a href="story.html">Story</a> · <a href="method.html">Data &amp; method</a> · Compare groups</nav>
+<h1>Compare two peer groups</h1>
+<p class="lede">Choose two groups of US chemical plants (NAICS 325) and see release rates or injury rates side by side, with exact 95% intervals and a plain statement of whether the gap is bigger than chance alone explains. Every figure is read from <code>data/compare.json</code>, which is built from the committed <code>outputs/summary.json</code> and <code>data/plants.json</code>.</p>
+<div class="notice" id="disclaimer"></div>
+
+<div class="controls">
+  <div class="full"><label id="mlabel">What to compare</label>
+    <div class="seg" role="group" aria-labelledby="mlabel">
+      <button type="button" id="m-release" aria-pressed="true">Release rate</button>
+      <button type="button" id="m-injury" aria-pressed="false">Injury rate</button>
+    </div></div>
+  <div><label for="sel-a">Group A</label><select id="sel-a"></select></div>
+  <div><label for="sel-b">Group B</label><select id="sel-b"></select></div>
+</div>
+
+<div id="out" aria-live="polite">Loading...</div>
+
+<h2>How to read this</h2>
+<ul class="caveats" id="caveats"></ul>
+<footer>Sources: OSHA Injury Tracking Application (Form 300A, 2016-2024); EPA Risk Management Program accident histories (Data Liberation Project copy). Method: <code>src/chempeers/compare.py</code>. <a href="https://github.com/priyatham9/ehs-chemical-peers">Code</a>.</footer>
+</main>
+<script>
+(function () {
+  "use strict";
+  var DATA, metric = "release";
+  var DIM = {size: "Workforce size band", history: "Release history", inventory: "Chemical held (pounds)",
+             chemicals: "Number of chemicals held", family: "Chemical family", product: "Product type"};
+  var $ = function (id) { return document.getElementById(id); };
+  function fmt(x, d) { return Number(x).toLocaleString("en-US", {minimumFractionDigits: d, maximumFractionDigits: d}); }
+  function pstr(p) { return p < 0.0001 ? "p < 0.0001" : "p = " + fmt(p, p < 0.001 ? 4 : 3); }
+  function groups() { return DATA.groups.filter(function (g) { return g.metric === metric; }); }
+  function byId(id) { return DATA.groups.filter(function (g) { return g.id === id; })[0]; }
+  function pair(a, b) {
+    return DATA.pairs.filter(function (p) { return p.a === a.id && p.b === b.id; })[0];
+  }
+  function fillSelects() {
+    ["sel-a", "sel-b"].forEach(function (sid, i) {
+      var sel = $(sid), prev = sel.value, html = "", last = null;
+      groups().forEach(function (g) {
+        if (g.dimension !== last) { if (last) html += "</optgroup>"; html += '<optgroup label="' + DIM[g.dimension] + '">'; last = g.dimension; }
+        html += '<option value="' + g.id + '">' + g.label + "</option>";
+      });
+      sel.innerHTML = html + "</optgroup>";
+      var ids = groups().map(function (g) { return g.id; });
+      sel.value = ids.indexOf(prev) >= 0 ? prev : ids[i === 0 ? 0 : 1];
+    });
+  }
+  function interval(g) { return metric === "release" ? g.exact_pct : g.exact; }
+  function rate(g) { return metric === "release" ? g.rate_pct : g.rate; }
+  function card(g, cls) {
+    var iv = interval(g), r = rate(g), h = '<div class="card ' + cls + '"><h3>' + g.label + "</h3>";
+    if (metric === "release") {
+      h += '<div class="big">' + fmt(r, 2) + '%</div><div>of plant-years had a release</div><dl>' +
+        "<dt>Events</dt><dd>" + fmt(g.events, 0) + " of " + fmt(g.n, 0) + " plant-years</dd>" +
+        "<dt>Exact 95%</dt><dd>" + fmt(iv[0], 2) + "% to " + fmt(iv[1], 2) + "%</dd>" +
+        "<dt>Wilson 95%</dt><dd>" + fmt(g.wilson_pct[0], 2) + "% to " + fmt(g.wilson_pct[1], 2) + "%</dd></dl>";
+    } else {
+      h += '<div class="big">' + fmt(r, 2) + '</div><div>recordable cases per 200,000 hours</div><dl>' +
+        "<dt>Cases</dt><dd>" + fmt(g.events, 0) + " in " + fmt(g.hours, 0) + " hours</dd>" +
+        "<dt>Plant-years</dt><dd>" + fmt(g.plant_years, 0) + "</dd>" +
+        "<dt>Exact 95%</dt><dd>" + fmt(iv[0], 2) + " to " + fmt(iv[1], 2) + "</dd></dl>";
+    }
+    return h + "</div>";
+  }
+  function chart(a, b) {
+    var ia = interval(a), ib = interval(b), hi = Math.max(ia[1], ib[1]) * 1.08, W = 640, L = 150, R = 20;
+    function x(v) { return L + (W - L - R) * v / hi; }
+    var unit = metric === "release" ? "% of plant-years with a release" : "cases per 200,000 hours";
+    var s = '<svg viewBox="0 0 ' + W + ' 150" role="img" aria-label="Rates with exact 95% intervals for the two groups">';
+    [[a, ia, 50, "var(--a)"], [b, ib, 100, "var(--b)"]].forEach(function (t) {
+      var g = t[0], iv = t[1], y = t[2];
+      s += '<text x="' + (L - 8) + '" y="' + (y + 4) + '" text-anchor="end">' + g.label.slice(0, 22) + "</text>" +
+        '<line x1="' + x(iv[0]) + '" x2="' + x(iv[1]) + '" y1="' + y + '" y2="' + y + '" stroke="' + t[3] + '" stroke-width="3"/>' +
+        '<line x1="' + x(iv[0]) + '" x2="' + x(iv[0]) + '" y1="' + (y - 7) + '" y2="' + (y + 7) + '" stroke="' + t[3] + '" stroke-width="3"/>' +
+        '<line x1="' + x(iv[1]) + '" x2="' + x(iv[1]) + '" y1="' + (y - 7) + '" y2="' + (y + 7) + '" stroke="' + t[3] + '" stroke-width="3"/>' +
+        '<circle cx="' + x(rate(g)) + '" cy="' + y + '" r="6" fill="' + t[3] + '"/>';
+    });
+    s += '<line x1="' + L + '" x2="' + (W - R) + '" y1="125" y2="125" stroke="var(--muted)"/>';
+    [0, 0.25, 0.5, 0.75, 1].forEach(function (f) {
+      s += '<text x="' + x(hi * f) + '" y="141" text-anchor="middle">' + fmt(hi * f, metric === "release" ? 1 : 2) + "</text>";
+    });
+    return s + '<text x="' + L + '" y="18">' + unit + " (dot = rate, bar = exact 95% interval)</text></svg>";
+  }
+  function verdict(a, b) {
+    if (a.id === b.id) return {cls: "", text: "Pick two different groups."};
+    var p = pair(a, b);
+    if (!p) {
+      return {cls: "", text: a.dimension === "family" && b.dimension === "family" ?
+        "These chemical families overlap: a plant that holds one often holds another, so the same plant-years appear in both groups and a two-group test does not apply. Compare the intervals above; they are not independent." :
+        "These two groups come from different groupings, so they share plant-years and a two-group test does not apply. Compare the intervals above; they are not independent."};
+    }
+    var more = metric === "release" ? (p.diff_pct > 0) : (p.diff > 0), hi = more ? a : b, lo = more ? b : a;
+    var gap = metric === "release" ? fmt(Math.abs(p.diff_pct), 2) + " percentage points" :
+      fmt(Math.abs(p.diff), 2) + " cases per 200,000 hours";
+    var ci = metric === "release" ? " (95% interval for the gap " + fmt(p.diff_ci_pct[0], 2) + " to " + fmt(p.diff_ci_pct[1], 2) + " points, A minus B)" : "";
+    if (p.distinguishable) {
+      return {cls: "yes", text: "The difference is distinguishable from noise. " + hi.label + " is higher than " + lo.label + " by " + gap +
+        ci + "; " + p.test + " " + pstr(p.p) + ", below " + DATA.alpha + ". Chance alone at one common rate would rarely produce a gap this large."};
+    }
+    return {cls: "", text: "The difference is not distinguishable from noise. A is " + (p.diff_pct === 0 || p.diff === 0 ? "level with" : (more ? "higher than" : "lower than")) +
+      " B by " + gap + ci + ", but " + p.test + " gives " + pstr(p.p) + ", not below " + DATA.alpha +
+      ". The data cannot tell this gap from chance; it does not show the rates are equal."};
+  }
+  function render() {
+    var a = byId($("sel-a").value), b = byId($("sel-b").value), v = verdict(a, b);
+    $("out").innerHTML = '<div class="cards">' + card(a, "a") + card(b, "b") + "</div>" +
+      '<div class="verdict ' + v.cls + '" id="verdict">' + v.text + "</div>" + chart(a, b);
+    try { history.replaceState(null, "", "?m=" + metric + "&a=" + encodeURIComponent(a.id) + "&b=" + encodeURIComponent(b.id)); } catch (e) {}
+  }
+  function setMetric(m) {
+    metric = m;
+    $("m-release").setAttribute("aria-pressed", m === "release");
+    $("m-injury").setAttribute("aria-pressed", m === "injury");
+    fillSelects(); render();
+  }
+  fetch("data/compare.json").then(function (r) { return r.json(); }).then(function (d) {
+    DATA = d;
+    $("disclaimer").textContent = d.disclaimer;
+    $("caveats").innerHTML =
+      "<li>Release rate is plant-years with an EPA-reportable release divided by plant-years observed. The exact interval is Clopper-Pearson; the Wilson interval is shown too. Groups are compared with Fisher's exact test and a Newcombe interval for the gap.</li>" +
+      "<li>Injury rate is recordable cases per 200,000 hours, pooled over plant-years that pass the hours screen. The interval is the exact Poisson (Garwood) interval; two groups are compared with the exact conditional binomial test on their case counts and hours.</li>" +
+      "<li>\"Distinguishable from noise\" means p below " + d.alpha + " under a model where events arrive by chance at one common rate. Plants within a group differ and the same plant appears in several years, so the real uncertainty is wider than these intervals. The test says nothing about why rates differ.</li>" +
+      "<li>Groups from one grouping (for example two size bands) are tested. Chemical families overlap, and groups from different groupings share plant-years, so those pairs show intervals only.</li>" +
+      "<li>Scanning many pairs will turn up some that pass by chance (about 1 in 20 unrelated pairs at 0.05). Choose the pair before looking.</li>";
+    var q = new URLSearchParams(location.search);
+    if (q.get("m") === "injury") { metric = "injury"; $("m-release").setAttribute("aria-pressed", "false"); $("m-injury").setAttribute("aria-pressed", "true"); }
+    fillSelects();
+    var ids = groups().map(function (g) { return g.id; });
+    if (ids.indexOf(q.get("a")) >= 0) $("sel-a").value = q.get("a");
+    if (ids.indexOf(q.get("b")) >= 0) $("sel-b").value = q.get("b");
+    render();
+  }).catch(function () { $("out").textContent = "Could not load data/compare.json."; });
+  $("m-release").addEventListener("click", function () { setMetric("release"); });
+  $("m-injury").addEventListener("click", function () { setMetric("injury"); });
+  $("sel-a").addEventListener("change", render);
+  $("sel-b").addEventListener("change", render);
+})();
+</script>
+</body>
+</html>
