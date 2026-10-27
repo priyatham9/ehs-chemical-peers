@@ -68,7 +68,7 @@ footer{margin-top:40px;font-size:13px;color:var(--muted)}
 <script>
 (function () {
   "use strict";
-  var DATA, metric = "release";
+  var DATA, STAB = {}, metric = "release";
   var DIM = {size: "Workforce size band", history: "Release history", inventory: "Chemical held (pounds)",
              chemicals: "Number of chemicals held", family: "Chemical family", product: "Product type"};
   var $ = function (id) { return document.getElementById(id); };
@@ -105,6 +105,10 @@ footer{margin-top:40px;font-size:13px;color:var(--muted)}
         "<dt>Cases</dt><dd>" + fmt(g.events, 0) + " in " + fmt(g.hours, 0) + " hours</dd>" +
         "<dt>Plant-years</dt><dd>" + fmt(g.plant_years, 0) + "</dd>" +
         "<dt>Exact 95%</dt><dd>" + fmt(iv[0], 2) + " to " + fmt(iv[1], 2) + "</dd></dl>";
+    }
+    var st = STAB[g.id];
+    if (st) {
+      h = h.replace("</dl>", "<dt>Peer stability</dt><dd>median " + fmt(st.median, 2) + " (middle half " + fmt(st.q25, 2) + " to " + fmt(st.q75, 2) + ") over " + fmt(st.n, 0) + " plants</dd></dl>");
     }
     return h + "</div>";
   }
@@ -159,6 +163,7 @@ footer{margin-top:40px;font-size:13px;color:var(--muted)}
     $("m-injury").setAttribute("aria-pressed", m === "injury");
     fillSelects(); render();
   }
+  fetch("data/stability.json").then(function (r) { return r.json(); }).then(function (d) { STAB = d.groups || {}; if (DATA) render(); }).catch(function () {});
   fetch("data/compare.json").then(function (r) { return r.json(); }).then(function (d) {
     DATA = d;
     $("disclaimer").textContent = d.disclaimer;
@@ -167,6 +172,7 @@ footer{margin-top:40px;font-size:13px;color:var(--muted)}
       "<li>Injury rate is recordable cases per 200,000 hours, pooled over plant-years that pass the hours screen. The interval is the exact Poisson (Garwood) interval; two groups are compared with the exact conditional binomial test on their case counts and hours.</li>" +
       "<li>\"Distinguishable from noise\" means p below " + d.alpha + " under a model where events arrive by chance at one common rate. Plants within a group differ and the same plant appears in several years, so the real uncertainty is wider than these intervals. The test says nothing about why rates differ.</li>" +
       "<li>Groups from one grouping (for example two size bands) are tested. Chemical families overlap, and groups from different groupings share plant-years, so those pairs show intervals only.</li>" +
+      "<li>Peer stability (where shown) is the share of a plant's nearest peers that stay close to it when the similarity attributes are resampled, from <code>data/stability.json</code>. Low means the plant's peer group is mostly arbitrary, so a comparison against it is less certain. It describes the plants in the group (by their own size band, product type or families held), not the rate shown. Definition and limits: <a href=\"https://github.com/priyatham9/ehs-chemical-peers/blob/main/docs/stability.md\">docs/stability.md</a>.</li>\n" +
       "<li>Scanning many pairs will turn up some that pass by chance (about 1 in 20 unrelated pairs at 0.05). Choose the pair before looking.</li>";
     var q = new URLSearchParams(location.search);
     if (q.get("m") === "injury") { metric = "injury"; $("m-release").setAttribute("aria-pressed", "false"); $("m-injury").setAttribute("aria-pressed", "true"); }

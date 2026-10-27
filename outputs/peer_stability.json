@@ -1,0 +1,346 @@
+{
+ "about": "Share of each plant's baseline nearest peers that stay among its nearest peers when the similarity weights are perturbed. See docs/stability.md.",
+ "parameters": {
+  "seed": 20260701,
+  "k": 10,
+  "replicates_per_scheme": 100,
+  "noise_sigma": 0.5,
+  "features": [
+   "Product type",
+   "Formaldehyde",
+   "Epoxy chain",
+   "Ammonia",
+   "Chlorine & chlor-alkali",
+   "Strong acids",
+   "Isocyanates",
+   "Reactive oxides",
+   "Monomers",
+   "Amines",
+   "Silanes",
+   "Sulfur compounds",
+   "Flammable gases & liquids",
+   "Size band",
+   "Inventory level"
+  ],
+  "baseline_weights": [
+   2.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   2.0,
+   1.0
+  ],
+  "headline_schemes": [
+   "bootstrap"
+  ],
+  "size_bands": [
+   "Under 50",
+   "50-99",
+   "100-249",
+   "250-999",
+   "1,000+"
+  ],
+  "inventory_levels": [
+   "no pounds figure",
+   "Under 100k lb",
+   "100k-1M lb",
+   "1M-5M lb",
+   "5M+ lb"
+  ]
+ },
+ "coverage": {
+  "plants_in_file": 10597,
+  "plants_scored": 10575,
+  "plants_skipped_no_employee_count": 22,
+  "cells": 1148
+ },
+ "summary": {
+  "overall": {
+   "n": 10575,
+   "min": 0.136,
+   "q25": 0.45,
+   "median": 0.509,
+   "q75": 0.553,
+   "max": 0.736,
+   "mean": 0.4955
+  },
+  "neighbourhood_bootstrap": {
+   "n": 10575,
+   "min": 0.136,
+   "q25": 0.45,
+   "median": 0.509,
+   "q75": 0.553,
+   "max": 0.736,
+   "mean": 0.4955
+  },
+  "neighbourhood_noise": {
+   "n": 10575,
+   "min": 0.49,
+   "q25": 1.0,
+   "median": 1.0,
+   "q75": 1.0,
+   "max": 1.0,
+   "mean": 0.9759
+  },
+  "exact_tiebreak_only": {
+   "n": 10575,
+   "min": 0.004,
+   "q25": 0.023,
+   "median": 0.041,
+   "q75": 0.234,
+   "max": 1.0,
+   "mean": 0.2173
+  },
+  "exact_bootstrap": {
+   "n": 10575,
+   "min": 0.0,
+   "q25": 0.014,
+   "median": 0.025,
+   "q75": 0.106,
+   "max": 0.578,
+   "mean": 0.0895
+  },
+  "exact_noise": {
+   "n": 10575,
+   "min": 0.007,
+   "q25": 0.026,
+   "median": 0.045,
+   "q75": 0.224,
+   "max": 1.0,
+   "mean": 0.2013
+  },
+  "tied_at_kth": {
+   "n": 10575,
+   "min": 0.0,
+   "q25": 46.0,
+   "median": 195.0,
+   "q75": 390.0,
+   "max": 1402.0,
+   "mean": 245.5163
+  },
+  "share_stability_at_least_0_5": 0.5315,
+  "share_stability_at_least_0_9": 0.0,
+  "by_size_band": {
+   "1,000+": {
+    "n": 145,
+    "min": 0.249,
+    "q25": 0.41,
+    "median": 0.573,
+    "q75": 0.575,
+    "max": 0.6,
+    "mean": 0.5006
+   },
+   "100-249": {
+    "n": 1873,
+    "min": 0.136,
+    "q25": 0.417,
+    "median": 0.456,
+    "q75": 0.553,
+    "max": 0.679,
+    "mean": 0.4561
+   },
+   "250-999": {
+    "n": 997,
+    "min": 0.217,
+    "q25": 0.402,
+    "median": 0.471,
+    "q75": 0.568,
+    "max": 0.687,
+    "mean": 0.4751
+   },
+   "50-99": {
+    "n": 2235,
+    "min": 0.164,
+    "q25": 0.43,
+    "median": 0.469,
+    "q75": 0.487,
+    "max": 0.625,
+    "mean": 0.4536
+   },
+   "Under 50": {
+    "n": 5325,
+    "min": 0.145,
+    "q25": 0.509,
+    "median": 0.525,
+    "q75": 0.556,
+    "max": 0.736,
+    "mean": 0.5305
+   }
+  },
+  "by_product_type": {
+   "Acids & inorganics": {
+    "n": 721,
+    "min": 0.147,
+    "q25": 0.376,
+    "median": 0.43,
+    "q75": 0.51,
+    "max": 0.605,
+    "mean": 0.4357
+   },
+   "Adhesives": {
+    "n": 362,
+    "min": 0.266,
+    "q25": 0.441,
+    "median": 0.519,
+    "q75": 0.525,
+    "max": 0.562,
+    "mean": 0.4796
+   },
+   "Compounding & specialty": {
+    "n": 1388,
+    "min": 0.164,
+    "q25": 0.456,
+    "median": 0.487,
+    "q75": 0.553,
+    "max": 0.553,
+    "mean": 0.4909
+   },
+   "Dyes & pigments": {
+    "n": 94,
+    "min": 0.26,
+    "q25": 0.4183,
+    "median": 0.4635,
+    "q75": 0.508,
+    "max": 0.602,
+    "mean": 0.4615
+   },
+   "Ethanol & biofuels": {
+    "n": 230,
+    "min": 0.24,
+    "q25": 0.45,
+    "median": 0.462,
+    "q75": 0.49,
+    "max": 0.571,
+    "mean": 0.4632
+   },
+   "Explosives": {
+    "n": 94,
+    "min": 0.346,
+    "q25": 0.438,
+    "median": 0.533,
+    "q75": 0.536,
+    "max": 0.584,
+    "mean": 0.4866
+   },
+   "Fertilizer & ag chemicals": {
+    "n": 1072,
+    "min": 0.164,
+    "q25": 0.448,
+    "median": 0.538,
+    "q75": 0.5915,
+    "max": 0.736,
+    "mean": 0.5518
+   },
+   "Fibers": {
+    "n": 90,
+    "min": 0.276,
+    "q25": 0.435,
+    "median": 0.4485,
+    "q75": 0.4577,
+    "max": 0.463,
+    "mean": 0.4434
+   },
+   "Industrial gases": {
+    "n": 817,
+    "min": 0.172,
+    "q25": 0.492,
+    "median": 0.608,
+    "q75": 0.608,
+    "max": 0.708,
+    "mean": 0.5649
+   },
+   "Other basic organics (incl. formaldehyde)": {
+    "n": 803,
+    "min": 0.136,
+    "q25": 0.345,
+    "median": 0.427,
+    "q75": 0.509,
+    "max": 0.607,
+    "mean": 0.4134
+   },
+   "Other chemical": {
+    "n": 1,
+    "min": 0.679,
+    "q25": 0.679,
+    "median": 0.679,
+    "q75": 0.679,
+    "max": 0.679,
+    "mean": 0.679
+   },
+   "Paints & coatings": {
+    "n": 707,
+    "min": 0.166,
+    "q25": 0.469,
+    "median": 0.556,
+    "q75": 0.557,
+    "max": 0.557,
+    "mean": 0.5077
+   },
+   "Petrochemicals": {
+    "n": 119,
+    "min": 0.236,
+    "q25": 0.403,
+    "median": 0.449,
+    "q75": 0.4935,
+    "max": 0.687,
+    "mean": 0.4442
+   },
+   "Pharmaceuticals": {
+    "n": 2060,
+    "min": 0.235,
+    "q25": 0.524,
+    "median": 0.525,
+    "q75": 0.554,
+    "max": 0.596,
+    "mean": 0.5353
+   },
+   "Plastics resins (older code)": {
+    "n": 4,
+    "min": 0.195,
+    "q25": 0.3728,
+    "median": 0.4615,
+    "q75": 0.498,
+    "max": 0.519,
+    "mean": 0.4093
+   },
+   "Resins & plastics": {
+    "n": 931,
+    "min": 0.145,
+    "q25": 0.402,
+    "median": 0.484,
+    "q75": 0.494,
+    "max": 0.625,
+    "mean": 0.4494
+   },
+   "Soaps, cleaners & personal care": {
+    "n": 957,
+    "min": 0.166,
+    "q25": 0.463,
+    "median": 0.48,
+    "q75": 0.516,
+    "max": 0.594,
+    "mean": 0.4783
+   },
+   "Synthetic rubber": {
+    "n": 125,
+    "min": 0.31,
+    "q25": 0.439,
+    "median": 0.459,
+    "q75": 0.48,
+    "max": 0.559,
+    "mean": 0.4545
+   }
+  }
+ },
+ "built_from": "docs/data/plants.json",
+ "disclaimer": "Independent analysis of public records; not an audit of any plant."
+}

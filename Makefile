@@ -2,12 +2,13 @@
 
 PYTHON ?= python3
 
-.PHONY: help data build compare story pages paper test lint serve ontology
+.PHONY: help data build compare stability story pages paper test lint serve ontology
 
 help:
 	@echo "make data   - download the public OSHA and EPA files into data/raw"
 	@echo "make build  - link sources, write outputs/summary.json and docs/data/*.json"
 	@echo "make compare - rebuild docs/data/compare.json for the comparison page"
+	@echo "make stability - rebuild outputs/peer_stability.* and docs/data/stability.json (about 2 minutes)"
 	@echo "make pages  - rebuild the story page and re-apply the shared header"
 	@echo "make paper  - regenerate the tables in docs/paper.md from outputs/summary.json"
 	@echo "make test   - run the tests (real-data tests skip if data/raw is empty)"
@@ -22,6 +23,9 @@ build:
 
 compare:
 	$(PYTHON) scripts/build_compare.py
+
+stability:
+	$(PYTHON) scripts/build_stability.py
 
 pages:
 	$(PYTHON) scripts/build_story.py

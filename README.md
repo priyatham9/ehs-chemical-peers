@@ -49,6 +49,10 @@ These are correlations in reported data, not causes.
 * **Peer list.** Sortable, with a CSV download.
 * **Compare two groups.** [`compare.html`](https://priyatham9.github.io/ehs-chemical-peers/compare.html) puts any two size bands, product types, chemical families, inventory bands or release-history groups side by side: release rate per plant-year (exact binomial and Wilson 95% intervals, Fisher's exact test) or recordable cases per 200,000 hours (exact Poisson interval, exact conditional binomial test), with a plain statement of whether the gap is distinguishable from noise. It is a portable, plain-code take on a Quiver-style comparative analysis view, built only on the public data here; it is independent of and not affiliated with Palantir. Page data is `docs/data/compare.json`, built by `scripts/build_compare.py` (`make compare`); `tests/test_compare.py` checks it against `outputs/summary.json` and `docs/data/plants.json`.
 
+## Peer stability
+
+[docs/stability.md](docs/stability.md) asks how often a plant keeps the same nearest peers when the similarity attributes are resampled or their weights perturbed (seeded, deterministic; `make stability`). Per-plant scores are in `outputs/peer_stability.csv` and `outputs/peer_stability.json`, and [compare.html](https://priyatham9.github.io/ehs-chemical-peers/compare.html) shows the median score for each group it compares. The finding: the exact list of ten nearest peers is mostly arbitrary, because hundreds of plants tie at the same distance, so a peer group defined by attributes is the honest object. Method and limits are in the doc.
+
 ## Sources
 
 | Source | Years | Rows kept (NAICS 325) |
@@ -89,9 +93,10 @@ make ontology  # build the ontology from the committed data, export to build/ont
 src/chempeers/   load.py (readers) · link.py (address joins) · build.py (assembly)
                  taxonomy.py (product types, chemical families) · events.py (plain-language coding)
                  compare.py (exact intervals and two-group tests for compare.html)
+                 stability.py (bootstrap/noise stability of nearest-peer sets, docs/stability.md)
                  stats.py (rates, exact Poisson limits) · analysis.py (findings) · export.py (site data)
                  ontology/ (Foundry-style object model over the join, docs/ontology.md)
-scripts/         download_data.py · build_data.py · build_compare.py · build_story.py · apply_header.py
+scripts/         download_data.py · build_data.py · build_compare.py · build_stability.py · build_story.py · apply_header.py
 docs/            index.html (explorer) · story.html · method.html · data/*.json
 tests/           synthetic fixture and tests
 ```
