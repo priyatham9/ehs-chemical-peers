@@ -66,6 +66,8 @@ These are correlations in reported data, not causes.
 
 Full detail: [method.html](https://priyatham9.github.io/ehs-chemical-peers/method.html) and [DATASHEET.md](DATASHEET.md).
 
+Working paper: [docs/paper.md](docs/paper.md) sets out the data, method, results and limitations, with every table generated from `outputs/summary.json`.
+
 ## Run it
 
 ```bash
