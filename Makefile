@@ -2,12 +2,13 @@
 
 PYTHON ?= python3
 
-.PHONY: help data build story pages test lint serve
+.PHONY: help data build story pages paper test lint serve
 
 help:
 	@echo "make data   - download the public OSHA and EPA files into data/raw"
 	@echo "make build  - link sources, write outputs/summary.json and docs/data/*.json"
 	@echo "make pages  - rebuild the story page and re-apply the shared header"
+	@echo "make paper  - regenerate the tables in docs/paper.md from outputs/summary.json"
 	@echo "make test   - run the tests (real-data tests skip if data/raw is empty)"
 	@echo "make serve  - serve docs/ on http://localhost:8000"
 
@@ -20,6 +21,9 @@ build:
 pages:
 	$(PYTHON) scripts/build_story.py
 	$(PYTHON) scripts/apply_header.py docs/index.html docs/method.html
+
+paper:
+	$(PYTHON) scripts/paper_tables.py
 
 test:
 	$(PYTHON) -m unittest discover -s tests -p "test_*.py"

@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Working paper `docs/paper.md`: data, method, results, limitations and verified references. Tables are generated from `outputs/summary.json` by `scripts/paper_tables.py` (`make paper`), and `tests/test_paper_consistency.py` checks the tables and every number quoted in the prose.
+
 ## 0.1.0 - 2026-09-27
 
 First version.

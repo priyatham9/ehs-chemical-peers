@@ -11,3 +11,12 @@ url: "https://priyatham9.github.io/ehs-chemical-peers/"
 license: MIT
 date-released: "2026-09-27"
 version: 0.1.0
+references:
+  - type: report
+    title: "Benchmarking US Chemical Plants Against Their Peers from Public Records: A Linked EPA RMP and OSHA Dataset"
+    authors:
+      - family-names: Chimmani
+        given-names: Priyatham
+    year: 2026
+    notes: "Working paper, version 0.1. Not peer reviewed."
+    url: "https://github.com/priyatham9/ehs-chemical-peers/blob/main/docs/paper.md"
